@@ -8,6 +8,8 @@ redirect_from:
   - /about.html
 ---
 
+Hello, everyone. I am Zhiyuan Yu, a newcomer in the field of wireless communication. This webpage is mainly used for a brief introduction of myself. 
+However, I believe I can not be 
 Reseach Interests
 ======
 Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
@@ -50,6 +52,10 @@ Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis
 
 Feeling fortunate to be accepted by IEEE TCOM. While this may not be a role that completely fulfills me, I believe I've dedicated my utmost effort. Hopefully, you find it intriguing to some extent!
 
-For more info
+Service
+======
+I have served as a reviewer for IEEE journals such as IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2023.
+
+Special Thanks
 ------
-More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+Thanks for my friend Yuxuan for teaching me how to configure my own webpage. More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
