@@ -10,6 +10,7 @@ redirect_from:
 
 Hello, everyone. I am Zhiyuan Yu, a newcomer in the field of wireless communication. This webpage is mainly used for a brief introduction of myself. 
 However, I believe I can not be 
+
 Reseach Interests
 ======
 Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
@@ -33,7 +34,7 @@ Education
     <span class="pull-left"><img src="images/SEU.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
         <div><span style="font-weight: bold">B.E. Information Engineering</span></div>
-        <div>Southeast University, 2023</div>
+        <div>Southeast University, 2019-2023</div>
     </div>
 </div>
 
@@ -41,7 +42,7 @@ Education
     <span class="pull-left"><img src="images/HFYZ.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
         <div><span style="font-weight: bold">High school graduates</span></div>
-        <div>Hefei No.1 Middle School, 2019</div>
+        <div>Hefei No.1 Middle School, 2016-2019</div>
     </div>
 </div>
 
@@ -54,7 +55,20 @@ Feeling fortunate to be accepted by IEEE TCOM. While this may not be a role that
 
 Service
 ======
-I have served as a reviewer for IEEE journals such as IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2023.
+I have served as a reviewer for IEEE journals such as IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2024.
+
+Selected Prize
+======
+- Mathematics Competition
+  - First Prize in the Jiangsu Provincial College Student Mathematics Competition.
+
+  - Third Prize in the National College Student Mathematics Competition.
+- Mathematical Modeling
+  - Second Prize at the Provincial Level in the National College Student Mathematical Modeling Competition.
+
+  - Second Prize at the National Level in the Huawei Cup National Graduate Mathematical Modeling Competition.  
+
+
 
 Special Thanks
 ------
