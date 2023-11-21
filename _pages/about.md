@@ -11,9 +11,7 @@ redirect_from:
 Hello, everyone. I am Zhiyuan Yu, a newcomer in the field of wireless communication. This webpage is mainly used for a brief introduction of myself. 
 However, I believe I can not be 
 
-Reseach Interests
-======
-Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
+
 
 Education
 ======
@@ -57,6 +55,10 @@ Service
 ======
 I have served as a reviewer for IEEE journals such as IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2024.
 
+Reseach Interests
+======
+Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
+
 Selected Prize
 ======
 - Mathematics Competition
@@ -67,6 +69,10 @@ Selected Prize
   - Second Prize at the Provincial Level in the National College Student Mathematical Modeling Competition.
 
   - Second Prize at the National Level in the Huawei Cup National Graduate Mathematical Modeling Competition.  
+
+- Chinese Chess
+  - Multiple victories were achieved in the Anhui Province Chinese Chess Championship when I was young.
+  - Secured the second place in the National Elementary and Middle School Chinese Chess Competition.
 
 
 
