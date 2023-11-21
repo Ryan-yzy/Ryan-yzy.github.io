@@ -44,9 +44,11 @@ Education
 </div>
 
 Publication
-------
-Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis Doi:10.1109/TCOMM.2023.3332856
-<br>Feeling fortunate to be accepted by IEEE TCOM. While this may not be a role that completely fulfills me, I believe I've dedicated my utmost effort. Hopefully, you find it intriguing to some extent!
+======
+Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis 
+<br>Doi:10.1109/TCOMM.2023.3332856
+
+Feeling fortunate to be accepted by IEEE TCOM. While this may not be a role that completely fulfills me, I believe I've dedicated my utmost effort. Hopefully, you find it intriguing to some extent!
 
 For more info
 ------
