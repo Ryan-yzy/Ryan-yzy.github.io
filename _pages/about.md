@@ -52,13 +52,15 @@ Publication
 
 Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent!
 
-Service
+Services
 ======
-I have served as a reviewer for IEEE journals such as IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2024.
+I have served as a reviewer for IEEE journals including IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2024.
 
-Reseach Interests
+Current Reseach Interests
 ======
 Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
+
+Feel free to contact me at zyyu@seu.edu.cn if you have any questions.
 
 Selected Prize
 ======
