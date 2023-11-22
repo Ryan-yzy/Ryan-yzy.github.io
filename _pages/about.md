@@ -27,12 +27,20 @@ Education
 </style>
 
 
-
 <div class="media">
-    <span class="pull-left"><img src="images/SEU.jpg" width="75px" height="75px"/></span>
+    <span class="pull-left"><img src="images/SEU-Radio.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
         <div><span style="font-weight: bold">B.E. Information Engineering</span></div>
-        <div>Southeast University, 2019-2023</div>
+        <div>School of Information Science and Engineering, Southeast University,  2020-2023</div>
+    </div>
+</div>
+
+
+<div class="media">
+    <span class="pull-left"><img src="images/SEU-Trans.jpg" width="75px" height="75px"/></span>
+    <div class="media-body">
+        <div><span style="font-weight: bold">B.E. Information Engineering</span></div>
+        <div> School of Transportation, Southeast University, 2019-2020</div>
     </div>
 </div>
 
@@ -62,7 +70,7 @@ Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication 
 
 Feel free to contact me at zyyu@seu.edu.cn if you have any questions.
 
-Selected Prize
+Selected Awards
 ======
 - Mathematics Competition
   - First Prize in the Jiangsu Provincial College Student Mathematics Competition.
@@ -76,6 +84,8 @@ Selected Prize
 - Chinese Chess (when I was young)
   - Multiple victories were achieved in the Anhui Province Chinese Chess Championship.
   - Secured the second place in the National Elementary and Middle School Chinese Chess Competition.
+
+Selected Awards
 
 
 
