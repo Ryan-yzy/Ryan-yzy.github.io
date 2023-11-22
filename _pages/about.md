@@ -8,7 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the ``true provincial capital'' in the hearts of many Anhui residents, Nanjing, for my studies. My given name Zhiyuan (致远), is inspired by a phrase from the Romance of the Three Kingdoms: 'Be indifferent to fame and wealth to clarify one's aspirations, stay calm to achieve far-reaching goals.' My grandfather was named after Mingzhi (明志), so I am named after Zhiyuan (致远).
+About Me
+======
+
+Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the ``true provincial capital'' in the hearts of many Anhui residents, Jiangsu Nanjing, for my studies. My given name Zhiyuan (致远), is inspired by a phrase from the Romance of the Three Kingdoms: 'Be indifferent to fame and wealth to clarify one's aspirations (淡泊以明志), stay calm to achieve far-reaching goals (宁静而致远).' My grandfather was named after Mingzhi (明志), so I am named after Zhiyuan (致远).
 
 
 <div class="media">
