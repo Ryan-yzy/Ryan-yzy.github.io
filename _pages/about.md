@@ -14,7 +14,7 @@ About Me
 Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the ``true provincial capital'' in the hearts of many Anhui residents, Jiangsu Nanjing, for my studies. 
 
 The origin of my name
-=====
+------
 
 <div class="media">
     <span class="pull-left"><img src="images/Name.jpg" width="75px" height="75px"/></span>
@@ -71,7 +71,7 @@ Publication
 ======
 **Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Transactions on Communications, doi: 10.1109/TCOMM.2023.3332856.
 
-Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent!
+This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent!
 
 Services
 ======
