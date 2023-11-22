@@ -8,6 +8,5 @@ date: 2023-11-15
 paperurl: 'http://academicpages.github.io/files/2302.08934.pdf'
 citation: '**Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Transactions on Communications, doi: 10.1109/TCOMM.2023.3332856.'
 ---
-This paper is about the number 1. The number 2 is left for future work.
 
 [Download paper here](http://academicpages.github.io/files/paper1.pdf)
