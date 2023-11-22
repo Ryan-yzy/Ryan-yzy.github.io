@@ -11,7 +11,7 @@ redirect_from:
 # About Me
 
 
-Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the ``true provincial capital'' in the hearts of many Anhui residents, Jiangsu Nanjing, for my studies. 
+Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the "true provincial capital" in the hearts of many Anhui residents, Jiangsu Nanjing, for my studies. 
 
 ## The origin of my name
 
@@ -53,7 +53,7 @@ The space here is too limited for a comprehensive self-introduction. Feel free t
     <span class="pull-left"><img src="images/SEU-Trans.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
         <div><span style="font-weight: bold">School of Transportation, Southeast University, 2019-2020</span></div>
-        <div> One year study and then changed my major</div>
+        <div> One year study and then changed my major.</div>
     </div>
 </div>
 
