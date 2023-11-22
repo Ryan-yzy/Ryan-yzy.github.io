@@ -8,13 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-About Me
-======
+# About Me
+
 
 Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition meets progress. After living in Hefei for 18 years, I moved to the ``true provincial capital'' in the hearts of many Anhui residents, Jiangsu Nanjing, for my studies. 
 
-The origin of my name
-------
+## The origin of my name
+
 
 <div class="media">
     <span class="pull-left"><img src="images/Name.jpg" width="75px" height="75px"/></span>
@@ -26,8 +26,8 @@ The origin of my name
 The space here is too limited for a comprehensive self-introduction. Feel free to add me on QQ: 1550287211.
 
 
-Education
-======
+# Education
+
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <style type="text/css">
@@ -67,24 +67,24 @@ Education
     </div>
 </div>
 
-Publication
-======
+# Publication
+
 **Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Transactions on Communications, doi: 10.1109/TCOMM.2023.3332856.
 
 This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent!
 
-Services
-======
+# Services
+
 I have served as a reviewer for IEEE journals including IEEE TVT and as a Technical Program Committee (TPC) member for IEEE WCNC 2024.
 
-Current Reseach Interests
-======
+# Current Reseach Interests
+
 Reconfigurable Intelligent Surfaces (RIS), Integrated Sensing And Communication (ISAC)
 
 Feel free to contact me at zyyu@seu.edu.cn if you have any questions.
 
-Selected Awards
-======
+# Selected Awards
+
 - Mathematics Competition
   - First Prize in the Jiangsu Provincial College Student Mathematics Competition.
 
@@ -98,10 +98,9 @@ Selected Awards
   - Multiple victories were achieved in the Anhui Province Chinese Chess Championship.
   - Secured the second place in the National Elementary and Middle School Chinese Chess Competition.
 
-Selected Awards
 
 
 
-Special Thanks
-------
+## Special Thanks
+
 Thanks for my friend Yuxuan for teaching me how to configure my own webpage. More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
