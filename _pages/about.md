@@ -19,11 +19,11 @@ The origin of my name
 <div class="media">
     <span class="pull-left"><img src="images/Name.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
-        <div>My given name Zhiyuan (致远), is inspired by a phrase from the Romance of the Three Kingdoms: 'Be indifferent to fame and wealth to clarify one's aspirations (淡泊以明志), stay calm to achieve far-reaching goals (宁静而致远).' My grandfather was named after Mingzhi (明志), so I am named after Zhiyuan (致远).<div>
+        <div>My given name Zhiyuan (致远), is inspired by a phrase from the Romance of the Three Kingdoms: 'Be indifferent to fame and wealth to clarify one's aspirations (淡泊以明志), stay calm to achieve far-reaching goals (宁静而致远).' My grandfather was named after Mingzhi (明志), so I am named after Zhiyuan (致远).</div>
     </div>
 </div>
 
-<br>The space here is too limited for a comprehensive self-introduction. Feel free to add me on QQ: 1550287211.
+The space here is too limited for a comprehensive self-introduction. Feel free to add me on QQ: 1550287211.
 
 
 Education
