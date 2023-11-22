@@ -41,8 +41,8 @@ Education
 <div class="media">
     <span class="pull-left"><img src="images/SEU-Radio.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
-        <div><span style="font-weight: bold">B.E. Information Engineering</span></div>
-        <div>School of Information Science and Engineering, Southeast University,  2020-2023</div>
+        <div><span style="font-weight: bold">School of Information Science and Engineering, Southeast University,  2020-2023</span></div>
+        <div>Obtained the B.E degree and</div>
     </div>
 </div>
 
@@ -50,8 +50,8 @@ Education
 <div class="media">
     <span class="pull-left"><img src="images/SEU-Trans.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
-        <div><span style="font-weight: bold">B.E. Information Engineering</span></div>
-        <div> School of Transportation, Southeast University, 2019-2020</div>
+        <div><span style="font-weight: bold">School of Transportation, Southeast University, 2019-2020</span></div>
+        <div> One year study and then changed my major</div>
     </div>
 </div>
 
