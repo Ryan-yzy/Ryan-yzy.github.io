@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Welcome to my little world"
+title: "Welcome to my little world!"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -36,6 +36,8 @@ Education
     </div>
 </div>
 
+
+
 <div class="media">
     <span class="pull-left"><img src="images/HFYZ.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
@@ -46,10 +48,9 @@ Education
 
 Publication
 ======
-Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis 
-<br>Doi:10.1109/TCOMM.2023.3332856
+**Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Transactions on Communications, doi: 10.1109/TCOMM.2023.3332856.
 
-Feeling fortunate to be accepted by IEEE TCOM. While this may not be a role that completely fulfills me, I believe I've dedicated my utmost effort. Hopefully, you find it intriguing to some extent!
+Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent!
 
 Service
 ======
@@ -70,8 +71,8 @@ Selected Prize
 
   - Second Prize at the National Level in the Huawei Cup National Graduate Mathematical Modeling Competition.  
 
-- Chinese Chess
-  - Multiple victories were achieved in the Anhui Province Chinese Chess Championship when I was young.
+- Chinese Chess (when I was young)
+  - Multiple victories were achieved in the Anhui Province Chinese Chess Championship.
   - Secured the second place in the National Elementary and Middle School Chinese Chess Competition.
 
 

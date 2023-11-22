@@ -85,7 +85,7 @@ author:
   bio              : "A newcomer in the field of wireless communication"
   location         : "China Nanjing"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  #pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   #googlescholar    : "http://yourfullgooglescholarurl.com"
   email            : "zyyu@seu.edu.cn"
   researchgate     :  "https://www.researchgate.net/profile/Zhiyuan-Yu-29"
