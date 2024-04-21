@@ -2,7 +2,7 @@
 title: "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis"
 collection: publications
 permalink: /publication/2023-11-15-Active RIS ISAC
-excerpt: 'This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent! Simulation Codes are provided here [Simulation Code](https://github.com/Ryan-yzy/Active-RIS-ISAC)'
+excerpt: 'This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent! **Simulation Codes are provided here [Simulation Code](https://github.com/Ryan-yzy/Active-RIS-ISAC)**'
 date: 2023-11-15
 #venue: 'Journal 1'
 paperurl: 'https://ieeexplore.ieee.org/document/10319318'
