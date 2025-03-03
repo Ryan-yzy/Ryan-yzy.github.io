@@ -67,13 +67,18 @@ The space here is too limited for a comprehensive self-introduction. Feel free t
     </div>
 </div>
 
-# Selected Publication
+# Selected Research
 
-**Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Transactions on Communications, vol. 72, no. 3, pp. 1578-1595, March 2024, doi: 10.1109/TCOMM.2023.3332856.
+**Z. Yu**, H. Ren, C. Pan, G. Zhou, B. Wang, M. Dong, J. Wang "Active RIS Aided ISAC Systems: Beamforming Design and Performance Analysis," in IEEE Trans. Commun., vol. 72, no. 3, pp. 1578-1595, Mar. 2024, doi: 10.1109/TCOMM.2023.3332856.
 
 This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted by IEEE TCOM. Hopefully, you find it intriguing to some extent! 
 
 [Simulation Code](https://github.com/Ryan-yzy/Active-RIS-ISAC)
+
+**Z. Yu**, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang "Addressing the mutual interference in uplink ISAC receivers: A projection
+method,” IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109–3113, Nov. 2024.
+
+This is my second work from 2023.6 till 2025.2. Currently, I am working on this area trying to make more progress. Apart from this letter, one paper is accepted by ICC 2025 and we have submitted a journal paper to IEEE TWC for possible publication.  Hopefully, you find it intriguing to some extent! 
 
 # Services
 
