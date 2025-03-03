@@ -3,13 +3,13 @@ title: "Addressing the mutual interference in uplink ISAC receivers: A projectio
 collection: publications
 permalink: /publication/2024-8-Uplink-ISAC-WCL
 excerpt: 'This is my second work from 2023.6 till 2025.2. Currently, I am working on this area trying to make more progress. Apart from this letter, one paper is accepted by ICC 2025 and we have submitted a journal paper to IEEE TWC for possible publication.  Hopefully, you find it intriguing to some extent! '
-date: 2025-02-01
-venue: 'IEEE Transacations on Communication'
-paperurl: 'http://academicpages.github.io/files/Uplink_ISAC_WCL.pdf'
-citation: 'Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).'
+date: 2024-08
+venue: 'IEEE Wireless Communication Letter'
+paperurl: 'https://ieeexplore.ieee.org/document/10663294'
+citation: 'Z. Yu, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang "Addressing the mutual interference in uplink ISAC receivers: A projection method,” IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109–3113, Nov. 2024.'
 ---
-This paper is about the number 2. 
+This is my second work from 2023.6 till 2025.2. Currently, I am working on this area trying to make more progress. Apart from this letter, one paper is accepted by ICC 2025 and we have submitted a journal paper to IEEE TWC for possible publication.  Hopefully, you find it intriguing to some extent! 
 
 [Download paper here](http://academicpages.github.io/files/Uplink_ISAC_WCL.pdf)
 
-Recommended citation: Your Name, You. (2010). "Paper Title Number 2." <i>Journal 1</i>. 1(2).
+Recommended citation: **Z. Yu**, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang "Addressing the mutual interference in uplink ISAC receivers: A projection method,” IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109–3113, Nov. 2024.
