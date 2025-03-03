@@ -77,7 +77,7 @@ This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted b
 
 # Services
 
-I have served as a reviewer for IEEE journals including IEEE TCOM, JSTSP, TMC, and TVT, I also served as a Technical Program Committee (TPC) member for IEEE WCNC 2024 and IEEE PIMRC 2024.
+I have served as a reviewer for IEEE journals including IEEE TWC, TCOM, JSTSP, TMC, and TVT, I also served as a Technical Program Committee (TPC) member for IEEE ICC 2025, WCNC 2024, 2025 and IEEE PIMRC 2024, 2025.
 
 # Current Reseach Interests
 
@@ -87,10 +87,15 @@ Feel free to contact me at zyyu@seu.edu.cn if you have any questions.
 
 # Selected Awards as a student
 
+- Awards as a postgraduate student
+  - President's Scholarship at Southeast University: Only ten master's students out of over 20,000 are awarded this honor.
+  - National Scholarship
+
 - Mathematics Competition
   - First Prize in the Jiangsu Provincial College Student Mathematics Competition.
 
   - Third Prize in the National College Student Mathematics Competition.
+  
 - Mathematical Modeling
   - Second Prize at the Provincial Level in the National College Student Mathematical Modeling Competition.
 
