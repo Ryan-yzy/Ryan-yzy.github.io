@@ -1,15 +1,15 @@
 ---
-title: "To be continued"
+title: " Secure Wireless Communication in Active RIS-Assisted DFRC Systems"
 collection: publications
-permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
-venue: 'Journal 1'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+permalink: /publication/2024-8-Secure-RIS-ISAC
+excerpt: 'This is my coauthored paper with Mr. Yang Zhang, published in IEEE TVT'
+date: 2024-08-25
+venue: 'IEEE TVT'
+paperurl: 'http://Ryan-yzy.github.io/files/Secure_Wireless_Communication_in_Active_RIS-Assisted_DFRC_Systems.pdf'
+citation: 'Yang Zhang; Hong Ren; Cunhua Pan; Boshi Wang; **Zhiyuan Yu**; Ruisong Weng, Tuo Wu, Yongchao He, "Secure Wireless Communication in Active RIS-Assisted DFRC Systems," in IEEE Transactions on Vehicular Technology, doi: 10.1109/TVT.2024.3438151.'
 ---
-This paper is about the number 3. The number 4 is left for future work.
+This is my coauthored paper with Mr. Yang Zhang, published in IEEE TVT.
 
-[Download paper here](http://academicpages.github.io/files/paper3.pdf)
+[Download paper here](http://Ryan-yzy.github.io/files/Secure_Wireless_Communication_in_Active_RIS-Assisted_DFRC_Systems.pdf)
 
-Recommended citation: Your Name, You. (2015). "Paper Title Number 3." <i>Journal 1</i>. 1(3).
+Recommended citation: Yang Zhang; Hong Ren; Cunhua Pan; Boshi Wang; **Zhiyuan Yu**; Ruisong Weng, Tuo Wu, Yongchao He, "Secure Wireless Communication in Active RIS-Assisted DFRC Systems," in IEEE Transactions on Vehicular Technology, doi: 10.1109/TVT.2024.3438151.
