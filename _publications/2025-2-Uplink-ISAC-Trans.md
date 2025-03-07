@@ -13,4 +13,4 @@ This paper is submitted to IEEE TWC for possible publication. In this paper, we 
 
 [Download paper here](http://Ryan-yzy.github.io/files/Uplink_ISAC5.pdf)
 
-Recommended citation: **Zhiyuan Yu**; Hong Ren; Cunhua Pan; Gui Zhou; Dongming Wang, Chau Yuen, Jiangzhou Wang, "A Framework for Uplink ISAC Receiver Designs: Performance Analysis and Algorithm Development," arxiv: https://arxiv.org/abs/2503.02647
+Recommended citation: **Zhiyuan Yu**, Hong Ren, Cunhua Pan, Gui Zhou, Dongming Wang, Chau Yuen, Jiangzhou Wang, "A Framework for Uplink ISAC Receiver Designs: Performance Analysis and Algorithm Development," arxiv: https://arxiv.org/abs/2503.02647
