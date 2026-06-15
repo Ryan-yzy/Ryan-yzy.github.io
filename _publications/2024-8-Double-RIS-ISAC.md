@@ -1,15 +1,15 @@
 ---
-title: "A Framework for Uplink ISAC Receiver Designs: Performance Analysis and Algorithm Development"
+title: "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence Systems"
 collection: publications
-permalink: /publication/2025-2-Uplink-ISAC-Trans
-excerpt: 'This paper is submitted to IEEE TWC for possible publication. In this paper, we explored the potential of the uplink ISAC systems and develop low-complexity algorithm for the joint signal detection and target sensing estimation. An early version has been accepted by IEEE ICC 2025.'
-date: 2024-08-25
-venue: 'Arxiv'
-paperurl: 'http://Ryan-yzy.github.io/files/Uplink_ISAC5.pdf'
-citation: 'Zhiyuan Yu; Hong Ren; Cunhua Pan; Gui Zhou; Dongming Wang, Chau Yuen, Jiangzhou Wang, "Secure Wireless Communication in Active RIS-Assisted DFRC Systems," arxiv: https://arxiv.org/abs/2503.02647'
+permalink: /publication/2024-8-Double-RIS-ISAC
+excerpt: 'This is my coauthored paper with Mr. Mengyu Liu, published in IEEE TCCN'
+date: 2024-08-05
+venue: 'IEEE TCCN'
+paperurl: 'http://Ryan-yzy.github.io/files/Joint_Beamforming_Design_for_Double_Active_RIS-Assisted_Radar-Communication_Coexistence_Systems.pdf'
+citation: 'Mengyu Liu, Hong Ren, Cunhua Pan, Boshi Wang, Zhiyuan Yu, Ruisong Weng, Kangda Zhi, "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence Systems," in IEEE Transactions on Cognitive Communications and Networking, vol. 10, no. 5, pp. 1704-1717, Oct. 2024.'
 ---
-This paper is submitted to IEEE TWC for possible publication. In this paper, we explored the potential of the uplink ISAC systems and develop low-complexity algorithm for the joint signal detection and target sensing estimation. An early version has been accepted by IEEE ICC 2025.
+This is my coauthored paper with Mr. Mengyu Liu, published in IEEE TCCN
 
-[Download paper here](http://Ryan-yzy.github.io/files/Uplink_ISAC5.pdf)
+[Download paper here](http://Ryan-yzy.github.io/files/Joint_Beamforming_Design_for_Double_Active_RIS-Assisted_Radar-Communication_Coexistence_Systems.pdf)
 
-Recommended citation: Yang Zhang; Hong Ren; Cunhua Pan; Boshi Wang; **Zhiyuan Yu**; Ruisong Weng, Tuo Wu, Yongchao He, "Secure Wireless Communication in Active RIS-Assisted DFRC Systems," in IEEE Transactions on Vehicular Technology, doi: 10.1109/TVT.2024.3438151.
+Recommended citation: Mengyu Liu, Hong Ren, Cunhua Pan, Boshi Wang, **Zhiyuan Yu**, Ruisong Weng, Kangda Zhi, "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence Systems," in IEEE Transactions on Cognitive Communications and Networking, vol. 10, no. 5, pp. 1704-1717, Oct. 2024.

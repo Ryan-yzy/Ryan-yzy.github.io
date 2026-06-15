@@ -19,7 +19,7 @@ Hello, everyone. I am Zhiyuan Yu. I was born in Anhui Hefei, where tradition mee
 <div class="media">
     <span class="pull-left"><img src="images/Name.jpg" width="75px" height="75px"/></span>
     <div class="media-body">
-        <div>My given name Zhiyuan (致远), is inspired by a phrase from the Romance of the Three Kingdoms: 'Be indifferent to fame and wealth to clarify one's aspirations (淡泊以明志), stay calm to achieve far-reaching goals (宁静而致远).' My grandfather was named after Mingzhi (明志), so I am named after Zhiyuan (致远).</div>
+        <div>My given name Zhiyuan (致远) is inspired by the phrase "淡泊以明志，宁静以致远": be indifferent to fame and wealth to clarify one's aspirations, and stay calm to achieve far-reaching goals. My grandfather was named Mingzhi (明志), so I was named Zhiyuan (致远).</div>
     </div>
 </div>
 
@@ -76,7 +76,7 @@ This is my first work from 2022.9 to 2023.11. Feeling fortunate to be accepted b
 [Simulation Code](https://github.com/Ryan-yzy/Active-RIS-ISAC)
 
 **Z. Yu**, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang "Addressing the mutual interference in uplink ISAC receivers: A projection
-method,” IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109–3113, Nov. 2024.
+method," IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109-3113, Nov. 2024.
 
 This is my second work from 2023.6 till 2024.9. Currently, I am still working on this area to design practial receivers, considering signal detection, parameters estimation, and system level simulations etc. Hopefully, you find it intriguing to some extent! 
 
