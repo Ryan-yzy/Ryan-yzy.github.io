@@ -18,7 +18,7 @@ I was born in Anhui Hefei, where tradition meets progress. After living in Hefei
 
 Next, I will join the Algorithms Department at **ZTE** under the **Blue Sword Program**, working on wireless standards.
 
-Feel free to contact me at [zyyu@seu.edu.cn](mailto:zyyu@seu.edu.cn).
+Feel free to contact me at [1550287211yzy@gmail.com](mailto:1550287211yzy@gmail.com). My phone and WeChat number is **18156053320**.
 
 ## The Origin of My Name
 

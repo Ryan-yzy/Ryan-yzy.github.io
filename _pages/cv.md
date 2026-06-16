@@ -13,7 +13,8 @@ Contact
 ======
 * **Zhiyuan Yu**
 * Southeast University
-* Email: [zyyu@seu.edu.cn](mailto:zyyu@seu.edu.cn)
+* Email: [1550287211yzy@gmail.com](mailto:1550287211yzy@gmail.com)
+* Phone / WeChat: 18156053320
 * [Google Scholar](https://scholar.google.com/citations?user=1_71C-sAAAAJ&hl=zh-TW&oi=ao)
 
 Education
@@ -70,7 +71,6 @@ Awards and Achievements
 * **Southeast University First Class Academic Scholarship**, 2024.
 * **Xiaomi Scholarship**, 2025.
 * **Huawei Scholarship**, 2023.
-* Google Scholar citations reached 320+.
 
 Professional Service
 ======

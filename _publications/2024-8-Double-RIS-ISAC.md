@@ -9,6 +9,6 @@ venue: 'IEEE Transactions on Cognitive Communications and Networking'
 paperurl: 'https://Ryan-yzy.github.io/files/Joint_Beamforming_Design_for_Double_Active_RIS-Assisted_Radar-Communication_Coexistence_Systems.pdf'
 citation: 'Mengyu Liu, Hong Ren, Cunhua Pan, Boshi Wang, Zhiyuan Yu, Ruisong Weng, Kangda Zhi, and Yongchao He, "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence Systems," IEEE Transactions on Cognitive Communications and Networking, vol. 10, no. 5, pp. 1704-1717, 2024, doi: 10.1109/TCCN.2024.3438350.'
 ---
-This coauthored work was published in IEEE Transactions on Cognitive Communications and Networking.
+This is my coauthored paper with Mr. Mengyu Liu, published in IEEE TCCN.
 
 [Download paper here](https://Ryan-yzy.github.io/files/Joint_Beamforming_Design_for_Double_Active_RIS-Assisted_Radar-Communication_Coexistence_Systems.pdf)
