@@ -2,14 +2,12 @@
 title: "Addressing the mutual interference in uplink ISAC receivers: A projection method"
 collection: publications
 permalink: /publication/2024-8-Uplink-ISAC-WCL
-excerpt: 'This is my second work from 2023.6 till 2025.2. Currently, I am working on this area trying to make more progress. Apart from this letter, one paper is accepted by ICC 2025 and we have submitted a journal paper to IEEE TWC for possible publication. Hopefully, you find it intriguing to some extent!'
-date: 2024-11-08
-venue: 'IEEE Wireless Communication Letter'
-paperurl: 'https://ieeexplore.ieee.org/document/10663294'
-citation: 'Z. Yu, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang, "Addressing the mutual interference in uplink ISAC receivers: A projection method," IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109-3113, Nov. 2024.'
+excerpt: 'This work was published in IEEE Wireless Communications Letters and proposes a projection method for uplink ISAC receivers.'
+date: 2024-09-02
+venue: 'IEEE Wireless Communications Letters'
+paperurl: 'https://Ryan-yzy.github.io/files/Uplink_ISAC_WCL.pdf'
+citation: 'Zhiyuan Yu, Hong Ren, Cunhua Pan, Gui Zhou, Ruizhe Wang, Mengyu Liu, and Jiangzhou Wang, "Addressing the Mutual Interference in Uplink ISAC Receivers: A Projection Method," IEEE Wireless Communications Letters, vol. 13, no. 11, pp. 3109-3113, 2024, doi: 10.1109/LWC.2024.3452932.'
 ---
-This is my second work from 2023.6 till 2025.2. Currently, I am working on this area trying to make more progress. Apart from this letter, one paper is accepted by ICC 2025 and we have submitted a journal paper to IEEE TWC for possible publication. Hopefully, you find it intriguing to some extent!
+This work proposes a projection method for uplink ISAC receivers.
 
-[Download paper here](http://Ryan-yzy.github.io/files/Uplink_ISAC_WCL.pdf)
-
-Recommended citation: **Z. Yu**, H. Ren, C. Pan, G. Zhou, R. Wang, M. Liu, J. Wang, "Addressing the mutual interference in uplink ISAC receivers: A projection method," IEEE Wireless Commun. Lett., vol. 13, no. 11, pp. 3109-3113, Nov. 2024.
+[Download paper here](https://Ryan-yzy.github.io/files/Uplink_ISAC_WCL.pdf)
