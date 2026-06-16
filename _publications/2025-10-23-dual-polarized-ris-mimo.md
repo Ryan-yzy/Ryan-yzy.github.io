@@ -1,6 +1,7 @@
 ---
 title: "Dual-Polarized RIS-Aided Beamforming Design for MIMO System"
 collection: publications
+category: co_author
 permalink: /publication/2025-10-23-dual-polarized-ris-mimo
 excerpt: 'This coauthored work appeared in IEEE WCSP 2025.'
 date: 2025-10-23

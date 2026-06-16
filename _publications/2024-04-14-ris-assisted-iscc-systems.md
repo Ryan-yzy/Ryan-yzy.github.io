@@ -1,6 +1,7 @@
 ---
 title: "Reconfigurable Intelligent Surface Assisted Integrated Sensing, Communication and Computation Systems"
 collection: publications
+category: co_author
 permalink: /publication/2024-04-14-ris-assisted-iscc-systems
 excerpt: 'This coauthored work appeared in ICASSP Workshops 2024.'
 date: 2024-04-14

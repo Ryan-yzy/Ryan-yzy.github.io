@@ -1,6 +1,7 @@
 ---
 title: "Secure Wireless Communication in Active RIS-Assisted MISO DFRC System"
 collection: publications
+category: co_author
 permalink: /publication/2024-05-31-secure-miso-dfrc
 excerpt: 'This coauthored work appeared in iWRF&AT 2024.'
 date: 2024-05-31

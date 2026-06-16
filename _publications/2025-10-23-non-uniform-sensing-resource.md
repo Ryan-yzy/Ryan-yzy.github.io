@@ -1,6 +1,7 @@
 ---
 title: "A Framework for ISAC Systems Using Non-Uniformly Distributed Sensing Resource"
 collection: publications
+category: co_author
 permalink: /publication/2025-10-23-non-uniform-sensing-resource
 excerpt: 'This coauthored work appeared in IEEE WCSP 2025.'
 date: 2025-10-23

@@ -1,6 +1,7 @@
 ---
 title: "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence"
 collection: publications
+category: co_author
 permalink: /publication/2024-05-31-double-active-ris-rcc
 excerpt: 'This coauthored work appeared in iWRF&AT 2024.'
 date: 2024-05-31

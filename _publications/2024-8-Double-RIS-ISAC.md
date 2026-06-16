@@ -1,6 +1,7 @@
 ---
 title: "Joint Beamforming Design for Double Active RIS-Assisted Radar-Communication Coexistence Systems"
 collection: publications
+category: co_author
 permalink: /publication/2024-8-Double-RIS-ISAC
 excerpt: 'This is my coauthored paper with Mr. Mengyu Liu, published in IEEE TCCN'
 date: 2024-08-05

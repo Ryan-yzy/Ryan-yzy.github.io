@@ -1,6 +1,7 @@
 ---
 title: "Active RIS-Aided ISAC Systems: Beamforming Design and Performance Analysis"
 collection: publications
+category: first_author
 permalink: /publication/2023-11-15-Active RIS ISAC
 excerpt: 'This work was published in IEEE Transactions on Communications and studies active RIS-aided ISAC beamforming design and performance analysis.'
 date: 2023-11-15

@@ -1,6 +1,7 @@
 ---
 title: "Active RIS-Aided Integrated Sensing, Communication and Computation Systems"
 collection: publications
+category: co_author
 permalink: /publication/2024-08-07-active-ris-iscc
 excerpt: 'This coauthored work appeared in IEEE/CIC ICCC 2024.'
 date: 2024-08-07

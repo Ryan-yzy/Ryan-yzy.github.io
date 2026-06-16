@@ -1,6 +1,7 @@
 ---
 title: "Enhanced Projection-Type Receivers in Uplink ISAC Systems"
 collection: publications
+category: first_author
 permalink: /publication/2025-06-08-enhanced-projection-type-receivers
 excerpt: 'This work appeared in IEEE ICC 2025.'
 date: 2025-06-08

@@ -1,6 +1,7 @@
 ---
 title: "Resource Allocation in Wideband Cooperative ISAC Systems"
 collection: publications
+category: co_author
 permalink: /publication/2025-06-17-wideband-cooperative-isac-resource-allocation
 excerpt: 'This coauthored work appeared in IEEE VTC2025-Spring.'
 date: 2025-06-17

@@ -194,6 +194,12 @@ collections:
     output: true
     permalink: /:collection/:path/
 
+publication_category:
+  first_author:
+    title: "First-Author Publications"
+  co_author:
+    title: "Co-Author Publications"
+
 
 # These settings control how pages and collections are included in the site
 defaults:

@@ -1,6 +1,7 @@
 ---
 title: "Velocity Estimation in ISAC Systems with Non-Uniform Sensing Resource Based on 5G NR Frame Structure"
 collection: publications
+category: co_author
 permalink: /publication/2026-03-31-velocity-estimation-isac-5g-nr
 excerpt: 'This coauthored work was published in IEEE Transactions on Vehicular Technology.'
 date: 2026-03-31

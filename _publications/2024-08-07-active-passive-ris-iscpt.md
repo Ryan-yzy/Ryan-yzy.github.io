@@ -1,6 +1,7 @@
 ---
 title: "Active RIS Versus Passive RIS: Which Demonstrates Advantages in ISCPT Systems?"
 collection: publications
+category: co_author
 permalink: /publication/2024-08-07-active-passive-ris-iscpt
 excerpt: 'This coauthored work appeared in IEEE/CIC ICCC 2024.'
 date: 2024-08-07

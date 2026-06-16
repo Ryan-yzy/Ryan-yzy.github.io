@@ -1,6 +1,7 @@
 ---
 title: "Secure Wireless Communication in Active RIS-Assisted DFRC Systems"
 collection: publications
+category: co_author
 permalink: /publication/2024-8-Secure-RIS-ISAC
 excerpt: 'This coauthored work was published in IEEE Transactions on Vehicular Technology.'
 date: 2024-08-05

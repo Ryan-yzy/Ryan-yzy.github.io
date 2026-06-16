@@ -1,6 +1,7 @@
 ---
 title: "A Framework for Uplink ISAC Receiver Designs: Performance Analysis and Algorithm Development"
 collection: publications
+category: first_author
 permalink: /publication/2025-2-Uplink-ISAC-Trans
 excerpt: 'This work was published in IEEE Transactions on Wireless Communications and develops a framework for uplink ISAC receiver designs.'
 date: 2026-05-04

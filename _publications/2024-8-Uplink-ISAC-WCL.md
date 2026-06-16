@@ -1,6 +1,7 @@
 ---
 title: "Addressing the mutual interference in uplink ISAC receivers: A projection method"
 collection: publications
+category: first_author
 permalink: /publication/2024-8-Uplink-ISAC-WCL
 excerpt: 'This work was published in IEEE Wireless Communications Letters and proposes a projection method for uplink ISAC receivers.'
 date: 2024-09-02
