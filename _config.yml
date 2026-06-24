@@ -146,6 +146,7 @@ exclude:
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
+  - LIFE_NOTES_GUIDE.md
   - local
   - log
   - node_modules
