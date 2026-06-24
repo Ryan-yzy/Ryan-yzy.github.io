@@ -1,0 +1,107 @@
+---
+layout: archive
+permalink: /life-notes/
+title: "Life & Notes"
+author_profile: true
+---
+
+{% include base_path %}
+
+<div class="life-notes">
+  <p class="life-notes__intro">
+    Beyond research, I also write about travel, daily life, research life,
+    reading, and the moments worth remembering.
+  </p>
+  <p class="life-notes__intro-cn">
+    这里记录旅行、日常、科研生活，以及一些值得留下的片段。
+  </p>
+
+  <div class="life-notes__categories" aria-label="Life & Notes categories">
+    <a class="life-notes__category-card" href="#travel">
+      <strong>Travel</strong>
+      <span>旅行中的城市、人物与偶然发生的事情。</span>
+    </a>
+    <a class="life-notes__category-card" href="#daily-life">
+      <strong>Daily Life</strong>
+      <span>普通生活、阶段记录与值得记住的瞬间。</span>
+    </a>
+    <a class="life-notes__category-card" href="#research-life">
+      <strong>Research Life</strong>
+      <span>论文、会议、工作以及科研生活中的思考。</span>
+    </a>
+    <a class="life-notes__category-card" href="#reading">
+      <strong>Reading</strong>
+      <span>阅读、观影和一些尚未形成结论的想法。</span>
+    </a>
+  </div>
+
+  <section class="life-notes__section" aria-labelledby="latest-notes">
+    <h2 id="latest-notes">Latest Notes</h2>
+    {% assign latest_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.categories contains "life-notes" %}
+        {% include archive-single.html %}
+        {% assign latest_count = latest_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if latest_count == 0 %}
+      <p class="life-notes__empty">More notes will be added here.</p>
+    {% endif %}
+  </section>
+
+  <section class="life-notes__section" aria-labelledby="travel">
+    <h2 id="travel">Travel</h2>
+    {% assign travel_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.categories contains "life-notes" and post.categories contains "travel" %}
+        {% include archive-single.html %}
+        {% assign travel_count = travel_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if travel_count == 0 %}
+      <p class="life-notes__empty">More notes will be added here.</p>
+    {% endif %}
+  </section>
+
+  <section class="life-notes__section" aria-labelledby="daily-life">
+    <h2 id="daily-life">Daily Life</h2>
+    {% assign daily_life_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.categories contains "life-notes" and post.categories contains "daily-life" %}
+        {% include archive-single.html %}
+        {% assign daily_life_count = daily_life_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if daily_life_count == 0 %}
+      <p class="life-notes__empty">More notes will be added here.</p>
+    {% endif %}
+  </section>
+
+  <section class="life-notes__section" aria-labelledby="research-life">
+    <h2 id="research-life">Research Life</h2>
+    {% assign research_life_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.categories contains "life-notes" and post.categories contains "research-life" %}
+        {% include archive-single.html %}
+        {% assign research_life_count = research_life_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if research_life_count == 0 %}
+      <p class="life-notes__empty">More notes will be added here.</p>
+    {% endif %}
+  </section>
+
+  <section class="life-notes__section" aria-labelledby="reading">
+    <h2 id="reading">Reading</h2>
+    {% assign reading_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.categories contains "life-notes" and post.categories contains "reading" %}
+        {% include archive-single.html %}
+        {% assign reading_count = reading_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if reading_count == 0 %}
+      <p class="life-notes__empty">More notes will be added here.</p>
+    {% endif %}
+  </section>
+</div>

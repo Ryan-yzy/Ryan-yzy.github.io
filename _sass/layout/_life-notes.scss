@@ -1,0 +1,98 @@
+/* ==========================================================================
+   LIFE & NOTES
+   ========================================================================== */
+
+.life-notes {
+  max-width: 100%;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.life-notes__intro {
+  margin-bottom: 0.25rem;
+  color: var(--global-text-color);
+}
+
+.life-notes__intro-cn {
+  margin-bottom: 1.5rem;
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+}
+
+.life-notes__categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.life-notes__category-card {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  color: inherit;
+  background: var(--global-bg-color);
+
+  &:hover {
+    border-color: var(--global-link-color-hover);
+    text-decoration: none;
+  }
+
+  strong,
+  span {
+    display: block;
+  }
+
+  strong {
+    margin-bottom: 0.35rem;
+    font-family: $sans-serif-narrow;
+  }
+
+  span {
+    color: var(--global-text-color-light);
+    font-size: $type-size-6;
+    line-height: 1.65;
+  }
+}
+
+.life-notes__section {
+  margin-top: 2.25rem;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.life-notes__empty {
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+}
+
+.life-note {
+  line-height: 1.85;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.6rem auto 0.5rem;
+  }
+
+  p > em:only-child {
+    display: block;
+    margin: -0.1rem 0 1.4rem;
+    color: var(--global-text-color-light);
+    font-size: $type-size-6;
+    line-height: 1.6;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .life-notes__categories {
+    grid-template-columns: 1fr;
+  }
+}
