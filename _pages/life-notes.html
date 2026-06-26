@@ -9,8 +9,8 @@ author_profile: true
 
 <div class="life-notes">
   <p class="life-notes__intro">
-    Beyond research, I also write about travel, daily life, research life,
-    reading, and the moments worth remembering.
+    Beyond research, I also write about travel, daily life, reading,
+    and the moments worth remembering.
   </p>
   <p class="life-notes__intro-cn">
     这里记录旅行、日常、科研生活，以及一些值得留下的片段。
@@ -24,10 +24,6 @@ author_profile: true
     <a class="life-notes__category-card" href="#daily-life">
       <strong>Daily Life</strong>
       <span>普通生活、阶段记录与值得记住的瞬间。</span>
-    </a>
-    <a class="life-notes__category-card" href="#research-life">
-      <strong>Research Life</strong>
-      <span>论文、会议、工作以及科研生活中的思考。</span>
     </a>
     <a class="life-notes__category-card" href="#reading">
       <strong>Reading</strong>
@@ -73,20 +69,6 @@ author_profile: true
       {% endif %}
     {% endfor %}
     {% if daily_life_count == 0 %}
-      <p class="life-notes__empty">More notes will be added here.</p>
-    {% endif %}
-  </section>
-
-  <section class="life-notes__section" aria-labelledby="research-life">
-    <h2 id="research-life">Research Life</h2>
-    {% assign research_life_count = 0 %}
-    {% for post in site.posts %}
-      {% if post.categories contains "life-notes" and post.categories contains "research-life" %}
-        {% include archive-single.html %}
-        {% assign research_life_count = research_life_count | plus: 1 %}
-      {% endif %}
-    {% endfor %}
-    {% if research_life_count == 0 %}
       <p class="life-notes__empty">More notes will be added here.</p>
     {% endif %}
   </section>
