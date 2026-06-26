@@ -130,6 +130,7 @@ include:
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
+  - .agents
   - .asset-cache
   - .bundle
   - .github
@@ -141,7 +142,9 @@ exclude:
   - CHANGELOG
   - Capfile
   - config
+  - design-notes
   - Dockerfile
+  - docs
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
@@ -153,6 +156,7 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - sketches
   - tmp
   - vendor
 keep_files:

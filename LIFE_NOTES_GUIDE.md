@@ -103,34 +103,52 @@ Use site-root image paths in articles:
 
 Use `life-note-figure--portrait` for ordinary vertical photos, `life-note-figure--landscape` for horizontal images, and `life-note-figure--compact` for small informational images such as tickets, signs, receipts, or target sheets.
 
-Use a two-image gallery for closely related image pairs:
+Use a two-image gallery only when the two images have a similar visual role. For a travel opener, prefer the Wat Arun-style offset pair:
 
 ```html
-<div class="life-note-gallery life-note-gallery--two">
-  <figure class="life-note-figure life-note-figure--portrait">
+<div class="life-note-gallery life-note-gallery--wat">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds">
     <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
     <figcaption>Caption text.</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps">
     <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
     <figcaption>Caption text.</figcaption>
   </figure>
 </div>
 ```
 
-Use a three-image gallery for compact groups such as food:
+For contrast pairs with different aspect ratios or different narrative roles, do not use an equal two-column gallery. Use a contrast section with a larger scene image and a smaller detail image:
 
 ```html
-<div class="life-note-gallery life-note-gallery--three">
-  <figure class="life-note-figure life-note-figure--portrait">
+<section class="life-note-contrast" aria-labelledby="contrast-title">
+  <p id="contrast-title" class="life-note-contrast__eyebrow">Shared label</p>
+  <div class="life-note-contrast__layout">
+    <figure class="life-note-figure life-note-contrast__scene">
+      <img src="/images/life-notes/YYYY/slug/scene.jpg" alt="Alt text" loading="lazy" decoding="async">
+      <figcaption>Scene caption.</figcaption>
+    </figure>
+    <figure class="life-note-figure life-note-contrast__detail">
+      <img src="/images/life-notes/YYYY/slug/detail.jpg" alt="Alt text" loading="lazy" decoding="async">
+      <figcaption>Detail caption.</figcaption>
+    </figure>
+  </div>
+</section>
+```
+
+Use an asymmetric three-image gallery for compact groups such as food:
+
+```html
+<div class="life-note-gallery life-note-gallery--food">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-main">
     <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
     <figcaption>Caption text.</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a">
     <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
     <figcaption>Caption text.</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b">
     <img src="/images/life-notes/YYYY/slug/photo-03.jpg" alt="Alt text" loading="lazy" decoding="async">
     <figcaption>Caption text.</figcaption>
   </figure>

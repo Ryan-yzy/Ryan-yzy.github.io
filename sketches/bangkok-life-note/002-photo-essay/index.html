@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Essay - Bangkok Life Note Sketch</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #f7f5f0;
+      color: #293136;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.9;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    .site-nav {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2.4rem);
+      align-items: center;
+      min-height: 68px;
+      padding: 0 clamp(1.1rem, 5vw, 5.5rem);
+      border-bottom: 1px solid #e6e1d8;
+      background: rgba(247, 245, 240, 0.96);
+      font-size: 16px;
+    }
+    .site-nav strong { margin-right: auto; font-weight: 700; }
+    .site-nav a { text-decoration: none; }
+    .site-nav a:hover { color: #5c6d76; }
+    main {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2rem) 5rem;
+    }
+    .article-header {
+      width: min(100%, 720px);
+      margin: 0 auto 2.5rem;
+      padding-top: 0.5rem;
+      border-top: 2px solid #7a8b92;
+    }
+    h1 {
+      margin: 0 0 0.55rem;
+      color: #2e363a;
+      font-size: clamp(2rem, 4.2vw, 2.7rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .meta {
+      color: #8a8f8f;
+      font-size: 14px;
+    }
+    .lead, .text, h2 {
+      width: min(100%, 710px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .lead {
+      margin-bottom: 2.4rem;
+      padding: 1.2rem 0;
+      border-top: 1px solid #ddd7ce;
+      border-bottom: 1px solid #ddd7ce;
+      font-size: clamp(17px, 1.4vw, 19px);
+    }
+    .text {
+      margin-top: 0;
+      margin-bottom: 1.3em;
+      font-size: 18px;
+      letter-spacing: 0.01em;
+    }
+    h2 {
+      margin-top: 3.1rem;
+      margin-bottom: 1rem;
+      padding-left: 0.85rem;
+      border-left: 4px solid #7a8b92;
+      color: #30383b;
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+    figure {
+      margin: clamp(1.8rem, 4vw, 3rem) auto;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    figcaption {
+      margin-top: 0.55rem;
+      color: #7b7f7f;
+      font-size: 13.5px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    figure:hover img { filter: saturate(1.03); }
+    .portrait { width: min(86%, 410px); }
+    .landscape { width: min(100%, 760px); }
+    .compact { width: min(78%, 330px); }
+    .wat-pair {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: clamp(1rem, 3vw, 1.8rem);
+      align-items: end;
+      width: min(100%, 820px);
+      margin: 2rem auto 3.2rem;
+    }
+    .wat-pair figure { width: 100%; margin: 0; }
+    .wat-pair figure:first-child { transform: translateY(1.2rem); }
+    .contrast {
+      width: min(100%, 840px);
+      margin: 2.7rem auto 3.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dcd5ca;
+    }
+    .contrast__label {
+      margin: 0 0 1rem;
+      color: #6f7b80;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-align: center;
+    }
+    .contrast__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(240px, 0.72fr);
+      gap: clamp(1rem, 3vw, 2rem);
+      align-items: end;
+    }
+    .contrast figure { margin: 0; }
+    .contrast__scene { max-width: 470px; justify-self: end; }
+    .contrast__detail { max-width: 360px; justify-self: start; margin-bottom: 1.4rem; }
+    .food-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+      grid-template-areas: "main side-a" "main side-b";
+      gap: clamp(0.9rem, 2.5vw, 1.4rem);
+      align-items: center;
+      width: min(100%, 790px);
+      margin: 2rem auto 3rem;
+    }
+    .food-grid figure { width: 100%; margin: 0; }
+    .food-main { grid-area: main; }
+    .food-side-a { grid-area: side-a; }
+    .food-side-b { grid-area: side-b; }
+    .end-note {
+      width: min(100%, 710px);
+      margin: 3rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd7ce;
+    }
+    @media (max-width: 720px) {
+      .site-nav { overflow-x: auto; white-space: nowrap; }
+      main { padding-right: 18px; padding-left: 18px; overflow-x: hidden; }
+      .text { font-size: 17px; line-height: 1.92; }
+      .wat-pair, .contrast__layout, .food-grid {
+        display: block;
+        width: 100%;
+      }
+      .wat-pair figure, .food-grid figure {
+        width: min(88%, 380px);
+        margin: 1.4rem auto;
+        transform: none;
+      }
+      .contrast__scene {
+        width: min(100%, 430px);
+        margin: 0 auto 1.3rem;
+      }
+      .contrast__detail {
+        width: min(82%, 360px);
+        margin: 0 auto;
+      }
+      .portrait { width: min(88%, 380px); }
+      .landscape { width: 100%; }
+      .compact { width: min(78%, 310px); }
+    }
+
+    /* Variant 002: photo essay overrides */
+    body { background: #fbfaf7; }
+    main { width: min(100%, 1100px); }
+    .article-header {
+      width: min(100%, 820px);
+      margin-bottom: 3rem;
+      padding-bottom: 1.3rem;
+      border-top: 0;
+      border-bottom: 1px solid #ded9cf;
+    }
+    .lead, .text, h2 { width: min(100%, 690px); }
+    .lead {
+      border-top: 0;
+      border-bottom: 0;
+      margin-bottom: 1.7rem;
+      padding: 0;
+    }
+    h2 {
+      width: min(100%, 820px);
+      margin-top: 3.8rem;
+      padding-top: 1.1rem;
+      padding-left: 0;
+      border-top: 1px solid #ded9cf;
+      border-left: 0;
+      font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+    }
+    .wat-pair {
+      width: min(100%, 900px);
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      align-items: center;
+    }
+    .wat-pair figure:first-child { transform: none; }
+    .wat-pair figure:last-child { transform: translateY(2.4rem); }
+    .portrait { width: min(80%, 430px); }
+    .landscape { width: min(100%, 840px); }
+    .contrast {
+      width: min(100%, 820px);
+      padding-top: 1.5rem;
+      border-top: 1px solid #ded9cf;
+    }
+    .contrast__layout { display: block; }
+    .contrast__scene {
+      width: min(100%, 560px);
+      max-width: none;
+      margin: 0 auto 1.35rem;
+    }
+    .contrast__detail {
+      width: min(74%, 390px);
+      max-width: none;
+      margin: 0 auto;
+    }
+    .food-grid {
+      width: min(100%, 860px);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-areas: "side-a main side-b";
+      align-items: end;
+    }
+    .food-main { transform: translateY(-1.2rem); }
+    @media (max-width: 720px) {
+      .article-header { margin-bottom: 2rem; }
+      .lead, .text, h2 { width: 100%; }
+      .wat-pair figure:last-child, .food-main { transform: none; }
+      .contrast__detail { width: min(82%, 340px); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="site">
+    <strong>Zhiyuan Yu's Homepage</strong>
+    <a href="#">Publications</a>
+    <a href="#">Talks</a>
+    <a href="#">Life & Notes</a>
+    <a href="#">CV</a>
+  </nav>
+  <main id="top">
+    <header class="article-header">
+      <h1>泰马记（上）｜低云之下的曼谷</h1>
+      <div class="meta">June 24, 2026 · less than 1 minute read</div>
+    </header>
+
+    <section class="lead">
+      <p>从曼谷机场出来，第一反应是热，第二反应是：云真低。</p>
+      <p>那是我第一次觉得，“高耸入云”也可以用来形容云本身，而不只是建筑和山峰。来到郑王庙时，塔尖向上伸展，低垂的云仿佛压在建筑上方，神圣感也跟着变得具体。</p>
+    </section>
+
+    <section class="wat-pair" id="wat-arun">
+      <figure>
+        <img src="../../../images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里">
+        <figcaption>郑王庙的塔尖几乎伸进了低云里。</figcaption>
+      </figure>
+      <figure>
+        <img src="../../../images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里">
+        <figcaption>沿着石阶向上，天空和建筑挤在同一幅画面里。</figcaption>
+      </figure>
+    </section>
+
+    <h2>01｜从天空落到街道</h2>
+    <p class="text">慢慢接近这座城市以后，地面上的事情开始比天空更抓住我的眼球。</p>
+    <p class="text">我们住在辉煌区。去夜市的路上，中文招牌一块接一块，商店挤得像沙丁鱼罐头。窄窄的街道上，小贩叫卖着衣服、水果和烧烤，头顶横着密密麻麻的电线，路边则立着曼谷市长竞选的告示牌。</p>
+    <p class="text">其中出现最多的，是一块写着“Save Bangkok”的黄色牌子。它让我对这座“需要被拯救”的城市，多了一点好奇。</p>
+    <figure class="portrait">
+      <img src="../../../images/life-notes/2026/bangkok/03-huai-khwang-street.jpg" alt="辉煌区街头，中文招牌与车流叠在一起">
+      <figcaption>辉煌区街头，中文招牌与车流叠在一起。</figcaption>
+    </figure>
+
+    <h2 id="traffic">02｜打车很贵，走路也不轻松</h2>
+    <p class="text">曼谷最贵的似乎不是吃饭，而是打车。即使人民币兑泰铢的汇率看起来很友好，每次叫车折合下来仍常常要花六七十元。</p>
+    <p class="text">从机场到酒店，半个小时的路程里几乎没遇到红绿灯。车少的时候，这是畅通；到了车流密集的路段和时段，它就会变成一场漫长的拥堵。当地常见的解决方式，是安排工作人员站在路口挥动红旗，像一盏会走动的“人肉红绿灯”。</p>
+    <figure class="portrait">
+      <img src="../../../images/life-notes/2026/bangkok/04-bangkok-traffic.jpg" alt="曼谷白天的车流">
+      <figcaption>曼谷白天的车流。</figcaption>
+    </figure>
+    <p class="text">除了汽车，曼谷还有大量摩托车和三轮车。有些路段并没有给行人留下太多空间，走路时耳边是发动机的噪声，空气里也混着机油味。我忍不住想，大一学过的交通工程，也许在这里能派上更大的用场。</p>
+    <figure class="portrait">
+      <img src="../../../images/life-notes/2026/bangkok/05-night-street.jpg" alt="夜晚街道上的摩托车、汽车和电线">
+      <figcaption>夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。</figcaption>
+    </figure>
+
+    <h2>03｜旅行中的警惕</h2>
+    <p class="text">第一天晚上，我们去了辉煌夜市附近一家小红书推荐的餐厅，也吃到了整个泰国行最贵的一顿饭。结账时，店员告诉我们，使用国内常见的支付方式还要额外收取3%的手续费。</p>
+    <p class="text">后来回想，从菜单拿上来的那一刻开始，整件事就透着一点不透明：每道菜原来的价格都被白纸盖住，再重新手写。我们开玩笑说，这大概是“游客专供菜单”。</p>
+    <p class="text">第二天，我们包了一辆车。司机会说中文，大家叫他“三哥”。因为他手部行动不便，我们一开始下意识多了几分好感。刚上车时，我夸他中文说得好，他笑着回答：“跟我学的。”</p>
+    <p class="text">这份好感来得快，去得也快。三哥先说旅行社规划的路线不顺路，又说必须另外坐船，最后提出包船要3000泰铢。好在旅行社及时介入，行程才重新回到原来的安排。人在异国他乡，很容易先去依赖别人，又不得不一边依赖一边判断。</p>
+
+    <h2>04｜一顿靠比划完成的午饭</h2>
+    <p class="text">当天中午，我们去了水上市场，并根据 Google Maps 找到一家评价很好的小店。泰国很多店名只写泰文，要在现实招牌和手机地图之间匹配两个“字符串”，并不是一件容易的事。</p>
+    <p class="text">好在门口一位 Grab 骑手会说几句英语，告诉我们确实找对了地方。刚坐下，一群中国游客正好吃完离开，边走边对我们说：“好吃，好吃。”</p>
+    <p class="text">真正困难的是点单。餐厅里的老太太不会中文和英文，翻译软件也没能认出菜单。我们连猜带比划了十几分钟，最后索性采取“上什么吃什么”的策略。结果出人意料地满意：三个人点了四个菜两道海鲜，结账折合人民币大约80元。便宜和好吃同时出现时，我对这家小店的好感又多了一截。</p>
+
+    <h2 id="river">05｜同一条河的两种生活</h2>
+    <p class="text">吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。</p>
+    <figure class="portrait">
+      <img src="../../../images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道">
+      <figcaption>水上市场附近的河道。</figcaption>
+    </figure>
+    <p class="text">沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。</p>
+    <figure class="landscape">
+      <img src="../../../images/life-notes/2026/bangkok/07-riverside-houses.jpg" alt="沿岸以木桩支撑的旧房子">
+      <figcaption>沿岸以木桩支撑的旧房子。</figcaption>
+    </figure>
+    <p class="text">晚上，我们来到同样位于湄南河沿岸的暹罗天地。这里明亮、精致，商场里集合了餐厅、品牌店和室内景观。很难想象，下午看到的河岸生活与这里相距不过几公里。</p>
+    <p class="text">更有戏剧性的是：下午，我们看见河里的“大蜥蜴”；晚上，在商场负一层，我们真的尝到了鳄鱼肉。</p>
+    <section class="contrast" id="contrast" aria-label="同一条河的两种生活">
+      <p class="contrast__label">同一条河的两种生活</p>
+      <div class="contrast__layout">
+        <figure class="contrast__scene">
+          <img src="../../../images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部">
+          <figcaption>同一条河的另一面：明亮、精致的商场内部。</figcaption>
+        </figure>
+        <figure class="contrast__detail">
+          <img src="../../../images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理">
+          <figcaption>在商业综合体里见到的鳄鱼料理。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <h2>06｜画师、普通劳动者和“枪王”</h2>
+    <p class="text">在曼谷的几天里，我们遇到了形形色色的人。水上市场有一位给游客画像的画师。他说自己是一名退休律师，会把画过的作品上传到 Instagram。</p>
+    <p class="text">我们试着讲价时，他认真解释：这不是批量生产的 product，而是他一笔一笔画出来的作品，所以不能因为我们有三个人就更便宜。那一刻，比画像本身更打动我的，是他对自己劳动价值的坚持。</p>
+    <p class="text">泰国常被游客提起的，还有跨性别文化。芭提雅有面向游客的舞台表演，而在曼谷，我们看到的更多是日常生活中的普通劳动者：司机、超市理货员。离开舞台以后，这些身份不再是旅游标签，而只是城市生活的一部分。</p>
+    <p class="text">“枪王”则不是别人，正是我自己。最后一天，我们去了海军射击场。也许是因为多给了小费，教练帮我反复调整姿势和枪的位置，最后得到一张弹孔密密麻麻的靶纸。</p>
+    <figure class="compact">
+      <img src="../../../images/life-notes/2026/bangkok/10-shooting-target.jpg" alt="步枪环节的靶纸">
+      <figcaption>步枪环节的靶纸，让我短暂拥有了“枪王”的称号。</figcaption>
+    </figure>
+    <p class="text">不过这个称号只维持到手枪环节。轮到手枪时，我很快暴露了真实水平：瞄准不够稳定，后坐力又不断把枪口带高，弹孔散得到处都是，真正上靶的没有几发。</p>
+
+    <h2 id="food">07｜最后，当然是吃</h2>
+    <p class="text">最后放几张美食照片。泰国菜里常见酸、辣和香料，对一个正处在口腔溃疡康复期的人来说，并不算特别友好。好在旅行的胃总比平时勇敢一点。</p>
+    <section class="food-grid" aria-label="曼谷美食照片">
+      <figure class="food-main">
+        <img src="../../../images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜">
+        <figcaption>松松海鲜，口味更接近中式。</figcaption>
+      </figure>
+      <figure class="food-side-a">
+        <img src="../../../images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面">
+        <figcaption>据说是“周杰伦同款”的船面。</figcaption>
+      </figure>
+      <figure class="food-side-b">
+        <img src="../../../images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条">
+        <figcaption>一根很难优雅吃完的超长薯条。</figcaption>
+      </figure>
+    </section>
+
+    <section class="end-note" id="ending">
+      <h2>写在最后</h2>
+      <p class="text">曼谷给我的第一印象，来自低得几乎触手可及的云；真正留下来的记忆，却都在地面上：拥堵的街道、临时变化的行程、靠比划完成的一顿饭，以及被摆在同一条河边的两种生活。</p>
+      <p class="text">这座城市并不总是让人舒服，却很少让人觉得单调。混乱和热闹，警惕和惊喜，常常一起出现。也许旅行值得记录的，正是这些无法被一句“好”或“不好”概括的时刻。</p>
+      <p class="text">最后，感谢一起出游的刘总和盛哥。</p>
+      <p class="text"><a href="#top">回到开头</a></p>
+    </section>
+  </main>
+</body>
+</html>

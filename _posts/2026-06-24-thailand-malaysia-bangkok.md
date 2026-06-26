@@ -29,12 +29,12 @@ header:
 
 </div>
 
-<div class="life-note-gallery life-note-gallery--two">
-  <figure class="life-note-figure life-note-figure--portrait">
+<div class="life-note-gallery life-note-gallery--wat">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds">
     <img src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" loading="lazy" decoding="async">
     <figcaption>郑王庙的塔尖几乎伸进了低云里。</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps">
     <img src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" loading="lazy" decoding="async">
     <figcaption>沿着石阶向上，天空和建筑挤在同一幅画面里。</figcaption>
   </figure>
@@ -109,18 +109,19 @@ header:
 
 更有戏剧性的是：下午，我们看见河里的“大蜥蜴”；晚上，在商场负一层，我们真的尝到了鳄鱼肉。
 
-<p class="life-note-gallery-label">同一条河的两种生活</p>
-
-<div class="life-note-gallery life-note-gallery--two">
-  <figure class="life-note-figure life-note-figure--landscape">
-    <img src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" loading="lazy" decoding="async">
-    <figcaption>在商业综合体里见到的鳄鱼料理。</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
-    <img src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" loading="lazy" decoding="async">
-    <figcaption>同一条河的另一面：明亮、精致的商场内部。</figcaption>
-  </figure>
-</div>
+<section class="life-note-contrast" aria-labelledby="river-contrast-title">
+  <p id="river-contrast-title" class="life-note-contrast__eyebrow">同一条河的两种生活</p>
+  <div class="life-note-contrast__layout">
+    <figure class="life-note-figure life-note-contrast__scene">
+      <img src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" loading="lazy" decoding="async">
+      <figcaption>同一条河的另一面：明亮、精致的商场内部。</figcaption>
+    </figure>
+    <figure class="life-note-figure life-note-contrast__detail">
+      <img src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" loading="lazy" decoding="async">
+      <figcaption>在商业综合体里见到的鳄鱼料理。</figcaption>
+    </figure>
+  </div>
+</section>
 
 ## 06｜画师、普通劳动者和“枪王”
 
@@ -143,16 +144,16 @@ header:
 
 最后放几张美食照片。泰国菜里常见酸、辣和香料，对一个正处在口腔溃疡康复期的人来说，并不算特别友好。好在旅行的胃总比平时勇敢一点。
 
-<div class="life-note-gallery life-note-gallery--three life-note-gallery--food">
-  <figure class="life-note-figure life-note-figure--portrait">
+<div class="life-note-gallery life-note-gallery--food">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-main">
     <img src="/images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜" loading="lazy" decoding="async">
     <figcaption>松松海鲜，口味更接近中式。</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a">
     <img src="/images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面" loading="lazy" decoding="async">
     <figcaption>据说是“周杰伦同款”的船面。</figcaption>
   </figure>
-  <figure class="life-note-figure life-note-figure--portrait">
+  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b">
     <img src="/images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条" loading="lazy" decoding="async">
     <figcaption>一根很难优雅吃完的超长薯条。</figcaption>
   </figure>
