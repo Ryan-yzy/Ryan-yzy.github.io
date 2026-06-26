@@ -76,7 +76,7 @@ header:
 
 吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。
 
-{% include life-note/figure.html src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" caption="水上市场附近的河道。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" caption="水上市场附近的河道。仔细看，河里面有鳄鱼。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。
 
