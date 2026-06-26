@@ -30,10 +30,7 @@ header:
 
 </div>
 
-<div class="life-note-gallery life-note-gallery--wat" role="group" aria-label="郑王庙开场双图">
-  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" caption="郑王庙的塔尖几乎伸进了低云里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds" width="900" height="1600" loading="eager" fetchpriority="high" %}
-  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" caption="沿着石阶向上，天空和建筑挤在同一幅画面里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps" width="900" height="1600" loading="lazy" %}
-</div>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" caption="沿着石阶向上，天空和建筑挤在同一幅画面里。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="eager" fetchpriority="high" %}
 
 ## 01｜从天空落到街道
 
@@ -89,13 +86,7 @@ header:
 
 更有戏剧性的是：下午，我们看见河里的“大蜥蜴”；晚上，在商场负一层，我们真的尝到了鳄鱼肉。
 
-<section class="life-note-contrast" aria-labelledby="river-contrast-title">
-  <p id="river-contrast-title" class="life-note-contrast__eyebrow">同一条河的两种生活</p>
-  <div class="life-note-contrast__layout">
-    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" caption="同一条河的另一面：明亮、精致的商场内部。" figure_class="life-note-figure life-note-contrast__scene" width="900" height="1600" loading="lazy" %}
-    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" caption="在商业综合体里见到的鳄鱼料理。" figure_class="life-note-figure life-note-contrast__detail" width="1600" height="900" loading="lazy" %}
-  </div>
-</section>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" caption="在商业综合体里见到的鳄鱼料理。" figure_class="life-note-figure life-note-figure--landscape" width="1600" height="900" loading="lazy" %}
 
 ## 06｜画师、普通劳动者和“枪王”
 
