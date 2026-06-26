@@ -13,6 +13,7 @@
       color: #293136;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif;
       line-height: 1.9;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
     .site-nav {
@@ -152,6 +153,7 @@
     }
     @media (max-width: 720px) {
       .site-nav { overflow-x: auto; white-space: nowrap; }
+      .site-nav { max-width: 100vw; }
       main { padding-right: 18px; padding-left: 18px; overflow-x: hidden; }
       .text { font-size: 17px; line-height: 1.92; }
       .wat-pair, .contrast__layout, .food-grid {
