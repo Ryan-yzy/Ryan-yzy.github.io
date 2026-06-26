@@ -9,8 +9,9 @@ This guide is for maintaining the Life & Notes section of the site. It is not a 
 3. Add one subcategory: `travel`, `daily-life`, or `reading`.
 4. Put images under `images/life-notes/year/article-name/`.
 5. Fill in `title`, `date`, `excerpt`, `header.teaser`, and `tags`.
-6. Run `bundle exec jekyll build` locally before publishing.
-7. Commit, push, and open a pull request.
+6. Use `layout: life-note` and set `author_profile: false`.
+7. Run `bundle exec jekyll build` locally before publishing.
+8. Commit, push, and open a pull request.
 
 ## Front matter templates
 
@@ -20,13 +21,14 @@ This guide is for maintaining the Life & Notes section of the site. It is not a 
 ---
 title: "Article title"
 date: YYYY-MM-DD
+layout: life-note
 categories:
   - life-notes
   - travel
 tags:
   - travel
 excerpt: "A short summary for article lists."
-author_profile: true
+author_profile: false
 read_time: true
 share: true
 related: false
@@ -41,13 +43,14 @@ header:
 ---
 title: "Article title"
 date: YYYY-MM-DD
+layout: life-note
 categories:
   - life-notes
   - daily-life
 tags:
   - daily life
 excerpt: "A short summary for article lists."
-author_profile: true
+author_profile: false
 read_time: true
 share: true
 related: false
@@ -62,13 +65,14 @@ header:
 ---
 title: "Article title"
 date: YYYY-MM-DD
+layout: life-note
 categories:
   - life-notes
   - reading
 tags:
   - reading
 excerpt: "A short summary for article lists."
-author_profile: true
+author_profile: false
 read_time: true
 share: true
 related: false
@@ -90,11 +94,50 @@ header:
 
 Use site-root image paths in articles:
 
-```markdown
-![Alt text](/images/life-notes/YYYY/slug/photo.jpg)
-
-*Caption text.*
+```html
+<figure class="life-note-figure life-note-figure--portrait">
+  <img src="/images/life-notes/YYYY/slug/photo.jpg" alt="Alt text" loading="lazy" decoding="async">
+  <figcaption>Caption text.</figcaption>
+</figure>
 ```
+
+Use `life-note-figure--portrait` for ordinary vertical photos, `life-note-figure--landscape` for horizontal images, and `life-note-figure--compact` for small informational images such as tickets, signs, receipts, or target sheets.
+
+Use a two-image gallery for closely related image pairs:
+
+```html
+<div class="life-note-gallery life-note-gallery--two">
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
+    <figcaption>Caption text.</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
+    <figcaption>Caption text.</figcaption>
+  </figure>
+</div>
+```
+
+Use a three-image gallery for compact groups such as food:
+
+```html
+<div class="life-note-gallery life-note-gallery--three">
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
+    <figcaption>Caption text.</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
+    <figcaption>Caption text.</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/YYYY/slug/photo-03.jpg" alt="Alt text" loading="lazy" decoding="async">
+    <figcaption>Caption text.</figcaption>
+  </figure>
+</div>
+```
+
+Avoid long runs of full-width standalone images. Put images near the paragraph they explain, and group related images when the relationship is clear.
 
 ## Publishing workflow
 
