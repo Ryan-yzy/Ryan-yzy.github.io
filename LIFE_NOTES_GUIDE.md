@@ -29,7 +29,8 @@ tags:
   - travel
 excerpt: "A short summary for article lists."
 author_profile: false
-read_time: true
+reading_minutes: 3
+read_time: false
 share: true
 related: false
 header:
@@ -51,7 +52,8 @@ tags:
   - daily life
 excerpt: "A short summary for article lists."
 author_profile: false
-read_time: true
+reading_minutes: 3
+read_time: false
 share: true
 related: false
 header:
@@ -73,7 +75,8 @@ tags:
   - reading
 excerpt: "A short summary for article lists."
 author_profile: false
-read_time: true
+reading_minutes: 3
+read_time: false
 share: true
 related: false
 header:
@@ -90,15 +93,17 @@ header:
 - Do not use Chinese paths.
 - Do not use local absolute paths.
 - Add meaningful alt text for each image.
+- Add the actual pixel `width` and `height` for each image.
 - Do not publish IDs, phone numbers, addresses, or other private details.
+- For Chinese articles, set `reading_minutes` manually instead of relying on the default `number_of_words` reading-time estimate. A practical estimate is about 400 visible Chinese characters per minute, rounded up.
+- The first above-the-fold article image should use `loading="eager"` and `fetchpriority="high"`.
+- Every later article image should use `loading="lazy"`.
+- Alt text should describe the image content. Captions should explain the image's relationship to the article.
 
-Use site-root image paths in articles:
+Use site-root image paths with the reusable figure include:
 
 ```html
-<figure class="life-note-figure life-note-figure--portrait">
-  <img src="/images/life-notes/YYYY/slug/photo.jpg" alt="Alt text" loading="lazy" decoding="async">
-  <figcaption>Caption text.</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 ```
 
 Use `life-note-figure--portrait` for ordinary vertical photos, `life-note-figure--landscape` for horizontal images, and `life-note-figure--compact` for small informational images such as tickets, signs, receipts, or target sheets.
@@ -106,15 +111,9 @@ Use `life-note-figure--portrait` for ordinary vertical photos, `life-note-figure
 Use a two-image gallery only when the two images have a similar visual role. For a travel opener, prefer the Wat Arun-style offset pair:
 
 ```html
-<div class="life-note-gallery life-note-gallery--wat">
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds">
-    <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
-    <figcaption>Caption text.</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps">
-    <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
-    <figcaption>Caption text.</figcaption>
-  </figure>
+<div class="life-note-gallery life-note-gallery--wat" role="group" aria-label="Opening image pair">
+  {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds" width="900" height="1600" loading="eager" fetchpriority="high" %}
+  {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps" width="900" height="1600" loading="lazy" %}
 </div>
 ```
 
@@ -124,14 +123,8 @@ For contrast pairs with different aspect ratios or different narrative roles, do
 <section class="life-note-contrast" aria-labelledby="contrast-title">
   <p id="contrast-title" class="life-note-contrast__eyebrow">Shared label</p>
   <div class="life-note-contrast__layout">
-    <figure class="life-note-figure life-note-contrast__scene">
-      <img src="/images/life-notes/YYYY/slug/scene.jpg" alt="Alt text" loading="lazy" decoding="async">
-      <figcaption>Scene caption.</figcaption>
-    </figure>
-    <figure class="life-note-figure life-note-contrast__detail">
-      <img src="/images/life-notes/YYYY/slug/detail.jpg" alt="Alt text" loading="lazy" decoding="async">
-      <figcaption>Detail caption.</figcaption>
-    </figure>
+    {% include life-note/figure.html src="/images/life-notes/YYYY/slug/scene.jpg" alt="Alt text" caption="Scene caption." figure_class="life-note-figure life-note-contrast__scene" width="900" height="1600" loading="lazy" %}
+    {% include life-note/figure.html src="/images/life-notes/YYYY/slug/detail.jpg" alt="Alt text" caption="Detail caption." figure_class="life-note-figure life-note-contrast__detail" width="1600" height="900" loading="lazy" %}
   </div>
 </section>
 ```
@@ -139,19 +132,10 @@ For contrast pairs with different aspect ratios or different narrative roles, do
 Use an asymmetric three-image gallery for compact groups such as food:
 
 ```html
-<div class="life-note-gallery life-note-gallery--food">
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-main">
-    <img src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" loading="lazy" decoding="async">
-    <figcaption>Caption text.</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a">
-    <img src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" loading="lazy" decoding="async">
-    <figcaption>Caption text.</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b">
-    <img src="/images/life-notes/YYYY/slug/photo-03.jpg" alt="Alt text" loading="lazy" decoding="async">
-    <figcaption>Caption text.</figcaption>
-  </figure>
+<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="Food photos">
+  {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-main" width="900" height="1600" loading="lazy" %}
+  {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a" width="900" height="1600" loading="lazy" %}
+  {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-03.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b" width="900" height="1600" loading="lazy" %}
 </div>
 ```
 

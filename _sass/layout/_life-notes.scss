@@ -116,14 +116,20 @@
   letter-spacing: 0;
 }
 
-.life-note-meta,
-.life-note-date {
+.life-note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  align-items: center;
   color: var(--global-text-color-light);
   font-size: $type-size-6;
+  line-height: 1.5;
 }
 
-.life-note-date {
-  margin-top: 0.3rem;
+.life-note-meta__item {
+  display: inline-flex;
+  gap: 0.28rem;
+  align-items: center;
 }
 
 .life-note-content {
