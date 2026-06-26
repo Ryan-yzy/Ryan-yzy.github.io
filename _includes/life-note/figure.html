@@ -1,0 +1,5 @@
+{% assign life_note_image_loading = include.loading | default: "lazy" %}
+<figure{% if include.figure_class %} class="{{ include.figure_class | escape }}"{% endif %}>
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}"{% if include.image_class %} class="{{ include.image_class | escape }}"{% endif %}{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} loading="{{ life_note_image_loading | escape }}" decoding="async"{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority | escape }}"{% endif %}>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

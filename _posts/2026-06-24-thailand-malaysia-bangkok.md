@@ -12,7 +12,8 @@ tags:
   - 生活记录
 excerpt: "低垂的云、拥堵的街道、湄南河两岸的反差，以及旅途中遇到的一些人。"
 author_profile: false
-read_time: true
+reading_minutes: 5
+read_time: false
 share: true
 related: false
 header:
@@ -29,15 +30,9 @@ header:
 
 </div>
 
-<div class="life-note-gallery life-note-gallery--wat">
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds">
-    <img src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" loading="lazy" decoding="async">
-    <figcaption>郑王庙的塔尖几乎伸进了低云里。</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps">
-    <img src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" loading="lazy" decoding="async">
-    <figcaption>沿着石阶向上，天空和建筑挤在同一幅画面里。</figcaption>
-  </figure>
+<div class="life-note-gallery life-note-gallery--wat" role="group" aria-label="郑王庙开场双图">
+  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" caption="郑王庙的塔尖几乎伸进了低云里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds" width="900" height="1600" loading="eager" fetchpriority="high" %}
+  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" caption="沿着石阶向上，天空和建筑挤在同一幅画面里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps" width="900" height="1600" loading="lazy" %}
 </div>
 
 ## 01｜从天空落到街道
@@ -48,10 +43,7 @@ header:
 
 其中出现最多的，是一块写着“Save Bangkok”的黄色牌子。它让我对这座“需要被拯救”的城市，多了一点好奇。
 
-<figure class="life-note-figure life-note-figure--portrait">
-  <img src="/images/life-notes/2026/bangkok/03-huai-khwang-street.jpg" alt="辉煌区街头，中文招牌与车流叠在一起" loading="lazy" decoding="async">
-  <figcaption>辉煌区街头，中文招牌与车流叠在一起。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/03-huai-khwang-street.jpg" alt="辉煌区街头，中文招牌与车流叠在一起" caption="辉煌区街头，中文招牌与车流叠在一起。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 ## 02｜打车很贵，走路也不轻松
 
@@ -59,17 +51,11 @@ header:
 
 从机场到酒店，半个小时的路程里几乎没遇到红绿灯。车少的时候，这是畅通；到了车流密集的路段和时段，它就会变成一场漫长的拥堵。当地常见的解决方式，是安排工作人员站在路口挥动红旗，像一盏会走动的“人肉红绿灯”。
 
-<figure class="life-note-figure life-note-figure--portrait">
-  <img src="/images/life-notes/2026/bangkok/04-bangkok-traffic.jpg" alt="曼谷白天的车流" loading="lazy" decoding="async">
-  <figcaption>曼谷白天的车流。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/04-bangkok-traffic.jpg" alt="曼谷白天的车流" caption="曼谷白天的车流。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 除了汽车，曼谷还有大量摩托车和三轮车。有些路段并没有给行人留下太多空间，走路时耳边是发动机的噪声，空气里也混着机油味。我忍不住想，大一学过的交通工程，也许在这里能派上更大的用场。
 
-<figure class="life-note-figure life-note-figure--portrait">
-  <img src="/images/life-notes/2026/bangkok/05-night-street.jpg" alt="夜晚街道上的摩托车、汽车和电线" loading="lazy" decoding="async">
-  <figcaption>夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/05-night-street.jpg" alt="夜晚街道上的摩托车、汽车和电线" caption="夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 ## 03｜旅行中的警惕
 
@@ -93,17 +79,11 @@ header:
 
 吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。
 
-<figure class="life-note-figure life-note-figure--portrait">
-  <img src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" loading="lazy" decoding="async">
-  <figcaption>水上市场附近的河道。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" caption="水上市场附近的河道。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。
 
-<figure class="life-note-figure life-note-figure--landscape">
-  <img src="/images/life-notes/2026/bangkok/07-riverside-houses.jpg" alt="沿岸以木桩支撑的旧房子" loading="lazy" decoding="async">
-  <figcaption>沿岸以木桩支撑的旧房子。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/07-riverside-houses.jpg" alt="沿岸以木桩支撑的旧房子" caption="沿岸以木桩支撑的旧房子。" figure_class="life-note-figure life-note-figure--landscape" width="1600" height="900" loading="lazy" %}
 
 晚上，我们来到同样位于湄南河沿岸的暹罗天地。这里明亮、精致，商场里集合了餐厅、品牌店和室内景观。很难想象，下午看到的河岸生活与这里相距不过几公里。
 
@@ -112,14 +92,8 @@ header:
 <section class="life-note-contrast" aria-labelledby="river-contrast-title">
   <p id="river-contrast-title" class="life-note-contrast__eyebrow">同一条河的两种生活</p>
   <div class="life-note-contrast__layout">
-    <figure class="life-note-figure life-note-contrast__scene">
-      <img src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" loading="lazy" decoding="async">
-      <figcaption>同一条河的另一面：明亮、精致的商场内部。</figcaption>
-    </figure>
-    <figure class="life-note-figure life-note-contrast__detail">
-      <img src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" loading="lazy" decoding="async">
-      <figcaption>在商业综合体里见到的鳄鱼料理。</figcaption>
-    </figure>
+    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" caption="同一条河的另一面：明亮、精致的商场内部。" figure_class="life-note-figure life-note-contrast__scene" width="900" height="1600" loading="lazy" %}
+    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" caption="在商业综合体里见到的鳄鱼料理。" figure_class="life-note-figure life-note-contrast__detail" width="1600" height="900" loading="lazy" %}
   </div>
 </section>
 
@@ -133,10 +107,7 @@ header:
 
 “枪王”则不是别人，正是我自己。最后一天，我们去了海军射击场。也许是因为多给了小费，教练帮我反复调整姿势和枪的位置，最后得到一张弹孔密密麻麻的靶纸。
 
-<figure class="life-note-figure life-note-figure--compact">
-  <img src="/images/life-notes/2026/bangkok/10-shooting-target.jpg" alt="步枪环节的靶纸" loading="lazy" decoding="async">
-  <figcaption>步枪环节的靶纸，让我短暂拥有了“枪王”的称号。</figcaption>
-</figure>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/10-shooting-target.jpg" alt="步枪环节的靶纸" caption="步枪环节的靶纸，让我短暂拥有了“枪王”的称号。" figure_class="life-note-figure life-note-figure--compact" width="900" height="1600" loading="lazy" %}
 
 不过这个称号只维持到手枪环节。轮到手枪时，我很快暴露了真实水平：瞄准不够稳定，后坐力又不断把枪口带高，弹孔散得到处都是，真正上靶的没有几发。
 
@@ -144,19 +115,10 @@ header:
 
 最后放几张美食照片。泰国菜里常见酸、辣和香料，对一个正处在口腔溃疡康复期的人来说，并不算特别友好。好在旅行的胃总比平时勇敢一点。
 
-<div class="life-note-gallery life-note-gallery--food">
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-main">
-    <img src="/images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜" loading="lazy" decoding="async">
-    <figcaption>松松海鲜，口味更接近中式。</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a">
-    <img src="/images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面" loading="lazy" decoding="async">
-    <figcaption>据说是“周杰伦同款”的船面。</figcaption>
-  </figure>
-  <figure class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b">
-    <img src="/images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条" loading="lazy" decoding="async">
-    <figcaption>一根很难优雅吃完的超长薯条。</figcaption>
-  </figure>
+<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="曼谷美食照片">
+  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜" caption="松松海鲜，口味更接近中式。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-main" width="900" height="1600" loading="lazy" %}
+  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面" caption="据说是“周杰伦同款”的船面。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a" width="900" height="1600" loading="lazy" %}
+  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条" caption="一根很难优雅吃完的超长薯条。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b" width="900" height="1600" loading="lazy" %}
 </div>
 
 ## 写在最后
