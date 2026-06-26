@@ -209,8 +209,8 @@
 }
 
 .life-note-figure--portrait {
-  width: min(86%, 410px);
-  max-width: 410px;
+  width: min(82%, 340px);
+  max-width: 340px;
 }
 
 .life-note-figure--landscape {
@@ -247,8 +247,8 @@
 .life-note-gallery--wat {
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   align-items: end;
-  width: min(100%, 820px);
-  max-width: 820px;
+  width: min(100%, 700px);
+  max-width: 700px;
 }
 
 .life-note-figure--wat-clouds {
@@ -256,25 +256,22 @@
 }
 
 .life-note-gallery--food {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
-  grid-template-areas:
-    "main side-a"
-    "main side-b";
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
   width: min(100%, 790px);
   max-width: 790px;
 }
 
 .life-note-figure--food-main {
-  grid-area: main;
+  grid-area: auto;
 }
 
 .life-note-figure--food-side-a {
-  grid-area: side-a;
+  grid-area: auto;
 }
 
 .life-note-figure--food-side-b {
-  grid-area: side-b;
+  grid-area: auto;
 }
 
 .life-note-contrast {
@@ -301,7 +298,8 @@
 }
 
 .life-note-contrast__scene {
-  max-width: 470px;
+  width: min(100%, 340px);
+  max-width: 340px;
   justify-self: end;
 }
 
@@ -325,8 +323,6 @@
 @media (max-width: 720px) {
   .life-note-gallery--two,
   .life-note-gallery--three,
-  .life-note-gallery--wat,
-  .life-note-gallery--food,
   .life-note-contrast__layout {
     grid-template-columns: 1fr;
     grid-template-areas: none;
@@ -343,15 +339,45 @@
     transform: none;
   }
 
-  .life-note-figure--food-main,
-  .life-note-figure--food-side-a,
-  .life-note-figure--food-side-b {
-    grid-area: auto;
+  .life-note-gallery--wat {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.45rem, 2.4vw, 0.8rem);
+    width: min(100%, 700px);
+    max-width: 700px;
+  }
+
+  .life-note-gallery--wat .life-note-figure {
+    width: 100%;
+    max-width: none;
+  }
+
+  .life-note-gallery--wat figcaption {
+    font-size: 12.25px;
+    line-height: 1.45;
+  }
+
+  .life-note-gallery--food {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 0.25rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .life-note-gallery--food .life-note-figure {
+    flex: 0 0 min(74vw, 290px);
+    width: min(74vw, 290px);
+    max-width: 290px;
+    scroll-snap-align: center;
   }
 
   .life-note-contrast__scene {
-    width: min(100%, 430px);
-    max-width: 430px;
+    width: min(100%, 300px);
+    max-width: 300px;
     margin-right: auto;
     margin-bottom: 1.35rem;
     margin-left: auto;
@@ -420,8 +446,8 @@
   }
 
   .life-note-figure--portrait {
-    width: min(88%, 360px);
-    max-width: 360px;
+    width: min(88%, 290px);
+    max-width: 290px;
   }
 
   .life-note-figure--landscape {

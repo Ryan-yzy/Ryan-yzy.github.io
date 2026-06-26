@@ -99,6 +99,10 @@ header:
 - The first above-the-fold article image should use `loading="eager"` and `fetchpriority="high"`.
 - Every later article image should use `loading="lazy"`.
 - Alt text should describe the image content. Captions should explain the image's relationship to the article.
+- Standalone portrait photos should use the narrower portrait style so 9:16 images do not dominate the reading flow.
+- Two related portrait photos should usually sit side by side, including on phones when the captions remain readable.
+- Three or more related portrait photos should sit side by side on desktop and become a horizontal, scroll-snapping photo strip on phones.
+- Do not crop documentary travel photos just to shorten a page. Preserve the full image ratio and use sizing or horizontal scrolling instead.
 
 Use site-root image paths with the reusable figure include:
 
@@ -108,7 +112,7 @@ Use site-root image paths with the reusable figure include:
 
 Use `life-note-figure--portrait` for ordinary vertical photos, `life-note-figure--landscape` for horizontal images, and `life-note-figure--compact` for small informational images such as tickets, signs, receipts, or target sheets.
 
-Use a two-image gallery only when the two images have a similar visual role. For a travel opener, prefer the Wat Arun-style offset pair:
+Use a two-image gallery only when the two images have a similar visual role. For two portrait photos, prefer keeping them side by side instead of stacking them into a long vertical run. For a travel opener, prefer the Wat Arun-style offset pair:
 
 ```html
 <div class="life-note-gallery life-note-gallery--wat" role="group" aria-label="Opening image pair">
@@ -129,10 +133,10 @@ For contrast pairs with different aspect ratios or different narrative roles, do
 </section>
 ```
 
-Use an asymmetric three-image gallery for compact groups such as food:
+Use a three-image portrait gallery for compact groups such as food. It displays as equal columns on desktop and as a keyboard-focusable horizontal photo strip on phones:
 
 ```html
-<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="Food photos">
+<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="Food photos, horizontally scrollable" tabindex="0">
   {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-01.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-main" width="900" height="1600" loading="lazy" %}
   {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-02.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a" width="900" height="1600" loading="lazy" %}
   {% include life-note/figure.html src="/images/life-notes/YYYY/slug/photo-03.jpg" alt="Alt text" caption="Caption text." figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b" width="900" height="1600" loading="lazy" %}

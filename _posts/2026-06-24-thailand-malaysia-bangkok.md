@@ -115,7 +115,7 @@ header:
 
 最后放几张美食照片。泰国菜里常见酸、辣和香料，对一个正处在口腔溃疡康复期的人来说，并不算特别友好。好在旅行的胃总比平时勇敢一点。
 
-<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="曼谷美食照片">
+<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="曼谷美食照片，可横向滚动浏览" tabindex="0">
   {% include life-note/figure.html src="/images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜" caption="松松海鲜，口味更接近中式。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-main" width="900" height="1600" loading="lazy" %}
   {% include life-note/figure.html src="/images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面" caption="据说是“周杰伦同款”的船面。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-a" width="900" height="1600" loading="lazy" %}
   {% include life-note/figure.html src="/images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条" caption="一根很难优雅吃完的超长薯条。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b" width="900" height="1600" loading="lazy" %}
