@@ -1,4 +1,5 @@
 ---
+layout: life-note
 title: "泰马记（上）｜低云之下的曼谷"
 date: 2026-06-24
 categories:
@@ -10,7 +11,7 @@ tags:
   - 旅行
   - 生活记录
 excerpt: "低垂的云、拥堵的街道、湄南河两岸的反差，以及旅途中遇到的一些人。"
-author_profile: true
+author_profile: false
 read_time: true
 share: true
 related: false
@@ -20,17 +21,24 @@ header:
 
 <div class="life-note" markdown="1">
 
+<div class="life-note-lead" markdown="1">
+
 从曼谷机场出来，第一反应是热，第二反应是：云真低。
 
 那是我第一次觉得，“高耸入云”也可以用来形容云本身，而不只是建筑和山峰。来到郑王庙时，塔尖向上伸展，低垂的云仿佛压在建筑上方，神圣感也跟着变得具体。
 
-![郑王庙的塔尖几乎伸进了低云里。](/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg){: .life-note-image--portrait }
+</div>
 
-*郑王庙的塔尖几乎伸进了低云里。*
-
-![沿着石阶向上，天空和建筑挤在同一幅画面里。](/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg){: .life-note-image--portrait }
-
-*沿着石阶向上，天空和建筑挤在同一幅画面里。*
+<div class="life-note-gallery life-note-gallery--two">
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" loading="lazy" decoding="async">
+    <figcaption>郑王庙的塔尖几乎伸进了低云里。</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" loading="lazy" decoding="async">
+    <figcaption>沿着石阶向上，天空和建筑挤在同一幅画面里。</figcaption>
+  </figure>
+</div>
 
 ## 01｜从天空落到街道
 
@@ -40,9 +48,10 @@ header:
 
 其中出现最多的，是一块写着“Save Bangkok”的黄色牌子。它让我对这座“需要被拯救”的城市，多了一点好奇。
 
-![辉煌区街头，中文招牌与车流叠在一起。](/images/life-notes/2026/bangkok/03-huai-khwang-street.jpg){: .life-note-image--portrait }
-
-*辉煌区街头，中文招牌与车流叠在一起。*
+<figure class="life-note-figure life-note-figure--portrait">
+  <img src="/images/life-notes/2026/bangkok/03-huai-khwang-street.jpg" alt="辉煌区街头，中文招牌与车流叠在一起" loading="lazy" decoding="async">
+  <figcaption>辉煌区街头，中文招牌与车流叠在一起。</figcaption>
+</figure>
 
 ## 02｜打车很贵，走路也不轻松
 
@@ -50,15 +59,17 @@ header:
 
 从机场到酒店，半个小时的路程里几乎没遇到红绿灯。车少的时候，这是畅通；到了车流密集的路段和时段，它就会变成一场漫长的拥堵。当地常见的解决方式，是安排工作人员站在路口挥动红旗，像一盏会走动的“人肉红绿灯”。
 
-![曼谷白天的车流。](/images/life-notes/2026/bangkok/04-bangkok-traffic.jpg){: .life-note-image--portrait }
-
-*曼谷白天的车流。*
+<figure class="life-note-figure life-note-figure--portrait">
+  <img src="/images/life-notes/2026/bangkok/04-bangkok-traffic.jpg" alt="曼谷白天的车流" loading="lazy" decoding="async">
+  <figcaption>曼谷白天的车流。</figcaption>
+</figure>
 
 除了汽车，曼谷还有大量摩托车和三轮车。有些路段并没有给行人留下太多空间，走路时耳边是发动机的噪声，空气里也混着机油味。我忍不住想，大一学过的交通工程，也许在这里能派上更大的用场。
 
-![夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。](/images/life-notes/2026/bangkok/05-night-street.jpg){: .life-note-image--portrait }
-
-*夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。*
+<figure class="life-note-figure life-note-figure--portrait">
+  <img src="/images/life-notes/2026/bangkok/05-night-street.jpg" alt="夜晚街道上的摩托车、汽车和电线" loading="lazy" decoding="async">
+  <figcaption>夜晚的街道，摩托车、汽车与电线共同构成城市的背景音。</figcaption>
+</figure>
 
 ## 03｜旅行中的警惕
 
@@ -80,27 +91,36 @@ header:
 
 ## 05｜同一条河的两种生活
 
-吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。
+吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。
 
-![水上市场附近的河道。](/images/life-notes/2026/bangkok/06-floating-market-canal.jpg){: .life-note-image--portrait }
+<figure class="life-note-figure life-note-figure--portrait">
+  <img src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" loading="lazy" decoding="async">
+  <figcaption>水上市场附近的河道。</figcaption>
+</figure>
 
-*水上市场附近的河道。*
+沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。
 
-![沿岸以木桩支撑的旧房子。](/images/life-notes/2026/bangkok/07-riverside-houses.jpg){: .life-note-image--landscape }
-
-*沿岸以木桩支撑的旧房子。*
+<figure class="life-note-figure life-note-figure--landscape">
+  <img src="/images/life-notes/2026/bangkok/07-riverside-houses.jpg" alt="沿岸以木桩支撑的旧房子" loading="lazy" decoding="async">
+  <figcaption>沿岸以木桩支撑的旧房子。</figcaption>
+</figure>
 
 晚上，我们来到同样位于湄南河沿岸的暹罗天地。这里明亮、精致，商场里集合了餐厅、品牌店和室内景观。很难想象，下午看到的河岸生活与这里相距不过几公里。
 
 更有戏剧性的是：下午，我们看见河里的“大蜥蜴”；晚上，在商场负一层，我们真的尝到了鳄鱼肉。
 
-![在商业综合体里见到的鳄鱼料理。](/images/life-notes/2026/bangkok/08-crocodile-dish.jpg){: .life-note-image--landscape }
+<p class="life-note-gallery-label">同一条河的两种生活</p>
 
-*在商业综合体里见到的鳄鱼料理。*
-
-![同一条河的另一面：明亮、精致的商场内部。](/images/life-notes/2026/bangkok/09-riverside-mall.jpg){: .life-note-image--portrait }
-
-*同一条河的另一面：明亮、精致的商场内部。*
+<div class="life-note-gallery life-note-gallery--two">
+  <figure class="life-note-figure life-note-figure--landscape">
+    <img src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" loading="lazy" decoding="async">
+    <figcaption>在商业综合体里见到的鳄鱼料理。</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" loading="lazy" decoding="async">
+    <figcaption>同一条河的另一面：明亮、精致的商场内部。</figcaption>
+  </figure>
+</div>
 
 ## 06｜画师、普通劳动者和“枪王”
 
@@ -112,27 +132,31 @@ header:
 
 “枪王”则不是别人，正是我自己。最后一天，我们去了海军射击场。也许是因为多给了小费，教练帮我反复调整姿势和枪的位置，最后得到一张弹孔密密麻麻的靶纸。
 
+<figure class="life-note-figure life-note-figure--compact">
+  <img src="/images/life-notes/2026/bangkok/10-shooting-target.jpg" alt="步枪环节的靶纸" loading="lazy" decoding="async">
+  <figcaption>步枪环节的靶纸，让我短暂拥有了“枪王”的称号。</figcaption>
+</figure>
+
 不过这个称号只维持到手枪环节。轮到手枪时，我很快暴露了真实水平：瞄准不够稳定，后坐力又不断把枪口带高，弹孔散得到处都是，真正上靶的没有几发。
-
-![步枪环节的靶纸，让我短暂拥有了“枪王”的称号。](/images/life-notes/2026/bangkok/10-shooting-target.jpg){: .life-note-image--portrait }
-
-*步枪环节的靶纸，让我短暂拥有了“枪王”的称号。*
 
 ## 07｜最后，当然是吃
 
 最后放几张美食照片。泰国菜里常见酸、辣和香料，对一个正处在口腔溃疡康复期的人来说，并不算特别友好。好在旅行的胃总比平时勇敢一点。
 
-![松松海鲜，口味更接近中式。](/images/life-notes/2026/bangkok/11-seafood.jpg){: .life-note-image--portrait }
-
-*松松海鲜，口味更接近中式。*
-
-![据说是“周杰伦同款”的船面。](/images/life-notes/2026/bangkok/12-boat-noodles.jpg){: .life-note-image--portrait }
-
-*据说是“周杰伦同款”的船面。*
-
-![一根很难优雅吃完的超长薯条。](/images/life-notes/2026/bangkok/13-long-fries.jpg){: .life-note-image--portrait }
-
-*一根很难优雅吃完的超长薯条。*
+<div class="life-note-gallery life-note-gallery--three life-note-gallery--food">
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/11-seafood.jpg" alt="松松海鲜" loading="lazy" decoding="async">
+    <figcaption>松松海鲜，口味更接近中式。</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/12-boat-noodles.jpg" alt="据说是周杰伦同款的船面" loading="lazy" decoding="async">
+    <figcaption>据说是“周杰伦同款”的船面。</figcaption>
+  </figure>
+  <figure class="life-note-figure life-note-figure--portrait">
+    <img src="/images/life-notes/2026/bangkok/13-long-fries.jpg" alt="一根很难优雅吃完的超长薯条" loading="lazy" decoding="async">
+    <figcaption>一根很难优雅吃完的超长薯条。</figcaption>
+  </figure>
+</div>
 
 ## 写在最后
 
