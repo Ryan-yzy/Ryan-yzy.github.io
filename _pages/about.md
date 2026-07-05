@@ -100,18 +100,15 @@ redirect_from:
       <a class="btn home-btn home-btn--warm" href="{{ '/life-notes/' | relative_url }}">Read Life &amp; Notes</a>
     </div>
     <div class="home-life-preview__gallery" aria-label="Life and Notes photo preview">
-      {% assign home_note_count = 0 %}
-      {% for post in site.posts %}
-        {% if post.categories contains "life-notes" and home_note_count < 3 %}
-          {% assign teaser = post.header.teaser | default: site.teaser %}
-          {% if teaser %}
-            <a class="home-life-preview__cover" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title | strip_html | escape }}">
-              <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | relative_url }}{% endif %}" alt="{{ post.title | strip_html | escape }}" loading="lazy" decoding="async">
-            </a>
-            {% assign home_note_count = home_note_count | plus: 1 %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
+      <a class="home-life-preview__cover" href="{{ '/life-notes/' | relative_url }}" aria-label="Read Life and Notes">
+        <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu at an award ceremony" loading="lazy" decoding="async">
+      </a>
+      <a class="home-life-preview__cover" href="{{ '/life-notes/daily-life/thesis-acknowledgements/' | relative_url }}" aria-label="Read thesis acknowledgements">
+        <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Graduation memory at Southeast University" loading="lazy" decoding="async">
+      </a>
+      <a class="home-life-preview__cover" href="{{ '/life-notes/' | relative_url }}" aria-label="Read Life and Notes">
+        <img src="{{ '/images/home/presentation-classroom.jpg' | relative_url }}" alt="Classroom presentation moment" loading="lazy" decoding="async">
+      </a>
     </div>
   </section>
 
