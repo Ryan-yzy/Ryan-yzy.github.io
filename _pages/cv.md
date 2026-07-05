@@ -18,7 +18,7 @@ Contact
 
 Education
 ======
-* **Southeast University**, M.S. in Information Science and Technology, Sep. 2023 - Jun. 2026 (Expected)
+* **Southeast University**, M.S. in Information Science and Technology, Sep. 2023 - Jun. 2026
   * Master advisors: **Hong Ren** and **Cunhua Pan**.
   * Research interests: **ISAC**, **RIS**, and **MIMO signal detection**.
   * IELTS: 7.5 (L: 8.5, R: 9, W: 7, S: 6).
