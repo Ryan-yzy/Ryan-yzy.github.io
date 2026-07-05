@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "Zhiyuan Yu"
-excerpt: "M.S. student at Southeast University working on ISAC, RIS, and MIMO signal detection."
+excerpt: "Research Engineer in ZTE Communication, working on ISAC and 3GPP."
 author_profile: true
 hide_title: true
 redirect_from:
@@ -12,9 +12,9 @@ redirect_from:
 <div class="home-page">
   <section class="home-hero" aria-labelledby="home-hero-title">
     <div class="home-hero__content">
-      <p class="home-eyebrow">Wireless Algorithms · ISAC · Standards</p>
+      <p class="home-eyebrow">Wireless Algorithms · ISAC · 3GPP</p>
       <h1 id="home-hero-title">Zhiyuan Yu</h1>
-      <p class="home-hero__subtitle">I work on wireless communication algorithms, integrated sensing and communication, and receiver designs for next-generation networks.</p>
+      <p class="home-hero__subtitle">Research Engineer in ZTE Communication, working on integrated sensing and communication and 3GPP standardization.</p>
       <p>
         This website is not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
       </p>
@@ -35,13 +35,13 @@ redirect_from:
     <div class="home-about-panel">
       <div class="home-about-prose">
         <p>
-          I am Zhiyuan Yu, an M.S. student in Information Science and Technology at Southeast University. My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远”; my grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I was born and raised in Hefei, Anhui, studied at Hefei No.1 High School, and later moved to Nanjing, where I have studied and lived for seven years.
+          I am Zhiyuan Yu, a Research Engineer in ZTE Communication working on integrated sensing and communication and 3GPP standardization. My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远”; my grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I was born and raised in Hefei, Anhui, studied at Hefei No.1 High School, and later moved to Nanjing, where I have studied and lived for seven years.
         </p>
         <p>
           I received my B.S. degree in Information Science and Technology from Southeast University in 2023, and continued my M.S. study at Southeast University from 2023 to 2026 under the supervision of Prof. Hong Ren and Prof. Cunhua Pan. My work centers on integrated sensing and communication, receiver algorithms, RIS-aided systems, and optimization methods.
         </p>
         <p>
-          After my graduate study, I will join the Algorithms Department at ZTE under the Blue Sword Program, working on wireless standards and related algorithm development.
+          This website is not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
         </p>
       </div>
       <aside class="home-about-aside" aria-label="About Me photo">
@@ -118,24 +118,4 @@ redirect_from:
       {% endfor %}
     </div>
   </section>
-
-  <section class="home-section home-section--snapshot" aria-labelledby="academic-snapshot">
-    <p class="home-eyebrow">Snapshot</p>
-    <h2 id="academic-snapshot">Academic Snapshot</h2>
-    <div class="home-snapshot-grid">
-      <article>
-        <h3>Projects</h3>
-        <p>Cooperative ISAC simulation platform with China Mobile; uplink ISAC receiver algorithm design with Huawei.</p>
-      </article>
-      <article>
-        <h3>Service</h3>
-        <p>Reviewer for IEEE journals including TWC, TCOM, TMC, TCCN, JSTSP, and TVT; TPC member for ICC, WCNC, and PIMRC.</p>
-      </article>
-      <article>
-        <h3>Awards</h3>
-        <p>President's Scholarship, National Scholarship, Xiaomi Scholarship, Huawei Scholarship, and mathematical modeling awards.</p>
-      </article>
-    </div>
-  </section>
-
 </div>
