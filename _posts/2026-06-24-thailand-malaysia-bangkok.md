@@ -30,10 +30,7 @@ header:
 
 </div>
 
-<div class="life-note-gallery life-note-gallery--wat" role="group" aria-label="郑王庙开场双图">
-  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/01-wat-arun-clouds.jpg" alt="郑王庙的塔尖几乎伸进了低云里" caption="郑王庙的塔尖几乎伸进了低云里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-clouds" width="900" height="1600" loading="eager" fetchpriority="high" %}
-  {% include life-note/figure.html src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" caption="沿着石阶向上，天空和建筑挤在同一幅画面里。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--wat-steps" width="900" height="1600" loading="lazy" %}
-</div>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/02-wat-arun-steps.jpg" alt="沿着石阶向上，天空和建筑挤在同一幅画面里" caption="沿着石阶向上，天空和建筑挤在同一幅画面里。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="eager" fetchpriority="high" %}
 
 ## 01｜从天空落到街道
 
@@ -79,7 +76,7 @@ header:
 
 吃完饭，我们坐船沿着湄南河去看佛像。早就听说河水浑浊，但亲眼看到时仍然有些震撼。
 
-{% include life-note/figure.html src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" caption="水上市场附近的河道。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/06-floating-market-canal.jpg" alt="水上市场附近的河道" caption="水上市场附近的河道。仔细看，河里面有鳄鱼。" figure_class="life-note-figure life-note-figure--portrait" width="900" height="1600" loading="lazy" %}
 
 沿岸是以木桩支撑的旧房子，距离河面很近；水里还不时浮出几张“鞋拔子脸”的大蜥蜴，我们开玩笑说，眼前像是湄南河突然切换成了尼罗河。
 
@@ -89,21 +86,13 @@ header:
 
 更有戏剧性的是：下午，我们看见河里的“大蜥蜴”；晚上，在商场负一层，我们真的尝到了鳄鱼肉。
 
-<section class="life-note-contrast" aria-labelledby="river-contrast-title">
-  <p id="river-contrast-title" class="life-note-contrast__eyebrow">同一条河的两种生活</p>
-  <div class="life-note-contrast__layout">
-    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/09-riverside-mall.jpg" alt="明亮精致的商场内部" caption="同一条河的另一面：明亮、精致的商场内部。" figure_class="life-note-figure life-note-contrast__scene" width="900" height="1600" loading="lazy" %}
-    {% include life-note/figure.html src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" caption="在商业综合体里见到的鳄鱼料理。" figure_class="life-note-figure life-note-contrast__detail" width="1600" height="900" loading="lazy" %}
-  </div>
-</section>
+{% include life-note/figure.html src="/images/life-notes/2026/bangkok/08-crocodile-dish.jpg" alt="在商业综合体里见到的鳄鱼料理" caption="在商业综合体里见到的鳄鱼料理。" figure_class="life-note-figure life-note-figure--landscape" width="1600" height="900" loading="lazy" %}
 
-## 06｜画师、普通劳动者和“枪王”
+## 06｜画师和“枪王”
 
 在曼谷的几天里，我们遇到了形形色色的人。水上市场有一位给游客画像的画师。他说自己是一名退休律师，会把画过的作品上传到 Instagram。
 
 我们试着讲价时，他认真解释：这不是批量生产的 product，而是他一笔一笔画出来的作品，所以不能因为我们有三个人就更便宜。那一刻，比画像本身更打动我的，是他对自己劳动价值的坚持。
-
-泰国常被游客提起的，还有跨性别文化。芭提雅有面向游客的舞台表演，而在曼谷，我们看到的更多是日常生活中的普通劳动者：司机、超市理货员。离开舞台以后，这些身份不再是旅游标签，而只是城市生活的一部分。
 
 “枪王”则不是别人，正是我自己。最后一天，我们去了海军射击场。也许是因为多给了小费，教练帮我反复调整姿势和枪的位置，最后得到一张弹孔密密麻麻的靶纸。
 

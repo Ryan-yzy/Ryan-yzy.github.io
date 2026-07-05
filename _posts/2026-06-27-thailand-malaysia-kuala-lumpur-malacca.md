@@ -29,7 +29,7 @@ header:
 
 还没走出机场，这座城市就给了我们一种和泰国截然不同的感觉。曼谷的热闹多少带着一点野蛮生长：电线缠在一起，摩托车从汽车的缝隙里钻过去，街边小摊和商场隔着一条马路各自繁荣。吉隆坡则更像上海——高楼、商场、立交桥和密密麻麻的汽车，把“繁华”两个字直接写在了路上。
 
-这种感觉又被马来西亚的堵车进一步强化。如果说曼谷的堵让人怀疑城市是不是忘了修路，那么吉隆坡的堵更像是因为车实在太多。司机洋溢哥告诉我们，这里的油价很便宜。兴许正因如此，马路上总有源源不断的车辆。当然，这也给游客带来了某种便利：在这里打车比在英国方便，价格也比泰国亲民得多。至于节省下来的钱，后来又以其他方式交给了酒店和景区。
+这种感觉又被马来西亚的堵车进一步强化。如果说曼谷的堵让人怀疑城市的管理者是不是缺乏交通工程的知识，那么吉隆坡的堵更像是因为车实在太多。司机洋溢哥告诉我们，这里的油价很便宜。兴许正因如此，马路上总有源源不断的车辆。当然，这也给游客带来了某种便利：在这里打车比在英国方便，价格也比泰国亲民得多。至于节省下来的钱，后来又以其他方式交给了酒店和饭店。
 
 </div>
 
@@ -70,13 +70,15 @@ header:
 
 坦白说，经历了泰国旅途里的一些插曲以后，我们一开始对司机多少有些戒备。可洋溢哥很快用行动一点点消除了这份戒备。
 
-一路上，他和我们聊当地的风土，教我们分辨棕榈树、椰子树和橡胶树；也和我们交流做短视频的心得，顺路推荐适合拍照的地方。到每个景点，他都会先简单介绍一下背景，再让我们自己慢慢逛。他没有刻意扮演导游，只是很自然地把自己生活的地方介绍给几个第一次来到这里的人。
+一路上，他和我们聊当地的风土，教我们分辨棕榈树、椰子树和橡胶树；也和我们交流做短视频的心得，顺路推荐适合拍照的地方。到每个景点，他都会先简单介绍一下背景，再让我们自己慢慢逛。
 
-他说，趁年轻、还没有那么多牵绊，应该早点出去看看。
+在路上，他说，趁年轻、还没有那么多牵绊，应该早点出去看看。
 
 这句话并不新鲜，甚至可以出现在任何旅行宣传片里。但从一个刚刚认识、一路开车带着我们穿过城市和高速的人口中说出来，突然就有了些分量。这次下决心把旅行写下来，也在一定程度上受了他的启发。照片会越来越多，去过的地方也会互相混在一起；只有写下来，才算给记忆留下一个可以重新进入的入口。
 
-{% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/06-crocodile-stop.jpg" alt="水边石阶旁趴着一只巨蜥" caption="洋溢哥带我们去看鳄鱼，水边的巨蜥先占了画面。" figure_class="life-note-figure life-note-figure--portrait" width="1279" height="2275" loading="lazy" %}
+路上，他还带我们去看当地人俗称的“四脚蛇”。这种动物其实是巨蜥，据说当地人也会拿它做菜。
+
+{% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/06-crocodile-stop.jpg" alt="水边石阶旁趴着一只被当地人称为四脚蛇的巨蜥" caption="洋溢哥带我们去看“四脚蛇”。据说在当地，它也会被端上餐桌。" figure_class="life-note-figure life-note-figure--portrait" width="1279" height="2275" loading="lazy" %}
 
 谈到马来西亚华人，也绕不开娘惹文化。早期来到南洋的华人与当地社会长期交往、通婚并彼此影响，逐渐形成了独特的峇峇娘惹文化。它既保留了部分华人传统，也吸收了马来饮食、服饰和语言中的元素。
 
@@ -137,20 +139,10 @@ header:
 
 在景区旁边，我们还吃到了一家价格意外便宜的马来菜。旁边桌的客人熟练地用手抓饭，我们则继续坚持使用餐具，主打一个尊重传统但量力而行。
 
-<div class="life-note-gallery life-note-gallery--food" role="group" aria-label="马来西亚美食照片，可横向滚动浏览" tabindex="0">
-  {% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/16-malay-food.jpg" alt="托盘里的马来风味烤鸡、米饭和汤" caption="景区旁的一家马来菜，便宜且好吃。" figure_class="life-note-figure life-note-figure--landscape life-note-figure--food-main" width="2275" height="1279" loading="lazy" %}
-  {% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/17-fatty-crab.jpg" alt="餐桌上的咖喱蟹、虾和其他菜" caption="肥肥蟹。关于它没有太多需要分析的：好吃，好吃。" figure_class="life-note-figure life-note-figure--landscape life-note-figure--food-side-a" width="2400" height="1081" loading="lazy" %}
-  {% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/18-food-finale.jpg" alt="葡式蛋挞和一杯咖啡" caption="最后用蛋挞和咖啡收尾，算是给这趟南洋味道补上一个甜口。" figure_class="life-note-figure life-note-figure--portrait life-note-figure--food-side-b" width="1024" height="1820" loading="lazy" %}
-</div>
+{% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/16-malay-food.jpg" alt="托盘里的马来风味烤鸡、米饭和汤" caption="景区旁的一家马来菜，便宜且好吃。" figure_class="life-note-figure life-note-figure--landscape" width="2275" height="1279" loading="lazy" %}
 
-## 写在最后
+{% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/17-fatty-crab.jpg" alt="餐桌上的咖喱蟹、虾和其他菜" caption="肥肥蟹。关于它没有太多需要分析的：好吃，好吃。" figure_class="life-note-figure life-note-figure--landscape" width="2400" height="1081" loading="lazy" %}
 
-回头看这段旅程，最先想起来的未必是双子塔、红屋或者清真寺，反而是换房时听不懂的口音、丢包后一次次没有结果的沟通、洋溢哥一路上的闲聊，以及马六甲海边突然被唤醒的历史课记忆。
-
-旅行大概就是这样。出发前，我们总以为自己是去看一些著名的地方；回来以后才发现，真正留下来的，往往是那些计划之外的人和事。景点提供坐标，食物提供味道，而人与人的相遇，才让一座城市从地图上的名字变成一段属于自己的经历。
-
-至于吉隆坡的天气到底有没有翻云又覆雨，我已经记不太清了。
-
-但这座城市留给我的印象，确实像天气一样变化得很快：繁华、拥堵、狼狈、热情、陌生，又在某些时刻格外亲切。
+{% include life-note/figure.html src="/images/life-notes/2026/kuala-lumpur-malacca/18-food-finale.jpg" alt="葡式蛋挞和一杯咖啡" caption="最后用蛋挞和咖啡收尾，算是给这趟南洋味道补上一个甜口。" figure_class="life-note-figure life-note-figure--portrait" width="1024" height="1820" loading="lazy" %}
 
 </div>
