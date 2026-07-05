@@ -35,23 +35,23 @@ redirect_from:
     <div class="home-about-panel">
       <div class="home-about-prose">
         <p>
-          I was born and raised in Hefei, Anhui, and studied at Hefei No.1 High School before moving to Nanjing for university. Hefei gave me a quiet and steady start, while Nanjing has been the place where I spent my undergraduate and graduate years, met many important mentors and friends, and gradually shaped my interest in wireless communication systems.
+          I am Zhiyuan Yu, an M.S. student in Information Science and Technology at Southeast University. My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远”; my grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I was born and raised in Hefei, Anhui, studied at Hefei No.1 High School, and later moved to Nanjing for university.
         </p>
         <p>
-          I received my B.S. degree in Information Science and Technology from Southeast University in 2023, and continued my M.S. study at Southeast University from 2023 to 2026 under the supervision of Prof. Hong Ren and Prof. Cunhua Pan. My work has centered on integrated sensing and communication, receiver algorithms, RIS-aided systems, and optimization methods, with an emphasis on ideas that can move from mathematical models toward practical wireless systems.
+          This website is therefore not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
         </p>
         <p>
-          My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远.” My grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I like this connection because it carries both a family memory and a reminder to stay calm, focused, and patient when working toward long-term goals.
+          I received my B.S. degree in Information Science and Technology from Southeast University in 2023, and continued my M.S. study at Southeast University from 2023 to 2026 under the supervision of Prof. Hong Ren and Prof. Cunhua Pan. My work centers on integrated sensing and communication, receiver algorithms, RIS-aided systems, and optimization methods.
         </p>
         <p>
-          After my graduate study, I will join the Algorithms Department at ZTE under the Blue Sword Program, working on wireless standards and related algorithm development. This website is therefore not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
+          After my graduate study, I will join the Algorithms Department at ZTE under the Blue Sword Program, working on wireless standards and related algorithm development.
         </p>
       </div>
       <aside class="home-about-aside" aria-label="About Me photo">
         <figure class="home-about-aside__figure">
-          <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Zhiyuan Yu in graduation gown at Southeast University" loading="lazy" decoding="async">
+          <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu receiving a scholarship award" loading="lazy" decoding="async">
         </figure>
-        <p class="home-about-aside__caption">Graduation memory at Southeast University.</p>
+        <p class="home-about-aside__caption">Scholarship award moment at Southeast University.</p>
       </aside>
     </div>
   </section>
@@ -100,9 +100,18 @@ redirect_from:
       <a class="btn home-btn home-btn--warm" href="{{ '/life-notes/' | relative_url }}">Read Life &amp; Notes</a>
     </div>
     <div class="home-life-preview__gallery" aria-label="Life and Notes photo preview">
-      <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu at an award ceremony" loading="lazy" decoding="async">
-      <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Graduation memory at Southeast University" loading="lazy" decoding="async">
-      <img src="{{ '/images/home/presentation-classroom.jpg' | relative_url }}" alt="Classroom presentation moment" loading="lazy" decoding="async">
+      {% assign home_note_count = 0 %}
+      {% for post in site.posts %}
+        {% if post.categories contains "life-notes" and home_note_count < 3 %}
+          {% assign teaser = post.header.teaser | default: site.teaser %}
+          {% if teaser %}
+            <a class="home-life-preview__cover" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title | strip_html | escape }}">
+              <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | relative_url }}{% endif %}" alt="{{ post.title | strip_html | escape }}" loading="lazy" decoding="async">
+            </a>
+            {% assign home_note_count = home_note_count | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 

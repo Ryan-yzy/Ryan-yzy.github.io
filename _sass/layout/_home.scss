@@ -330,6 +330,15 @@
   min-width: 0;
 }
 
+.home-life-preview__cover {
+  display: block;
+  min-width: 0;
+}
+
+.home-life-preview__cover:hover {
+  text-decoration: none;
+}
+
 .home-life-preview__gallery img {
   display: block;
   width: 100%;
