@@ -175,6 +175,10 @@
   line-height: 1.65;
 }
 
+.home-about-photo {
+  margin-top: 1rem;
+}
+
 .research-card-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 1.2rem;
@@ -265,6 +269,30 @@
   object-fit: cover;
 }
 
+.home-photo-placeholder {
+  display: flex;
+  min-height: 145px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px dashed var(--home-border);
+  border-radius: 8px;
+  background: var(--home-gray-soft);
+  color: var(--global-text-color-light);
+  text-align: center;
+}
+
+.home-photo-placeholder--wide {
+  min-height: 132px;
+}
+
+.home-photo-placeholder__label {
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
 .home-snapshot-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 1.1rem;
@@ -328,6 +356,10 @@
   .home-life-preview__gallery img {
     height: auto;
     max-height: none;
+  }
+
+  .home-photo-placeholder {
+    min-height: 132px;
   }
 
   .home-hero__actions,

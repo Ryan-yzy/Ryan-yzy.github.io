@@ -12,11 +12,11 @@ redirect_from:
 <div class="home-page">
   <section class="home-hero" aria-labelledby="home-hero-title">
     <div class="home-hero__content">
-      <p class="home-eyebrow">M.S. Student in Information Science and Technology</p>
+      <p class="home-eyebrow">Wireless Algorithms · ISAC · Standards</p>
       <h1 id="home-hero-title">Zhiyuan Yu</h1>
-      <p class="home-hero__subtitle">Integrated sensing and communication, reconfigurable intelligent surfaces, and MIMO signal detection.</p>
+      <p class="home-hero__subtitle">I work on wireless communication algorithms, integrated sensing and communication, and receiver designs for next-generation networks.</p>
       <p>
-        I am a master's student at Southeast University, advised by Prof. Hong Ren and Prof. Cunhua Pan. My work focuses on practical signal processing and optimization methods for next-generation wireless systems.
+        I am completing my M.S. degree in Information Science and Technology at Southeast University, advised by Prof. Hong Ren and Prof. Cunhua Pan. My recent work focuses on practical signal processing and optimization methods for ISAC systems, with an increasing interest in wireless standards and industrial applications.
       </p>
       <div class="home-hero__actions" aria-label="Homepage quick links">
         <a class="btn home-btn home-btn--primary" href="{{ '/publications/' | relative_url }}">View Publications</a>
@@ -24,6 +24,7 @@ redirect_from:
       </div>
     </div>
     <figure class="home-hero__media">
+      <!-- Replace this image with a professional portrait or a warm personal photo. -->
       <img src="{{ '/images/Zhiyuan Yu.jpg' | relative_url }}" alt="Portrait of Zhiyuan Yu" loading="lazy" decoding="async">
     </figure>
   </section>
@@ -32,19 +33,26 @@ redirect_from:
     <p class="home-eyebrow">About</p>
     <h2 id="about-me">About Me</h2>
     <p>
-      I received my B.S. degree in Information Science and Technology from Southeast University in 2023 and continued there for graduate study. I enjoy research that sits close to real wireless systems: mathematically grounded, implementation-aware, and useful beyond a single paper.
+      I built my academic foundation at Southeast University, where I completed my undergraduate study and continued into graduate research in Information Science and Technology. This site is also a personal archive for work, research, travel, graduation memories, and everyday observations.
     </p>
-    <p>
-      Beyond research, I also keep this site as a small personal archive for travels, graduation memories, and everyday notes. It is a place for professional work and ordinary life to sit side by side.
-    </p>
-    <div class="home-facts" aria-label="Academic facts">
+    <div class="home-facts" aria-label="Personal and academic background">
       <div class="home-fact">
-        <strong>Education</strong>
-        <span>M.S., Southeast University, 2023-2026 expected; B.S., Southeast University, 2019-2023.</span>
+        <strong>Background</strong>
+        <span>B.S. in Information Science and Technology, Southeast University, 2023. M.S., Southeast University, 2023-2026. <!-- Add the high school name below when ready. --> High school: [Add high school name here]</span>
+      </div>
+      <div class="home-fact">
+        <strong>Name &amp; Hometown</strong>
+        <span>My given name Zhiyuan (致远) comes from “淡泊以明志，宁静以致远.” My grandfather was named Mingzhi (明志), so I was named Zhiyuan (致远). I am from Hefei, Anhui, and have spent my university years studying and living in Nanjing.</span>
       </div>
       <div class="home-fact">
         <strong>Next Step</strong>
-        <span>Algorithms Department at ZTE under the Blue Sword Program, focusing on wireless standards.</span>
+        <span>I will join the ZTE Algorithms Department under the Blue Sword Program, working on wireless standards and related algorithm development.</span>
+      </div>
+    </div>
+    <div class="home-about-photo">
+      <!-- Replace this placeholder with a life photo, campus photo, or city photo. -->
+      <div class="home-photo-placeholder home-photo-placeholder--wide" role="img" aria-label="Placeholder for a personal or city photo">
+        <span class="home-photo-placeholder__label">Add personal or city photo</span>
       </div>
     </div>
   </section>
@@ -67,7 +75,7 @@ redirect_from:
       </article>
 
       <article class="research-card">
-        <p class="research-card__keywords">Uplink ISAC / Receiver Design / Projection Methods</p>
+        <p class="research-card__keywords">Uplink ISAC / Receiver Design / Homotopy Optimization</p>
         <h3>Uplink ISAC Receiver Designs</h3>
         <p>
           I develop low-complexity uplink receiver designs that jointly support communication signal detection and radar echo processing under mutual interference.
@@ -92,9 +100,15 @@ redirect_from:
       <a class="btn home-btn home-btn--warm" href="{{ '/life-notes/' | relative_url }}">Read Life &amp; Notes</a>
     </div>
     <div class="home-life-preview__gallery" aria-label="Life and Notes photo preview">
-      <img src="{{ '/images/life-notes/2026/bangkok/cover.jpg' | relative_url }}" alt="Wat Arun under low clouds in Bangkok" loading="lazy" decoding="async">
-      <img src="{{ '/images/life-notes/2026/kuala-lumpur-malacca/cover.jpg' | relative_url }}" alt="Petronas Towers at night in Kuala Lumpur" loading="lazy" decoding="async">
-      <img src="{{ '/images/life-notes/2026/kuala-lumpur-malacca/05-sunset.jpg' | relative_url }}" alt="Sunset during the Malaysia trip" loading="lazy" decoding="async">
+      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a travel photo">
+        <span class="home-photo-placeholder__label">Add travel photo</span>
+      </div>
+      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a graduation photo">
+        <span class="home-photo-placeholder__label">Add graduation photo</span>
+      </div>
+      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a daily-life photo">
+        <span class="home-photo-placeholder__label">Add daily-life photo</span>
+      </div>
     </div>
   </section>
 
