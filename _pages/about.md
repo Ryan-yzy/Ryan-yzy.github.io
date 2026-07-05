@@ -16,7 +16,7 @@ redirect_from:
       <h1 id="home-hero-title">Zhiyuan Yu</h1>
       <p class="home-hero__subtitle">I work on wireless communication algorithms, integrated sensing and communication, and receiver designs for next-generation networks.</p>
       <p>
-        I am completing my M.S. degree in Information Science and Technology at Southeast University, advised by Prof. Hong Ren and Prof. Cunhua Pan. My recent work focuses on practical signal processing and optimization methods for ISAC systems, with an increasing interest in wireless standards and industrial applications.
+        This website is not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
       </p>
       <div class="home-hero__actions" aria-label="Homepage quick links">
         <a class="btn home-btn home-btn--primary" href="{{ '/publications/' | relative_url }}">View Publications</a>
@@ -35,10 +35,7 @@ redirect_from:
     <div class="home-about-panel">
       <div class="home-about-prose">
         <p>
-          I am Zhiyuan Yu, an M.S. student in Information Science and Technology at Southeast University. My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远”; my grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I was born and raised in Hefei, Anhui, studied at Hefei No.1 High School, and later moved to Nanjing for university.
-        </p>
-        <p>
-          This website is therefore not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
+          I am Zhiyuan Yu, an M.S. student in Information Science and Technology at Southeast University. My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远”; my grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I was born and raised in Hefei, Anhui, studied at Hefei No.1 High School, and later moved to Nanjing, where I have studied and lived for seven years.
         </p>
         <p>
           I received my B.S. degree in Information Science and Technology from Southeast University in 2023, and continued my M.S. study at Southeast University from 2023 to 2026 under the supervision of Prof. Hong Ren and Prof. Cunhua Pan. My work centers on integrated sensing and communication, receiver algorithms, RIS-aided systems, and optimization methods.
@@ -52,6 +49,10 @@ redirect_from:
           <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu receiving a scholarship award" loading="lazy" decoding="async">
         </figure>
         <p class="home-about-aside__caption">Scholarship award moment at Southeast University.</p>
+        <figure class="home-about-aside__figure home-about-aside__figure--secondary">
+          <img src="{{ '/images/home/graduation-school-building.jpg' | relative_url }}" alt="Zhiyuan Yu in graduation gown in front of the School of Information Science and Engineering" loading="lazy" decoding="async">
+        </figure>
+        <p class="home-about-aside__caption">Graduation memory at the School of Information Science and Engineering.</p>
       </aside>
     </div>
   </section>
@@ -66,7 +67,7 @@ redirect_from:
         <p>
           This work studies how active RIS can mitigate multiplicative fading in the sensing link of ISAC systems, with beamforming design, radar SNR scaling analysis, and deployment insights.
         </p>
-        <p class="research-card__note">ESI Hot Paper and a highly read IEEE TCOM paper.</p>
+        <p class="research-card__note">ESI Hot Paper and IEEE TCOM Most Popular paper for years.</p>
         <div class="research-card__links">
           <a href="{{ '/files/Active_RIS-Aided_ISAC_Systems_Beamforming_Design_and_Performance_Analysis.pdf' | relative_url }}">Paper</a>
           <a href="https://github.com/Ryan-yzy/Active-RIS-ISAC">Code</a>
@@ -100,15 +101,21 @@ redirect_from:
       <a class="btn home-btn home-btn--warm" href="{{ '/life-notes/' | relative_url }}">Read Life &amp; Notes</a>
     </div>
     <div class="home-life-preview__gallery" aria-label="Life and Notes photo preview">
-      <a class="home-life-preview__cover" href="{{ '/life-notes/' | relative_url }}" aria-label="Read Life and Notes">
-        <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu at an award ceremony" loading="lazy" decoding="async">
-      </a>
-      <a class="home-life-preview__cover" href="{{ '/life-notes/daily-life/thesis-acknowledgements/' | relative_url }}" aria-label="Read thesis acknowledgements">
-        <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Graduation memory at Southeast University" loading="lazy" decoding="async">
-      </a>
-      <a class="home-life-preview__cover" href="{{ '/life-notes/' | relative_url }}" aria-label="Read Life and Notes">
-        <img src="{{ '/images/home/presentation-classroom.jpg' | relative_url }}" alt="Classroom presentation moment" loading="lazy" decoding="async">
-      </a>
+      {% assign home_note_count = 0 %}
+      {% for post in site.posts %}
+        {% if post.categories contains "life-notes" %}
+          {% if home_note_count == 3 %}
+            {% break %}
+          {% endif %}
+          {% assign teaser = post.header.teaser %}
+          {% if teaser %}
+            <a class="home-life-preview__cover" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title | strip_html | escape }}">
+              <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | relative_url }}{% endif %}" alt="{{ post.title | strip_html | escape }}" loading="lazy" decoding="async">
+            </a>
+            {% assign home_note_count = home_note_count | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 
