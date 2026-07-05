@@ -17,7 +17,7 @@ share: true
 related: false
 permalink: /life-notes/daily-life/thesis-acknowledgements/
 header:
-  teaser: home/graduation-campus.jpg
+  teaser: home/graduation-with-mom.jpg
 ---
 
 提笔撰写致谢，几番删改斟酌。本人不才，在过往五六载与通信为伴的日子有太多人给予我帮助，无奈篇幅有限，无法将每一份善意一一细数，在此一并奉上我最诚挚的感恩。
