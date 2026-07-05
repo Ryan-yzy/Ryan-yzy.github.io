@@ -25,7 +25,7 @@ redirect_from:
     </div>
     <figure class="home-hero__media">
       <!-- Replace this image with a professional portrait or a warm personal photo. -->
-      <img src="{{ '/images/Zhiyuan Yu.jpg' | relative_url }}" alt="Portrait of Zhiyuan Yu" loading="lazy" decoding="async">
+      <img src="{{ '/images/home/presentation-classroom.jpg' | relative_url }}" alt="Zhiyuan Yu presenting in a classroom" loading="lazy" decoding="async">
     </figure>
   </section>
 
@@ -47,12 +47,11 @@ redirect_from:
           After my graduate study, I will join the Algorithms Department at ZTE under the Blue Sword Program, working on wireless standards and related algorithm development. This website is therefore not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
         </p>
       </div>
-      <aside class="home-about-aside" aria-label="About Me photo placeholder">
-        <!-- Replace this placeholder with a hometown, campus, work, or daily-life photo. -->
-        <div class="home-photo-placeholder home-photo-placeholder--wide" role="img" aria-label="Placeholder for a hometown, campus, or personal photo">
-          <span class="home-photo-placeholder__label">Add hometown, campus, or work photo</span>
-        </div>
-        <p class="home-about-aside__caption">Suggested photo: Hefei, Nanjing, Southeast University, graduation, or a warm daily-life moment.</p>
+      <aside class="home-about-aside" aria-label="About Me photo">
+        <figure class="home-about-aside__figure">
+          <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Zhiyuan Yu in graduation gown at Southeast University" loading="lazy" decoding="async">
+        </figure>
+        <p class="home-about-aside__caption">Graduation memory at Southeast University.</p>
       </aside>
     </div>
   </section>
@@ -71,6 +70,7 @@ redirect_from:
         <div class="research-card__links">
           <a href="{{ '/files/Active_RIS-Aided_ISAC_Systems_Beamforming_Design_and_Performance_Analysis.pdf' | relative_url }}">Paper</a>
           <a href="https://github.com/Ryan-yzy/Active-RIS-ISAC">Code</a>
+          <a href="{{ '/files/Active_RIS_Aided_ISAC_Slides.pdf' | relative_url }}">Slides</a>
         </div>
       </article>
 
@@ -100,15 +100,9 @@ redirect_from:
       <a class="btn home-btn home-btn--warm" href="{{ '/life-notes/' | relative_url }}">Read Life &amp; Notes</a>
     </div>
     <div class="home-life-preview__gallery" aria-label="Life and Notes photo preview">
-      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a travel photo">
-        <span class="home-photo-placeholder__label">Add travel photo</span>
-      </div>
-      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a graduation photo">
-        <span class="home-photo-placeholder__label">Add graduation photo</span>
-      </div>
-      <div class="home-photo-placeholder" role="img" aria-label="Placeholder for a daily-life photo">
-        <span class="home-photo-placeholder__label">Add daily-life photo</span>
-      </div>
+      <img src="{{ '/images/home/award-ceremony.jpg' | relative_url }}" alt="Zhiyuan Yu at an award ceremony" loading="lazy" decoding="async">
+      <img src="{{ '/images/home/graduation-campus.jpg' | relative_url }}" alt="Graduation memory at Southeast University" loading="lazy" decoding="async">
+      <img src="{{ '/images/home/presentation-classroom.jpg' | relative_url }}" alt="Classroom presentation moment" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -131,17 +125,4 @@ redirect_from:
     </div>
   </section>
 
-  <section class="home-section home-section--contact" aria-labelledby="contact">
-    <p class="home-eyebrow">Contact</p>
-    <h2 id="contact">Academic Links</h2>
-    <p>
-      I am happy to discuss ISAC, RIS, receiver design, and wireless standards research.
-    </p>
-    <div class="home-link-list">
-      <a href="mailto:1550287211yzy@gmail.com">Email</a>
-      <a href="https://github.com/Ryan-yzy">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=1_71C-sAAAAJ&amp;hl=zh-TW&amp;oi=ao">Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Zhiyuan-Yu-29">ResearchGate</a>
-    </div>
-  </section>
 </div>
