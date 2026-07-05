@@ -1,0 +1,29 @@
+{% include base_path %}
+{% assign life_note = include.post %}
+{% assign teaser = life_note.header.teaser | default: site.teaser %}
+
+<article class="life-notes-card">
+  <a class="life-notes-card__image" href="{{ base_path }}{{ life_note.url }}" aria-label="Read {{ life_note.title | strip_html | escape }}">
+    {% if teaser %}
+      <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="" loading="lazy" decoding="async">
+    {% endif %}
+  </a>
+  <div class="life-notes-card__body">
+    <div class="life-notes-card__meta">
+      {% if life_note.date %}
+        <time datetime="{{ life_note.date | date_to_xmlschema }}">{{ life_note.date | date: "%B %d, %Y" }}</time>
+      {% endif %}
+      {% for category in life_note.categories %}
+        {% unless category == "life-notes" %}
+          <span>{{ category | replace: "-", " " | capitalize }}</span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+    <h3 class="life-notes-card__title">
+      <a href="{{ base_path }}{{ life_note.url }}">{{ life_note.title }}</a>
+    </h3>
+    {% if life_note.excerpt %}
+      <p class="life-notes-card__excerpt">{{ life_note.excerpt | markdownify | strip_html | truncate: 150 }}</p>
+    {% endif %}
+  </div>
+</article>

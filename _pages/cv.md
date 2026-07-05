@@ -14,8 +14,6 @@ Contact
 * **Zhiyuan Yu**
 * Southeast University
 * Email: [1550287211yzy@gmail.com](mailto:1550287211yzy@gmail.com)
-* Phone: 15651882925
-* WeChat: search 18156053320
 * [Google Scholar](https://scholar.google.com/citations?user=1_71C-sAAAAJ&hl=zh-TW&oi=ao)
 
 Education
