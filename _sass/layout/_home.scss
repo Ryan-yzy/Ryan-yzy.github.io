@@ -176,7 +176,17 @@
 }
 
 .home-about-photo {
-  margin-top: 1rem;
+  margin: 1rem 0 0;
+}
+
+.home-about-photo img {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  border: 1px solid var(--home-border);
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(20, 60, 87, 0.08);
 }
 
 .research-card-grid {
