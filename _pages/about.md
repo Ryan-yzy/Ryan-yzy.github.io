@@ -32,28 +32,28 @@ redirect_from:
   <section class="home-section home-section--about" aria-labelledby="about-me">
     <p class="home-eyebrow">About</p>
     <h2 id="about-me">About Me</h2>
-    <p>
-      I built my academic foundation at Southeast University, where I completed my undergraduate study and continued into graduate research in Information Science and Technology. This site is also a personal archive for work, research, travel, graduation memories, and everyday observations.
-    </p>
-    <div class="home-facts" aria-label="Personal and academic background">
-      <div class="home-fact">
-        <strong>Background</strong>
-        <span>B.S. in Information Science and Technology, Southeast University, 2023. M.S., Southeast University, 2023-2026. <!-- Add the high school name below when ready. --> High school: [Add high school name here]</span>
+    <div class="home-about-panel">
+      <div class="home-about-prose">
+        <p>
+          I was born and raised in Hefei, Anhui, and studied at Hefei No.1 High School before moving to Nanjing for university. Hefei gave me a quiet and steady start, while Nanjing has been the place where I spent my undergraduate and graduate years, met many important mentors and friends, and gradually shaped my interest in wireless communication systems.
+        </p>
+        <p>
+          I received my B.S. degree in Information Science and Technology from Southeast University in 2023, and continued my M.S. study at Southeast University from 2023 to 2026 under the supervision of Prof. Hong Ren and Prof. Cunhua Pan. My work has centered on integrated sensing and communication, receiver algorithms, RIS-aided systems, and optimization methods, with an emphasis on ideas that can move from mathematical models toward practical wireless systems.
+        </p>
+        <p>
+          My given name, Zhiyuan (致远), comes from the phrase “淡泊以明志，宁静以致远.” My grandfather was named Mingzhi (明志), so my family named me Zhiyuan (致远). I like this connection because it carries both a family memory and a reminder to stay calm, focused, and patient when working toward long-term goals.
+        </p>
+        <p>
+          After my graduate study, I will join the Algorithms Department at ZTE under the Blue Sword Program, working on wireless standards and related algorithm development. This website is therefore not only a research homepage, but also a small personal archive for work, study, travel, graduation memories, and everyday observations.
+        </p>
       </div>
-      <div class="home-fact">
-        <strong>Name &amp; Hometown</strong>
-        <span>My given name Zhiyuan (致远) comes from “淡泊以明志，宁静以致远.” My grandfather was named Mingzhi (明志), so I was named Zhiyuan (致远). I am from Hefei, Anhui, and have spent my university years studying and living in Nanjing.</span>
-      </div>
-      <div class="home-fact">
-        <strong>Next Step</strong>
-        <span>I will join the ZTE Algorithms Department under the Blue Sword Program, working on wireless standards and related algorithm development.</span>
-      </div>
-    </div>
-    <div class="home-about-photo">
-      <!-- Replace this placeholder with a life photo, campus photo, or city photo. -->
-      <div class="home-photo-placeholder home-photo-placeholder--wide" role="img" aria-label="Placeholder for a personal or city photo">
-        <span class="home-photo-placeholder__label">Add personal or city photo</span>
-      </div>
+      <aside class="home-about-aside" aria-label="About Me photo placeholder">
+        <!-- Replace this placeholder with a hometown, campus, work, or daily-life photo. -->
+        <div class="home-photo-placeholder home-photo-placeholder--wide" role="img" aria-label="Placeholder for a hometown, campus, or personal photo">
+          <span class="home-photo-placeholder__label">Add hometown, campus, or work photo</span>
+        </div>
+        <p class="home-about-aside__caption">Suggested photo: Hefei, Nanjing, Southeast University, graduation, or a warm daily-life moment.</p>
+      </aside>
     </div>
   </section>
 
