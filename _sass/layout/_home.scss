@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* ========================================================================== 
    HOME
    ========================================================================== */
 
@@ -136,7 +136,66 @@
 }
 
 .home-section--about {
-  padding-bottom: 0.6rem;
+  padding: 1.35rem 1.4rem 1.5rem;
+  border: 1px solid var(--home-border);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff 0%, var(--home-gray-soft) 100%);
+  box-shadow: 0 4px 18px rgba(20, 60, 87, 0.04);
+}
+
+.home-about-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.38fr) minmax(220px, 0.62fr);
+  gap: 1.35rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.home-about-prose {
+  max-width: 760px;
+  min-width: 0;
+}
+
+.home-about-prose p {
+  margin-bottom: 1.05rem;
+  color: var(--global-text-color);
+  line-height: 1.76;
+}
+
+.home-about-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.home-about-aside {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--home-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(20, 60, 87, 0.05);
+}
+
+.home-about-aside .home-photo-placeholder {
+  min-height: 190px;
+}
+
+.home-about-aside__figure {
+  margin: 0;
+}
+
+.home-about-aside__figure img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.home-about-aside__caption {
+  margin: 0.72rem 0 0;
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+  line-height: 1.55;
 }
 
 .home-facts,
@@ -329,6 +388,7 @@
 
 @media (max-width: 900px) {
   .home-hero,
+  .home-about-panel,
   .home-life-preview {
     grid-template-columns: 1fr;
   }
@@ -337,6 +397,10 @@
     max-width: 240px;
     margin-right: auto;
     margin-left: 0;
+  }
+
+  .home-about-aside {
+    max-width: 520px;
   }
 }
 
@@ -354,6 +418,10 @@
 
   .home-hero__subtitle {
     font-size: $type-size-5;
+  }
+
+  .home-section--about {
+    padding: 1.05rem;
   }
 
   .home-facts,
