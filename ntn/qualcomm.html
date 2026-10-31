@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>高通多星建模 · 宽小区与窄波束</title><meta name="description" content="基于 Qualcomm R1-2608437 第11.1节，交互理解地面宽小区、UV窄波束、六邻星复制及W干扰筛选。"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="geometry-6870.css"><link rel="stylesheet" href="phases-6870.css"><link rel="stylesheet" href="qc.css"><link rel="stylesheet" href="qc-elevation.css"></head><body>
+<header class="topbar"><a class="brand" href="./"><span class="brand-icon">◉</span><span>ORBIT / LAB<span class="brand-sub">NTN 多星仿真实验室</span></span></a><div class="top-right"><span class="source-tag">QUALCOMM · R1-2608437</span><a class="text-btn" href="./">ZTE 6870 演示 ↗</a><a class="text-btn" href="xiaomi.html" style="color:#ffb16b">小米多星建模 ↗</a></div></header>
+<main><nav class="company-switch" aria-label="提案演示"><a href="./">ZTE 6870 · 参考星座</a><a href="qualcomm.html" aria-current="page">高通 · 宽小区与窄波束</a><a href="610.html">ZTE 610 · 区域七星</a></nav>
+<section class="intro"><div><div class="eyebrow"><span class="live-dot"></span>GROUND CELLS → UV BEAMS → NEIGHBOR FILTER</div><h1>高通：先排宽小区，再排窄波束。</h1><p>一颗卫星的服务区由宽小区组织；实际数据传输使用每个小区关联的窄波束。</p></div><div class="intro-meta" id="qcTotals"></div></section>
+<!-- QC_ELEVATION_BEGIN -->
+<section class="elevation-lab" id="ue-min-elevation" aria-labelledby="elevationTitle">
+  <span id="spacing-methods" class="elevation-legacy-anchor" aria-hidden="true"></span>
+  <div class="elevation-heading">
+    <div><span class="eyebrow">独立计算 · 从既定宽小区区域求 UE 最低仰角</span><h2 id="elevationTitle">为什么七星几何里，最低服务仰角约为 28°？</h2>
+    <p>从地面布局出发，依次找到最远 UE、映射到球面、分解本地视线。四幅图按计算顺序展开；每一步都列出本步图形、公式、代入值与输出。</p></div>
+    <a class="elevation-return" href="#subsatellite-points" data-topic="#subsatellite-points">回看七星几何 ↗</a>
+  </div>
+  <div class="elevation-scope"><strong>计算对象：UE → 其所属服务卫星。</strong><span>七颗星复制相同局部布局，球面旋转保持夹角，各星对应同一理论边界值。窄波束沿用 HPBW、k 定间隔的流程。</span></div>
+  <div class="elevation-controls" aria-label="最低仰角几何参数">
+    <label><span>卫星高度 h</span><select id="elevationHeight"><option value="600">600 km</option><option value="1200">1200 km</option></select></label>
+    <label><span>宽小区圈数 n</span><select id="elevationRings"><option value="1">1 圈 · 7 小区</option><option value="2">2 圈 · 19 小区</option><option value="3">3 圈 · 37 小区</option><option value="4" selected>4 圈 · 61 小区</option><option value="5">5 圈 · 91 小区</option><option value="6">6 圈 · 127 小区</option></select></label>
+    <label class="elevation-range"><span>相邻宽小区中心距 D</span><span><input id="elevationDistance" type="range" min="100" max="250" step="5" value="200"><output id="elevationDistanceValue" for="elevationDistance">200 km</output></span></label>
+    <div class="elevation-fixed"><span>球形地球半径 R</span><strong>6371 km</strong></div>
+    <button type="button" id="elevationReset">恢复 QC 基线</button>
+    <p>控件用于本模块的几何敏感性观察；下方 QC 三步演示继续使用其自身参数。D 是宽小区中心距。</p>
+  </div>
+  <ol class="elevation-route" aria-label="四步计算路线">
+    <li><a href="#elevation-step-1"><b>01</b><span>地面展开图<small>小区中心最远到哪里</small></span></a></li>
+    <li><a href="#elevation-step-2"><b>02</b><span>单个六边形<small>顶点再向外延伸多少</small></span></a></li>
+    <li><a href="#elevation-step-3"><b>03</b><span>地心剖面<small>弧长怎样变成地心角</small></span></a></li>
+    <li><a href="#elevation-step-4"><b>04</b><span>UE 本地剖面<small>视线怎样变成仰角</small></span></a></li>
+  </ol>
+  <div class="elevation-steps">
+    <article class="elevation-step" id="elevation-step-1">
+      <div class="elevation-step-heading"><b>01</b><div><span>计算所在图形：地面展开的六角小区网格</span><h3>先找到最外侧的小区中心 C</h3></div></div>
+      <figure><svg id="elevationLayout" viewBox="0 0 540 360" role="img" aria-labelledby="elevationLayoutTitle"><title id="elevationLayoutTitle">宽小区展开网格、星下点和最外侧小区中心</title></svg><figcaption>网格中心 N 是本星星下点；金色小区中心 C 位于第 n 圈。红点是完整区域的最远顶点。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep1"></div>
+      <p class="elevation-handoff">输出给图②：最外侧小区中心 C，以及单个小区的尺寸 D。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-2">
+      <div class="elevation-step-heading"><b>02</b><div><span>计算所在图形：最外侧的一个正六边形</span><h3>把小区中心延伸到最远 UE 顶点 U</h3></div></div>
+      <figure><svg id="elevationVertex" viewBox="0 0 540 360" role="img" aria-labelledby="elevationVertexTitle"><title id="elevationVertexTitle">六边形顶点偏移、勾股三角形和最远UE距离</title></svg><figcaption>蓝色直角边表示顶点相对 C 的偏移；红色 NU 在展开图中的长度等于地面弧长 r。右上插图放大单个六边形。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep2"></div>
+      <p class="elevation-handoff">输出给图③：最远 UE 的地面弧长 r<sub>max</sub>。中心距离 nD 与完整区域边界距离分开计算。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-3">
+      <div class="elevation-step-heading"><b>03</b><div><span>计算所在图形：地心 O、星下点 N、UE U 的剖面</span><h3>用地面弧长求地心角 ψ</h3></div></div>
+      <figure><svg id="elevationSphere" viewBox="0 0 540 360" role="img" aria-labelledby="elevationSphereTitle"><title id="elevationSphereTitle">真实比例的地心剖面、地心角和球面UE坐标</title></svg><figcaption>本图按真实比例画半径、高度与角度；ψ 在地心 O 处量，黄色弧 N–U 对应图②的 r<sub>max</sub>。仰角在下一图的 UE 处量。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep3"></div>
+      <p class="elevation-handoff">输出给图④：ψ 及球面上的 UE 位置。剖面第一坐标轴 X 沿 O→N，第二坐标轴 Y 与其垂直。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-4">
+      <div class="elevation-step-heading"><b>04</b><div><span>计算所在图形：以 UE 为原点的本地直角三角形</span><h3>分解视线，计算最低服务仰角 ε</h3></div></div>
+      <figure><svg id="elevationLocal" viewBox="0 0 540 360" role="img" aria-labelledby="elevationLocalTitle"><title id="elevationLocalTitle">UE本地水平、天顶、卫星视线及仰角</title></svg><figcaption>将图③整体转到 UE 的本地坐标：水平轴沿切平面指向卫星，竖轴指向本地天顶。ε 是水平线与 UE→S 视线的夹角。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep4"></div>
+      <p class="elevation-handoff">最终输出：既定宽小区区域的最低服务仰角。有限随机 UE 通常只逼近最远顶点对应的边界值。</p>
+    </article>
+  </div>
+  <div class="elevation-result" aria-live="polite" aria-atomic="true" id="elevationResult"></div>
+  <div class="elevation-verification">
+    <div><span class="eyebrow">对照校验 · 位置与几何口径</span><h3>完整边界、小区中心、平面近似分别是多少？</h3><div class="qc-table-wrap"><table><thead><tr><th>计算口径</th><th>使用距离</th><th>仰角结果</th></tr></thead><tbody id="elevationComparison"></tbody></table></div><p>图②对应完整小区区域；图④采用球面上的 UE 本地水平面。窄波束的 HPBW、k、g 不参与这条几何计算链。</p></div>
+    <div class="elevation-neighbors"><span class="eyebrow">与七星干扰计算的接口</span><h3>服务仰角与邻星仰角分别统计</h3><p id="elevationNeighbor"></p><p>固定服务区域归属时，各星的局部几何相同。若 UE 改为跨星重新选择服务卫星，则按新的关联结果重算服务仰角。</p><a href="#layout-copy" data-topic="#layout-copy">查看局部布局如何复制到六邻星 ↗</a></div>
+  </div>
+  <p class="elevation-source">几何输入取自本页 QC 模型的宽小区布局与球面映射；28.33° 为这些输入的计算结果。<a href="https://gssc.esa.int/navipedia/index.php/Transformations_between_ECEF_and_ENU_coordinates" target="_blank" rel="noopener">本地天顶与仰角定义 ↗</a></p>
+</section>
+
+<!-- QC_ELEVATION_END -->
+<div class="qc-principle"><span>抓住两层布局</span><strong>宽小区：服务、撒点与调度</strong><i>→</i><strong>窄波束：天线方向与实际发送</strong><button id="qcSourceOpen">查看提案原图 ↗</button></div>
+<nav class="major-steps" id="qcMajor" aria-label="高通建模三个大步骤"></nav>
+<section class="phase-shell" id="qcApp"><div class="geo-toolbar"><span class="eyebrow" id="qcStepName"></span><div class="phase-config"><span class="qc-preset">LEO 600 km · n = 4 · D = 200 km</span><label for="qcCurvature">地球模型<select id="qcCurvature"><option value="sphere">球面地球</option><option value="flat">平面近似</option></select></label></div></div><div class="phase-body"><section class="phase-main"><div class="phase-heading"><span class="eyebrow" id="qcKicker"></span><h2 id="qcTitle"></h2></div><nav class="phase-substeps" id="qcSub" aria-label="高通当前步骤的展开"></nav><div class="geo-controls" id="qcControls"></div><div class="phase-canvas"><canvas id="qcCanvas" aria-label="高通宽小区、UV窄波束、邻星筛选与UE链路交互图"></canvas></div><p class="geo-caption" id="qcCaption"></p><div class="geo-readouts" id="qcReadouts" aria-live="polite"></div><div class="geo-formula" id="qcFormula"></div><div class="phase-handoff" id="qcHandoff"></div></section><aside class="geo-explanation" id="qcExplanation"></aside></div><div id="qcLesson" class="qc-lesson" hidden></div><div class="geo-nav"><button id="qcPrevious">← 上一大步</button><span id="qcProgress"></span><button id="qcNext">下一大步 →</button></div></section>
+<section class="phase-interfaces"><article><span>第一步输出</span><b>宽小区与七星局部坐标</b><p>先排逻辑网格，再确定七个星下点；球面模式用三维旋转复制各星局部布局。</p></article><article><span>第二步输出</span><b>每个宽小区关联的窄波束</b><p>2.1映射宽小区轮廓；2.2用k、g排窄束，再按UV最近中心归属并计数。</p></article><article><span>第三步输出</span><b>目标 UE 的干扰链路集合</b><p>W 先筛邻星，再结合干扰小区、激活和频率复用形成发送链路。</p></article></section>
+<details class="geo-method qc-geometry-details" id="qcGeometryDetails"><summary>几何口径：七个星下点、地球曲率、六边形拼接与轨道数</summary><div>
+<p class="qc-guide-lead">先确定逻辑网格，再建立球面位置，最后复制各星局部坐标。六角编号、真实地面距离与 UV 方向余弦分别承担不同任务。</p>
+<div class="qc-table-wrap"><table class="qc-method-table"><caption>提案原则与本页数值实现</caption><thead><tr><th>问题</th><th>高通 §11.1 的原则</th><th>本页采用的具体实现</th></tr></thead><tbody>
+<tr><th>七个中心怎么选？</th><td>参考星加六邻星；邻星中心六角距离为 2n+1，星下点按真实地面距离偏移。</td><td>n=4、D=200 km。取 (5,4) 及其 60° 旋转副本；d_hex=9，L=200√61≈1562.0 km。</td></tr>
+<tr><th>何时计入曲率？</th><td>是否考虑地球曲率由评估方报告；采用曲率时，局部坐标必须随星下方向旋转。</td><td>从 P0 沿指定方位走大圆弧长 L。α=L/R，gⱼ=R(cosα·n₀+sinα·tⱼ)，然后 rⱼ=(R+h)gⱼ/R。平面近似则直接平移。</td></tr>
+<tr><th>哪些距离保留？</th><td>原文未展开唯一的地图投影或球面网格生成公式。</td><td>保留参考中心到各点的距离与初始方位；不保留所有点间距离。默认球面中心到外围为1562.0 km，相邻外围点约1550.3 km。</td></tr>
+<tr><th>各星布局如何复制？</th><td>各星在自己的局部坐标中携带相同布局；用最小旋转映射星下方向，不额外绕星下方向自转。</td><td>旋转复制参考星的地面位置与天线坐标；同一束局部 (u,v) 相同，但对同一个 UE 的距离和偏离角分别计算。</td></tr>
+</tbody></table></div>
+<h3>球面上还可以用六边形吗？</h3><p>可以保留六角编号、圈数和六邻接关系，也可以定义球面六边区域。不能把所有平面距离、欧式正六边形形状和无缝铺砌同时原样保留到球面。</p>
+<div class="qc-copy-comparison"><article><b>整片网格统一映射</b><p>若将共享边界一起映射，可保持区域拼接；不同位置的形状和尺度会发生变化。</p></article><article><b>各星局部布局旋转复制</b><p>保持各星携带的局部布局相同；不同星之间的边缘未必严丝合缝，可能重叠或出现空隙。本页按这一思路扩展各星布局。</p></article></div>
+<h3>网格距离、真实距离和轨道数如何分工？</h3><p>W 使用逻辑六角距离筛选邻星；链路的斜距、仰角和天线偏离角使用实际三维坐标。区域卫星数7不等于轨道面数7。这一固定布局没有轨道面数、每轨道卫星数、轨道相位或时间传播；研究轨道数影响时，应由真实星座位置替代这套固定七星位置，继续复用后续局部波束和干扰计算。</p>
+<figure class="qc-curvature-figure"><img src="assets/qc/subsatellite-curvature.png" alt="七个星下点先在逻辑六角网格中选定，再按弧长映射到球面；中心到外围1562公里，相邻外围点约1550公里" loading="lazy"><figcaption>固定球面示例：n=4、D=200 km、R=6371 km、h=600 km。此图展示默认参数；上方1.3完整例子及1.4曲率对照随地球模型切换。</figcaption></figure>
+<p>原文定位：Proposal 11.1-1（宽小区、曲率报告）、Proposal 11.1-2（邻星位置与布局复制）、Fixed Beam-Layout（地面到 UV 的逐顶点映射）。<a href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/azimuthal-equidistant.htm" target="_blank" rel="noopener">方位等距映射的距离与形变性质 ↗</a></p>
+</div></details>
+<details class="geo-method"><summary>提案依据、数值实现与参数口径</summary><div><h3>原文主线</h3><p>Qualcomm R1-2608437 第 11.1 节，Proposal 11.1-1 / 11.1-2；固定波束部分及 Figures 11.1-1–11.1-5。原文提供固定波束与 UE 专用波束两种选项，本页主线采用固定波束，下行链路为干扰计算示例。宽小区内均匀撒 UE；调度可逐小区独立，也不排除跨小区联合调度。</p><h3>地面、UV 与星下点的关系</h3><p>本页宽小区先在逻辑平面按等中心距六角网格生成，再映射到地球表面；随后逐顶点映射到卫星局部方向余弦平面。这里 u、v 是两个横向方向分量，星下方向为 (0,0)，与 ZTE 6870 附录的经纬归一化 UV 定义分别使用。本页球面布局由平面网格经球面指数映射生成，即保留参考中心到各点的方位和弧长；不同时保留所有点间距离、角度与面积。投影和射线求交使用球形地球。</p><h3>第二大步：先映射宽小区，再生成窄波束</h3><p>2.1将地面宽小区的六个顶点逐一映射到UV；一般不保留等边和等角，星下中心小区的对称特例除外。本页以六个UV顶点连成轮廓。2.2沿用这些轮廓，先用k确定整片UV窄波束网格，再用g补整颗星服务区的外缘；最后逐束关联最近的宽小区UV中心，并统计每个小区的关联束数。</p><h3>数值示例与可复现范围</h3><p>示例采用 h=600 km、宽小区中心距 D=200 km、n=4，中心加四圈共61小区。HPBW（Half-Power Beamwidth，半功率波束宽度）取2.82°作数值展开；s=k·2sin(HPBW/2)，保护距离为gs。默认球面配置 k=√3/2、g=0.5生成1303条候选窄波束，与原文 Figure11.1-5的束数一致。改变曲率、k、g会重新生成网格；原图束数不是对所有参数固定的常数。</p><h3>邻星位置与 W</h3><p>原文规定六颗邻星的中心距为六角网格距离 2n+1。本页选用轴坐标 (n+1,n) 及其60°旋转副本，再按方位角和大圆弧长放到球面；这一具体嵌入及球面映射属于本页实现。六角网格距离与欧氏距离分开计算，不能直接用9D代替实际距离。球面模型的各星局部坐标使用映射星下方向的最小旋转，无绕星下方向的附加自转。各星旋转复制的布局保持局部相同，但不同星之间的地面边界不保证无缝，可能重叠或留有空隙。</p><p>W 按目标服务小区 c 与邻星中心 z 的网格距离筛选：n+1 ≤ d_hex(c,z) ≤ n+W，W &lt; 2n+1。全量方式则计入六颗邻星的全部激活干扰小区。原文只写筛选后考虑“最近的小区”，未给统一最近小区数量；本页可选每颗保留邻星的全部61小区，或按实际地面中心距离选最近19/7小区，后两者是教学选项。</p><h3>活动波束与功率</h3><p>“每小区1束”以宽小区中心为调度目标选取一条窄波束，对服务小区则选取最接近被测 UE 方向的关联束；“全部窄束候选”用于展示候选集合。三频复用标签为教学映射。真实干扰仍需接入活动时频资源、发射功率、天线方向图与传播模型；本页列出几何与链路集合，不计算提案的SIR曲线。</p><p><a href="https://ftp.3gpp.org/tsg_ran/WG1_RL1/TSGR1_126b/Docs/R1-2608437.zip" target="_blank" rel="noopener">3GPP R1-2608437 原始归档 ↗</a> · <a href="./">ZTE 6870 的三步演示 ↗</a></p></div></details>
+<footer><span>Qualcomm R1-2608437 §11.1 · Proposal 11.1-1 / 11.1-2</span><button class="text-btn" id="qcSourceBottom">查看原图与原文方法 ↗</button><span>NTN / WIDE CELLS & NARROW BEAMS</span></footer></main>
+<dialog id="qcSourceDialog"><div class="dialog-head"><div><span class="eyebrow">PROPOSAL FIGURES</span><h2>高通原文中的布局与评估图</h2></div><button id="qcSourceClose" class="tool-btn" aria-label="关闭高通原图">✕</button></div><div class="dialog-body"><p>以下图片提取自已保存的 R1-2608437 提案对比稿，保留原图内容。页面交互图则按提案方法重新计算。</p><figure><img src="assets/qc/image26.png" alt="高通 Figure11.1-3，地面61宽小区及UV方向余弦映射"><figcaption>Figure 11.1-3 · 地面宽小区 → UV；一宽小区关联多条窄波束。</figcaption></figure><figure><img src="assets/qc/image27.png" alt="高通 Figure11.1-4，k与g的作用及扫描损失"><figcaption>Figure 11.1-4 · k 控制内部间距，g 补充服务区边界。</figcaption></figure><figure><img src="assets/qc/image28.png" alt="高通 Figure11.1-5，1303窄波束的地面半功率轮廓"><figcaption>Figure 11.1-5 · 61 宽小区、1303 候选窄波束。</figcaption></figure><figure><img src="assets/qc/image25.png" alt="高通 Figure11.1-2，三种保留邻星方案的SIR累积分布"><figcaption>Figure 11.1-2 · 原文 LOS-only SIR 评估结果；本页不将几何候选数换算成该曲线。</figcaption></figure></div></dialog>
+<script src="qc-elevation-model.js"></script><script src="qc-elevation.js"></script>
+<script src="earth.js"></script><script src="qc-model.js"></script><script src="qc-lessons.js"></script><script src="qc.js"></script><script src="lab-navigation.js" defer></script></body></html>

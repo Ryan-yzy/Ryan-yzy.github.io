@@ -8,6 +8,9 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "NTN Lab"
+    url: /ntn/
+
   - title: "Talks"
     url: /talks/    
 
@@ -28,3 +31,4 @@ main:
     
   #- title: "Guide"
     # url: /markdown/
+
