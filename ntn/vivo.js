@@ -35,6 +35,7 @@ function updateText(){
  const before=M.exp(model.f,D,0),after=sats[1].f.n,shift=M.arc(before,after),minElev=Math.min(...sats[0].points.map(p=>M.elevation(sats[0].S,M.mul(p.v,M.R))));
  $('metrics2').innerHTML=metric('相邻星下点弧长 D',fmt(D),'km')+metric('方位错位 δ',fmt(delta/M.DEG,3),'°')+metric('参考星外环中心最低仰角',fmt(minElev),'°');
  $('offsetReadout').textContent=`ρ=${fmt(o.rho,2)}：切平面目标错位 ρd=${fmt(o.rho*sp.d)} km；当前球面星下点实际移动 ${fmt(shift)} km。六邻星到参考点的弧长仍为 ${fmt(D)} km。`;
+ $('coordinateReadout').textContent=`地心地固坐标 / km：参考星 S0=(${sats[0].S.map(v=>fmt(v,1)).join(', ')})；邻星下点 P1=(${M.mul(sats[1].f.n,M.R).map(v=>fmt(v,1)).join(', ')})。`;
  const kept=sats.slice(1).reduce((a,s)=>a+s.points.filter(p=>p.keep).length,0),activeKept=budget.links.filter(l=>l.sat>0).length;
  $('metrics3').innerHTML=metric(`参考星 ROI（第 ${first}–${o.t} 环）`,roi.length,'波位')+metric('保留的邻星候选波位',kept,`/ ${6*M.count(o.t)}`)+metric('本快照邻星活动干扰波束',activeKept,'个');
  $('roiFormula').innerHTML=`ring ≥ t − k + 1 = ${o.t} − ${o.roi} + 1 = ${first}<br>NROI = N(${o.t}) − N(${first-1})<br><b>= ${M.count(o.t)} − ${M.count(first-1)} = ${roi.length}</b>`;
