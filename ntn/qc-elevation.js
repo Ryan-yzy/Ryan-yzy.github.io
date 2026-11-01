@@ -3,8 +3,8 @@
   const M = window.QCElevation;
   const $ = id => document.getElementById(id);
   if (!M || !$('ue-min-elevation')) return;
-  const C = { mint: '#7be3c3', blue: '#79b9e4', gold: '#edc67d', red: '#ef968d',
-    text: '#c6dce7', muted: '#82a6ba', line: '#37566a', fill: '#193342' };
+  const C = { mint: '#2c7b78', blue: '#2e80b8', gold: '#b8882e', red: '#b83b2e',
+    text: '#406577', muted: '#55829a', line: '#54809c', fill: '#dfe4e6' };
   const f = (x, digits = 2) => x.toFixed(digits);
   const esc = value => String(value).replace(/[&<>"']/g, x => ({ '&': '&amp;', '<': '&lt;',
     '>': '&gt;', '"': '&quot;', "'": '&#39;' })[x]);
@@ -27,7 +27,7 @@
     for (const cell of d.cells) {
       const chosen = cell.q === d.rings && cell.r === 0;
       parts.push(path(cell.vertices.map(v => p(...v)), chosen ? C.gold : C.line,
-        chosen ? 2.1 : .8, chosen ? '#514b32' : C.fill, true));
+        chosen ? 2.1 : .8, chosen ? '#655d3e' : C.fill, true));
       parts.push(dot(p(cell.x, cell.y), chosen ? C.gold : C.muted, chosen ? 4 : 1.8));
       for (const vertex of cell.vertices) {
         if (Math.abs(Math.hypot(...vertex) - d.maxArcKm) < 1e-7) parts.push(dot(p(...vertex), C.red, 2.7));
@@ -61,7 +61,7 @@
       return [inset[0] + side * Math.cos(a), inset[1] - side * Math.sin(a)];
     });
     const v = hex[0], elbow = [v[0], inset[1]];
-    parts.push(text(367, 17, '单个小区放大', C.muted, 11, 'middle'), path(hex, C.blue, 1.5, '#162e3c', true),
+    parts.push(text(367, 17, '单个小区放大', C.muted, 11, 'middle'), path(hex, C.blue, 1.5, '#dfe4e7', true),
       line(inset, elbow, C.gold, 2), line(elbow, v, C.blue, 2), dot(inset, C.gold, 3), dot(v, C.red, 3.5),
       text(inset[0] - 10, inset[1] + 4, 'C', C.gold, 11, 'end'), text(v[0] + 8, v[1] - 4, 'U', C.red, 11),
       text(390, 111, 'Δx = D/2', C.gold, 10, 'middle'), text(438, 82, 'Δy', C.blue, 11),
@@ -85,7 +85,7 @@
       const a = d.psi * i / 30;
       return [op[0] + 82 * Math.sin(a), op[1] - 82 * Math.cos(a)];
     });
-    const parts = [path([op, ...surface], C.line, .8, '#142b39', true), path(surface, C.blue, 1.8),
+    const parts = [path([op, ...surface], C.line, .8, '#dfe4e7', true), path(surface, C.blue, 1.8),
       line(op, np, C.muted, 1.5), line(op, [264, op[1]], C.muted, 1, '4 4'),
       text(273, op[1] + 4, 'Y', C.muted, 11), text(145, 48, 'X', C.muted, 11),
       line(op, up, C.gold, 1.8), line(np, sp, C.mint, 3),

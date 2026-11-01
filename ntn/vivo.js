@@ -133,4 +133,5 @@ $('roiCanvas').addEventListener('click',e=>{const rect=e.currentTarget.getBoundi
 $('roiCanvas').addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();const i=model.roi.findIndex(p=>p.id===selected),n=model.roi.length,delta=['ArrowRight','ArrowDown'].includes(e.key)?1:-1;selected=model.roi[(i+delta+n)%n].id;updateBudget();updateText();draw();}});
 window.addEventListener('resize',draw);
 drawTiling();rebuild();setStage(1);
+window.NTNReadScene=()=>({R:M.R,h:model.o.h,sats:model.sats.map(s=>({id:'S'+s.id,pos:s.S})),ref:model.sats[0].S,ue:budget.U,target:M.mul(budget.p.v,M.R),points:model.sats[0].points.map(p=>M.mul(p.v,M.R)),note:`当前第 ${model.first}–${model.o.t} 环 ROI，选定波位 ${budget.p.id}。`});
 })();

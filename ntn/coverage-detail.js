@@ -1,6 +1,6 @@
 'use strict';
 const CoverageDetail=(()=>{
-  const colors={theta:'#7be3c3',height:'#90b9c9',perp:'#64c8ed',zeta:'#64c8ed',elevation:'#baa3ff',half:'#edc578',inside:'#eaa5ac',muted:'#607f92',white:'#d8e8ee'};
+  const colors={theta:'#2c7b78',height:'#54889c',perp:'#2e92b8',zeta:'#2e92b8',elevation:'#502eb8',half:'#b8892e',inside:'#b82e3c',muted:'#5f7e91',white:'#406877'};
   const parts=[
     {name:'已知几何',heading:'先定义点和线，\n明确已知边角',triangle:'整体几何与垂足 H',body:'<p><strong>O</strong> 为地心，<strong>S</strong> 为卫星，<strong>N</strong> 为星下点，<strong>P</strong> 为覆盖边界点。O、N、S 共线。</p><p>将射线 SP 向内延长。从 O 向这条直线作垂线，垂足记为 <strong>H</strong>：S、P、H 依次共线，OH ⟂ SH。</p><div class="callout">已知 OS = Re+h，OP = ON = Re，以及 S 处的 θs。N 用于标明高度 h；求解主要使用 OSH、OPH、OSP。</div>'},
     {name:'△OSH 求 OH',heading:'第一步：在直角\n三角形 OSH 中求 OH',triangle:'当前求解：△OSH，直角在 H',body:'<p>高亮的 <strong>△OSH</strong> 是直角三角形，直角位于 H。</p><p>因为 S、P、H 共线，∠OSH 就是已知的 <strong>θs</strong>。OS 是斜边，OH 是 θs 的对边。</p><div class="callout">sinθs = OH / OS<br>因此 OH = (Re+h)sinθs。</div>'},
@@ -20,23 +20,23 @@ const CoverageDetail=(()=>{
   ][part];}
   function show(active){$('coverageParts').hidden=!active;document.querySelector('.visual-panel').classList.toggle('is-coverage',active);document.querySelectorAll('[data-coverage-part]').forEach(b=>{let yes=+b.dataset.coveragePart===part;b.classList.toggle('active',yes);b.setAttribute('aria-current',yes?'step':'false');});}
   function go(n){part=(n+parts.length)%parts.length;show(true);change();dirty=true;}
-  function lab(t,x,y,c=colors.white,size=10,align='left'){ctx.font=`${size}px ${getComputedStyle(document.body).fontFamily}`;let w=ctx.measureText(t).width,left=align==='center'?x-w/2-4:align==='right'?x-w-4:x-4;ctx.fillStyle='#0c1e2be8';ctx.fillRect(left,y-size-3,w+8,size+8);text(t,x,y,c,size,align);}
+  function lab(t,x,y,c=colors.white,size=10,align='left'){ctx.font=`${size}px ${getComputedStyle(document.body).fontFamily}`;let w=ctx.measureText(t).width,left=align==='center'?x-w/2-4:align==='right'?x-w-4:x-4;ctx.fillStyle='#f9fafbe8';ctx.fillRect(left,y-size-3,w+8,size+8);text(t,x,y,c,size,align);}
   function arc(o,a,b,r,c,width=2){let start=Math.atan2(a[1]-o[1],a[0]-o[0]),end=Math.atan2(b[1]-o[1],b[0]-o[0]),delta=((end-start+3*Math.PI)%(2*Math.PI))-Math.PI;ctx.beginPath();ctx.arc(o[0],o[1],r,start,start+delta,delta<0);ctx.strokeStyle=c;ctx.lineWidth=width;ctx.stroke();}
   function rightAngle(o,a,b,size,c){const va=[a[0]-o[0],a[1]-o[1]],vb=[b[0]-o[0],b[1]-o[1]],na=Math.hypot(...va),nb=Math.hypot(...vb);const A=[o[0]+va[0]/na*size,o[1]+va[1]/na*size],B=[o[0]+vb[0]/nb*size,o[1]+vb[1]/nb*size];path([A,[A[0]+B[0]-o[0],A[1]+B[1]-o[1]],B],c,1.2);}
   function leader(t,point,offset,c=colors.white,align='left'){const end=[point[0]+offset[0],point[1]+offset[1]];path([point,end],c+'a0',.7);lab(t,end[0]+(align==='left'?4:-4),end[1]+3,c,9,align);}
-  function panelHeading(t,box){text(t,box.x+10,box.y+18,'#b4cdd9',11);}
+  function panelHeading(t,box){text(t,box.x+10,box.y+18,'#406577',11);}
   function draw(options){
     const g=geometry(),small=W<550,margin=small?13:20;
     const A=small?{x:margin,y:45,w:W-margin*2,h:H*.48-40}:{x:20,y:48,w:W*.48-25,h:H-100};
     const B=small?{x:margin,y:H*.50+15,w:W-margin*2,h:H*.45-15}:{x:W*.52,y:48,w:W*.46-20,h:H-100};
-    if(!small)path([[W*.505,47],[W*.505,H-40]],'#2a4151',1);else path([[18,H*.50],[W-18,H*.50]],'#2a4151',1);
-    drawWhole(A,g,options);drawZoom(B,g,options);text(parts[part].triangle,W/2,H-17,'#94b6c8',10,'center');
+    if(!small)path([[W*.505,47],[W*.505,H-40]],'#547e9c',1);else path([[18,H*.50],[W-18,H*.50]],'#547e9c',1);
+    drawWhole(A,g,options);drawZoom(B,g,options);text(parts[part].triangle,W/2,H-17,'#54839c',10,'center');
   }
   function drawWhole(box,g,{angles,aux}){
     ctx.save();ctx.beginPath();ctx.rect(box.x,box.y,box.w,box.h);ctx.clip();panelHeading('完整剖面 · 真实长度比例',box);
     const origin=[box.x+box.w*.23,box.y+box.h*.81],r=Math.min(box.w*.92,box.h*.66,(origin[1]-box.y-72)*M.R/g.os),k=r/M.R,pt=v=>[origin[0]+v[0]*k,origin[1]-v[1]*k];
     const O=pt(g.O),S=pt(g.S),N=pt(g.N),P=pt(g.P),H=pt(g.H);
-    const edge=[];for(let a=0;a<=1.15;a+=.02)edge.push(pt([M.R*Math.sin(a),M.R*Math.cos(a)]));path([O,...edge,O],null,0,'#1534488a');path(edge,'#567f96',1.3);
+    const edge=[];for(let a=0;a<=1.15;a+=.02)edge.push(pt([M.R*Math.sin(a),M.R*Math.cos(a)]));path([O,...edge,O],null,0,'#dfe4e78a');path(edge,'#578198',1.3);
     const triangles={1:[O,S,H,O],2:[O,P,H,O],4:[O,S,P,O]},tcol=part===1?colors.theta:part===2?colors.zeta:colors.half;
     if(triangles[part])path(triangles[part],tcol,1.8,tcol+'17');
     path([O,S],part===1?colors.theta:colors.muted,part===1?2:1);
@@ -58,7 +58,7 @@ const CoverageDetail=(()=>{
     const P=[box.x+box.w*.57,box.y+box.h*.57],distance=Math.hypot(g.S[0]-g.P[0],g.S[1]-g.P[1]),scale=Math.min(box.h*.33/distance,box.w*.43/Math.abs(g.S[0]-g.P[0]));
     const pt=v=>[P[0]+(v[0]-g.P[0])*scale,P[1]-(v[1]-g.P[1])*scale],S=pt(g.S),unitZ=[g.P[0]/M.R,-g.P[1]/M.R],unitO=unitZ.map(x=>-x),unitT=[-g.P[1]/M.R,-g.P[0]/M.R],norm=Math.hypot(...g.S.map((x,i)=>x-g.P[i])),unitS=[(g.S[0]-g.P[0])/norm,-(g.S[1]-g.P[1])/norm],unitH=unitS.map(x=>-x),L=Math.min(box.w*.31,box.h*.22);
     const ray=(v,len=L)=>[P[0]+v[0]*len,P[1]+v[1]*len],Z=ray(unitZ,L*1.6),O=ray(unitO,L*1.2),T=ray(unitT,L*1.4),Tr=ray(unitT,-L),H=ray(unitH,L*1.45);
-    const edge=[],span=Math.min(.22,box.w/(M.R*scale)*.72);for(let j=0;j<=80;j++){let d=-span+2*span*j/80,a=g.half+d;edge.push(pt([M.R*Math.sin(a),M.R*Math.cos(a)]));}path([...edge,[box.x+box.w+30,box.y+box.h+30],[box.x-30,box.y+box.h+30]],null,0,'#16344775');path(edge,'#527b92',1.2);
+    const edge=[],span=Math.min(.22,box.w/(M.R*scale)*.72);for(let j=0;j<=80;j++){let d=-span+2*span*j/80,a=g.half+d;edge.push(pt([M.R*Math.sin(a),M.R*Math.cos(a)]));}path([...edge,[box.x+box.w+30,box.y+box.h+30],[box.x-30,box.y+box.h+30]],null,0,'#dfe4e775');path(edge,'#568199',1.2);
     path([S,P],part===4?colors.half:colors.theta,2);path([P,H],part===2?colors.zeta:colors.muted,1.3,null,[4,4]);path([O,P,Z],part===3?colors.elevation:colors.height,1.1,null,[4,4]);
     if(aux||part===3){path([T,Tr],colors.elevation,1.1,null,[3,3]);rightAngle(P,Z,T,18,colors.elevation);lab('当地切线',T[0]+3,T[1]-12,colors.elevation,9);}
     drawSatellite(S,colors.theta,false,'S');dot(P,4,colors.half);lab('P',P[0]+11,P[1]+5,colors.half,12);lab('天顶 Z',Z[0]+7,Z[1]+3,colors.height,9);lab('向 O',O[0]-8,O[1]+12,colors.height,9,'right');lab('延长至 H',H[0]+4,H[1]+12,colors.perp,9);
