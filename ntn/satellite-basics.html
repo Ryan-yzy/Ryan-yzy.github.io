@@ -10,9 +10,9 @@
 <body>
 <header class="top"><a class="brand" href="index.html"><span>◉</span> NTN LAB <small>/ 基础篇</small></a><a href="index.html" class="return">多星建模目录 ↗</a></header>
 <div class="page">
-<aside class="toc" aria-label="本页目录"><div class="toc-label">从单星，到整个星座</div><a href="#motion"><b>01</b><span>卫星为什么在轨</span></a><a href="#elements"><b>02</b><span>轨道怎样定位</span></a><a href="#walker"><b>03</b><span>Walker 怎样排星</span></a><a href="#earth"><b>04</b><span>从地面看卫星</span></a><a href="#ntn"><b>05</b><span>接到 NTN 仿真</span></a><div class="toc-foot">圆轨道 · 球面地球<br>三维图可拖动旋转<br><a href="#sources">资料来源与计算假设 ↓</a></div></aside>
+<aside class="toc" aria-label="本页目录"><div class="toc-label">从单星，到整个星座</div><a href="#motion"><b>01</b><span>卫星为什么在轨</span></a><a href="#elements"><b>02</b><span>轨道怎样定位</span></a><a href="#walker"><b>03</b><span>Walker 怎样排星</span></a><a href="#earth"><b>04</b><span>从地面看卫星</span></a><a href="#ntn"><b>05</b><span>接到 NTN 仿真</span></a><a href="#vivo-method"><b>06</b><span>vivo 怎样做仿真</span></a><div class="toc-foot">圆轨道 · 球面地球<br>三维图可拖动旋转<br><a href="#sources">资料来源与计算假设 ↓</a></div></aside>
 <main>
-<section class="hero"><div class="eyebrow">ORBITAL BASICS / WALKER CONSTELLATIONS</div><h1>一颗星怎样运行，<br>一群星怎样排开。</h1><p>把卫星看成在地球引力下运动的物体，再把同一条轨道复制成多个轨道面。沿着这条线，理解高度、倾角、升交点，以及 Walker 星座里的 T/P/F。</p><nav class="hero-route" aria-label="快速跳转"><a href="#motion">运动规律</a><i>→</i><a href="#elements">轨道位置</a><i>→</i><a href="#walker">星座布局</a><i>→</i><a href="#earth">地面链路</a></nav></section>
+<section class="hero"><div class="eyebrow">ORBITAL BASICS / WALKER CONSTELLATIONS</div><h1>一颗星怎样运行，<br>一群星怎样排开。</h1><p>把卫星看成在地球引力下运动的物体，再把同一条轨道复制成多个轨道面。沿着这条线，理解高度、倾角、升交点，以及 Walker 星座里的 T/P/F。</p><nav class="hero-route" aria-label="快速跳转"><a href="#motion">运动规律</a><i>→</i><a href="#elements">轨道位置</a><i>→</i><a href="#walker">星座布局</a><i>→</i><a href="#earth">地面链路</a><i>→</i><a href="#vivo-method">vivo 仿真方法</a></nav></section>
 
 <section id="motion" class="chapter">
 <div class="chapter-head"><div><span class="index">01 / MOTION</span><h2>卫星一直在“向地球落下”。</h2><p>引力改变速度方向，足够的切向速度使轨迹沿着弯曲的地球延伸。</p></div><a class="ref" href="#src-gravity">NASA / 引力与运动</a></div>
@@ -61,8 +61,17 @@
 <div class="read-next"><a href="zte-6870.html"><b>中兴 6870</b><span>从多轨星座走向系统仿真 →</span></a><a href="huawei.html"><b>华为</b><span>固定地面波位，观察动态星座 →</span></a><a href="index.html"><b>全部公司方法</b><span>返回多星建模目录 →</span></a></div>
 </section>
 
+<section id="vivo-method" class="chapter">
+<div class="chapter-head"><div><span class="index">06 / VIVO METHODOLOGY</span><h2>vivo：先铺球面波位，用网格尺度摆七星。</h2><p>R1-2607364 §2.7.2 以中心星和六颗邻星研究边缘干扰。具体计算从地表网格出发，生成一个局部七星快照；前面 Walker 的轨道推进可用于另一类动态星座仿真。</p></div><a class="ref" href="vivo.html#workflow">打开 vivo 交互详解 ↗</a></div>
+<div class="explain-grid"><article><h3>第一步 / 单星波位在球面上确定</h3><p>由半功率波束宽度（Half-Power Beamwidth，HPBW）换算基准地表间距 d。输入环数 t，沿相差 60° 的大圆方向确定各环角点，再在过地心的 O–Aₙ–Bₙ 平面内等分地心角，得到球面波位中心 C。最后由卫星 S 指向 C，计算波束轴和各星自己的 UV 方向余弦。</p><div class="formula">每星候选波位数 N = 1 + 3t(t+1)<br>中心至最外环角点的弧长 R<sub>hex</sub> = t·d</div><a class="ref" href="vivo.html#stage1">看构造平面与分点 →</a></article><article><h3>第二步 / 邻星先在星下点切平面安排</h3><p>用六边形拼接尺度 D=√3t·d，在参考星下点 P₀ 的切平面内取六个相差 60° 的方向。指数映射把位移长度 D 变成地表大圆弧长，得到邻星下点 Pₖ；再沿各自地心法向升高 h，得到卫星 Sₖ。ρ 控制可选切向错位。</p><div class="formula">Pₖ = Rₑ[n̂ cos(D/Rₑ) + t̂ₖ sin(D/Rₑ)]<br>Sₖ = (1+h/Rₑ)Pₖ</div><a class="ref" href="vivo.html#stage2">看平面点 → 球面点 → 卫星 →</a></article></div>
+<div class="note"><b>第三步 / 统计哪些 UE，与保留哪些干扰源分别确定</b><p>感兴趣区域（Region of Interest，ROI）示例取参考星最外侧五环。只有服务波束位于 ROI 的 UE 进入统计；缓冲区保留周边干扰源。邻星候选波位按“到任一 ROI 中心的大圆距离 ≤ 2d”筛选，再按活动状态和同频资源计算干扰。对同一 UE 分别计算 SIR<sub>single</sub>=Pₛ/I<sub>intra</sub> 和 SIR<sub>multi</sub>=Pₛ/(I<sub>intra</sub>+I<sub>inter</sub>)，重复 UE / 快照并汇成分布。<a href="vivo.html#stage3">查看干扰统计流程 →</a></p></div>
+<div class="table-wrap box"><table><thead><tr><th>原稿中的数量</th><th>含义与计算</th><th>对应场景</th></tr></thead><tbody><tr><td>331 个 / 星</td><td>1+3×10×11</td><td>10 环几何图例（Fig.5–6）</td></tr><tr><td>397 个 / 星；ROI 270 个</td><td>11 环总数 397；第 7–11 环为 397−127=270</td><td>Step 5 的边缘统计例</td></tr><tr><td>同时活动 32 个 / 星</td><td>候选波位中当期被点亮的子集</td><td>RF 链 / 活动波束约束；仍需指定激活策略</td></tr></tbody></table></div>
+<p class="caption standalone">原稿 Step 1–2 定球面网格与尺度，Step 3–4 定邻星与错位，Step 5–6 定 ROI 与缓冲。公司建议采用“三轨道七星”；上述坐标构造本身给出局部位置，动态推进还需轨道面、相位和历元参数。<a href="vivo.html#source">原文定位与复现参数 ↗</a></p>
+</section>
+
 <section id="sources" class="sources"><h2>资料来源与计算假设</h2><ol><li id="src-gravity"><a href="https://science.nasa.gov/learn/basics-of-space-flight/chapter3-3/" target="_blank" rel="noopener">NASA · Basics of Space Flight，Chapter 3: Gravity & Mechanics</a>：圆轨道、引力与周期。</li><li id="src-elements"><a href="https://science.nasa.gov/wp-content/uploads/2023/05/GDC_OrbitPrimer.pdf" target="_blank" rel="noopener">NASA GSFC · GDC Orbit Primer，p.3</a>：六要素、倾角与升交点赤经。</li><li id="src-walker"><a href="https://help.agi.com/stk/12.10.0/Content/stk/tools-12.htm" target="_blank" rel="noopener">Ansys STK · Walker Tool</a>：i:T/P/F、Delta/Star 和 F×360°/T。<a href="https://help.agi.com/STKComponents/html/M_AGI_Foundation_Propagators_WalkerConstellation__ctor.htm" target="_blank" rel="noopener">相位定义</a>。</li><li id="src-geo"><a href="https://science.nasa.gov/earth/earth-observatory/catalog-of-earth-satellite-orbits/" target="_blank" rel="noopener">NASA · Catalog of Earth Satellite Orbits</a>：同步与静止轨道的条件。</li></ol><p>计算采用球面地球 R=6378 km、μ=398600.4418 km³/s²、恒星日 86164.0905 s；圆轨道两体运动，θ<sub>E</sub>(0)=0，参考 Ω<sub>0</sub>=0°、u<sub>0</sub>=45°。默认 600 km、53°:24/4/1 是教学示例。长期轨道预报可在此基础上加入 J2、阻力与更完整的地球姿态变换。</p><p>p、q 从 0 编号；相位正方向沿轨道运动。本页圆轨道下，沿真近点角和沿平近点角等分具有相同结果。动画的速度倍率只改变播放速度，全部数值按显示的仿真时间计算。</p></section>
 <footer><span>NTN Lab · 卫星与星座基础</span><a href="index.html">返回多星建模目录 ↗</a></footer>
 </main></div>
 <script src="lab-navigation.js" defer></script>
 </body></html>
+

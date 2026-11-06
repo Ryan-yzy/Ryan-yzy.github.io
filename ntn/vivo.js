@@ -7,8 +7,9 @@ const defaults={height:600,width:5.075,tiers:11,ring:7,point:3,latitude:0,offset
 const val=id=>+$ (id).value;
 const fmt=(v,n=1)=>v===Infinity?'∞':Number.isFinite(v)?v.toFixed(n):'—';
 const metric=(label,value,unit='')=>`<div class="metric"><span>${label}</span><strong>${value}</strong><small>${unit}</small></div>`;
-function setStage(s,scroll=false){
+function setStage(s,scroll=false,updateHash=true){
  stage=s;
+ if(updateHash) history.replaceState(null,'','#stage'+s);
  document.querySelectorAll('[data-step]').forEach(b=>{const yes=+b.dataset.step===s;b.setAttribute('aria-selected',yes);b.tabIndex=yes?0:-1;});
  for(let i=1;i<=3;i++) $('stage'+i).hidden=i!==s;
  document.querySelectorAll('[data-show]').forEach(el=>el.hidden=+el.dataset.show!==s);
@@ -28,6 +29,7 @@ function updateText(){
  for(const [id,unit,n] of [['height',' km',0],['width','°',3],['tiers',' 环',0],['latitude','°',0],['offset','',2],['roi',' 环',0],['buffer','·d',0],['active','',0]]) $(id+'Val').textContent=fmt(val(id),n)+unit;
  $('ringVal').textContent=val('ring');$('pointVal').textContent=val('point')+' / '+val('ring');
  const {o,sp,D,delta,sats,roi,first}=model;
+ $('spacingReadout').textContent=`当前 h=${fmt(o.h,0)} km，HPBW=${fmt(o.hpbw,3)}°：Δuv=${fmt(sp.uv,5)} → θsat=${fmt(sp.sat/M.DEG,4)}° → θearth=${fmt(sp.earth/M.DEG,5)}° → d=${fmt(sp.d,3)} km。`;
  $('gridCount').textContent=`${o.t} 环 / ${M.count(o.t)} 个波位中心`;
  $('metrics1').innerHTML=metric('基准地表波束间距 d',fmt(sp.d),'km')+metric('单星波位数 N',M.count(o.t),'个')+metric('中心至最外环角点 Rhex',fmt(o.t*sp.d),'km');
  const n=val('ring'),i=val('point'),a=M.exp(model.f,n*sp.d,Math.PI/6),b=M.exp(model.f,n*sp.d,Math.PI/2),beta=M.angle(a,b);
@@ -38,6 +40,7 @@ function updateText(){
 
  const before=M.exp(model.f,D,0),after=sats[1].f.n,shift=M.arc(before,after),minElev=Math.min(...sats[0].points.map(p=>M.elevation(sats[0].S,M.mul(p.v,M.R))));
  $('metrics2').innerHTML=metric('相邻星下点弧长 D',fmt(D),'km')+metric('方位错位 δ',fmt(delta/M.DEG,3),'°')+metric('参考星外环中心最低仰角',fmt(minElev),'°');
+ $('distanceReadout').textContent=`当前 t=${o.t}：N=${M.count(o.t)} 个 / 星；Rhex=${fmt(o.t*sp.d,3)} km → D=√3Rhex=${fmt(D,3)} km。参考星到邻星的三维直线距离为 2(Rₑ+h)sin[D/(2Rₑ)]=${fmt(2*(M.R+o.h)*Math.sin(D/(2*M.R)),3)} km；D 表示星下点地表弧长。`;
  $('offsetReadout').textContent=`ρ=${fmt(o.rho,2)}：切平面构造中的目标错位 ρd=${fmt(o.rho*sp.d)} km；当前球面星下点实际移动 ${fmt(shift)} km。它们因曲率可略有差异。六邻星到 P₀ 的弧长仍为 D=${fmt(D)} km。`;
  $('coordinateReadout').textContent=`地心地固坐标 / km：参考星 S0=(${sats[0].S.map(v=>fmt(v,1)).join(', ')})；邻星下点 P1=(${M.mul(sats[1].f.n,M.R).map(v=>fmt(v,1)).join(', ')})。`;
  const kept=sats.slice(1).reduce((a,s)=>a+s.points.filter(p=>p.keep).length,0),activeKept=budget.links.filter(l=>l.sat>0).length;
@@ -195,7 +198,10 @@ $('roiCanvas').addEventListener('click',e=>{const rect=e.currentTarget.getBoundi
 $('roiCanvas').addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();const i=model.roi.findIndex(p=>p.id===selected),n=model.roi.length,delta=['ArrowRight','ArrowDown'].includes(e.key)?1:-1;selected=model.roi[(i+delta+n)%n].id;updateBudget();updateText();draw();}});
 window.addEventListener('resize',draw);
 for(const button of document.querySelectorAll('[data-construction-plane]'))button.addEventListener('click',()=>{constructionPlane=button.dataset.constructionPlane;document.querySelectorAll('[data-construction-plane]').forEach(b=>b.setAttribute('aria-pressed',b===button));drawConstruction();});
-drawTiling();rebuild();setStage(1);
+function stageFromHash(){const hit=location.hash.match(/^#stage([123])$/);if(!hit)return;setStage(+hit[1],false,false);requestAnimationFrame(()=>document.querySelector('.steps').scrollIntoView({block:'start'}));}
+window.addEventListener('hashchange',stageFromHash);
+drawTiling();rebuild();setStage(1,false,false);stageFromHash();
 window.NTNReadScene=()=>({R:M.R,h:model.o.h,sats:model.sats.map(s=>({id:'S'+s.id,pos:s.S})),ref:model.sats[0].S,ue:budget.U,target:M.mul(budget.p.v,M.R),points:model.sats[0].points.map(p=>M.mul(p.v,M.R)),note:`当前第 ${model.first}–${model.o.t} 环 ROI，选定波位 ${budget.p.id}。`});
 })();
+
 
