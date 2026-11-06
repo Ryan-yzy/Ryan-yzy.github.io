@@ -1,7 +1,9 @@
 (() => {
 'use strict';
 const root=document.body,method=window.NTN_METHODS?.[root.dataset.method];if(!method)return;
-const $=id=>document.getElementById(id),canvas=$('nrGeometryCanvas'),ctx=canvas.getContext('2d');
+const $=id=>document.getElementById(id),canvas=$('nrGeometryCanvas');
+if(!canvas){for(const event of ['input','change','click'])document.addEventListener(event,()=>requestAnimationFrame(syncIO));syncIO();return;}
+const ctx=canvas.getContext('2d');
 const D=Math.PI/180,add=(a,b)=>a.map((v,i)=>v+b[i]),sub=(a,b)=>a.map((v,i)=>v-b[i]),mul=(a,k)=>a.map(v=>v*k),dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0),norm=a=>Math.hypot(...a),unit=a=>mul(a,1/(norm(a)||1)),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],angle=(a,b)=>Math.atan2(norm(cross(a,b)),dot(a,b)),clamp=x=>Math.max(-1,Math.min(1,x));
 const C={ink:'#203143',muted:'#687782',blue:'#286f92',red:'#bf5a46',green:'#2c7b78',gold:'#ad7b32',grid:'#d7e3e3'};
 let mode='position',view='local',yaw=-.38,pitch=.48,W=800,H=420,drag=null,scene=null,last=0,visible=true,dirty=true;
@@ -115,3 +117,4 @@ const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersect
 new ResizeObserver(fit).observe(canvas);fit();
 function frame(t){if(visible&&(dirty||t-last>700)){scene=sceneData();if(scene){updateReading();drawGeometry();dirty=false;}last=t;}requestAnimationFrame(frame);}syncIO();requestAnimationFrame(frame);
 })();
+

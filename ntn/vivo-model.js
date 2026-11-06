@@ -41,6 +41,12 @@
     }
     return points;
   }
+  function construction(f,d,n,i) {
+    const A=exp(f,n*d,Math.PI/6),B=exp(f,n*d,Math.PI/2),beta=angle(A,B),fraction=i/n;
+    const wa=Math.sin((1-fraction)*beta),wb=Math.sin(fraction*beta);
+    const K=mul(add(mul(A,wa),mul(B,wb)),1/(wa+wb));
+    return {A,B,K,C:unit(K),beta,alpha:n*d/R,fraction};
+  }
   function spacing(h,hpbw) {
     const uv=Math.sqrt(3)*Math.sin(hpbw*DEG/2),sat=Math.asin(uv),arg=(R+h)/R*Math.sin(sat);
     if(!Number.isFinite(sat)||Math.abs(arg)>1) throw new Error('该波束间距对应的射线未与地球近侧相交。');
@@ -98,7 +104,8 @@
     links.sort((a,b)=>b.value-a.value);
     return {p,U,links,signal,intra,inter,allActive,sirSingle:intra>0?10*Math.log10(signal/intra):Infinity,sirMulti:intra+inter>0?10*Math.log10(signal/(intra+inter)):Infinity,loss:intra>0?10*Math.log10(1+inter/intra):(inter>0?Infinity:0)};
   }
-  const api={R,DEG,add,sub,mul,dot,cross,norm,unit,angle,arc,frame,exp,slerp,transport,grid,spacing,count,ringCount,build,project,elevation,power,budget};
+  const api={R,DEG,add,sub,mul,dot,cross,norm,unit,angle,arc,frame,exp,slerp,transport,grid,construction,spacing,count,ringCount,build,project,elevation,power,budget};
   root.VivoModel=api;
   if(typeof module!=='undefined') module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
+
