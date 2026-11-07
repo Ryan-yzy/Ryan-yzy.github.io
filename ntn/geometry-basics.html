@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多星基础分析 | NTN LAB</title><meta name="description" content="多星建模的公共读图基础：地心 O、卫星 S、星下点 P、波位中心 B、UE 与方向余弦平面。"><link rel="stylesheet" href="vivo.css?v=20261106-planes"><link rel="stylesheet" href="lab-reader.css?v=20261106-planes"><link rel="stylesheet" href="foundation-analysis.css?v=20261107-analysis"></head><body class="ntn-reader" data-method="geometry-basics"><header class="nr-header"><a class="nr-brand" href="index.html"><span>◉</span> NTN LAB <small>公共基础</small></a><nav class="nr-companies"><a href="index.html">全部方法 ↗</a><a href="satellite-basics.html">卫星与 Walker 星座 ↗</a></nav></header><main class="wrap"><section class="nr-hero"><div><div class="nr-kicker">MULTI-SATELLITE FOUNDATIONS</div><h1>多星基础分析</h1><p>介绍卫星与地表对象、平面坐标、UE 链路角度，以及服务区域最低仰角的计算方法。</p></div><div class="nr-meta"><span>阅读顺序</span><b>公共基础 → 公司提案</b><span>位置 / 指向 / 链路</span></div></section><nav class="nr-foundation-link" aria-label="基础分析目录"><a href="#method-geometry">三维几何与坐标</a><a href="#ue-min-elevation">UE 最低仰角计算</a></nav><section class="nr-geometry" id="method-geometry" aria-labelledby="nrGeometryTitle"><div class="nr-geo-head"><div><h2 id="nrGeometryTitle">卫星、地表与 UE 的三维几何</h2><p>公共读图示例 · 区分对象、方向与角度，再进入公司提案</p></div><div class="nr-geo-modes" role="group" aria-label="三维几何主题"><button data-lab-mode="position" aria-pressed="true">卫星与地表</button><button data-lab-mode="direction" aria-pressed="false">局部坐标与方向</button><button data-lab-mode="link" aria-pressed="false">UE 链路与角度</button></div></div><div class="nr-geo-body"><div class="nr-plot"><div class="nr-figure-tools"><div class="nr-view-modes" role="group" aria-label="几何视角"><button data-lab-view="local" aria-pressed="true">局部三维</button><button data-lab-view="global" aria-pressed="false">地球全景</button><button data-lab-view="section" aria-pressed="false">UE 剖面</button></div><span>拖动旋转 · 方向键旋转 · 双击复位</span></div><canvas id="nrGeometryCanvas" tabindex="0" role="img" aria-label="可旋转的三维几何：地心、星下点、卫星、地面波位与目标 UE"></canvas><div class="nr-legend"><span><i style="background:#286f92"></i>参考 / 服务卫星</span><span><i style="background:#bf5a46"></i>当前观察邻星</span><span><i style="background:#2c7b78"></i>地面波位 / 星下点</span><span><i style="background:#ad7b32"></i>UE</span></div></div><div class="nr-geo-reading"><div><div class="nr-kicker">HOW TO READ THE GEOMETRY</div><h3 id="nrGeometryHeading"></h3><p id="nrGeometryExplanation"></p></div><div class="nr-formula" id="nrGeometryFormula"></div><p class="nr-scene-readout" id="nrGeometryReadout" aria-live="polite"></p></div></div><div class="nr-object-key"><div><b>O · 地心</b>定义地心坐标与地球半径 Rₑ。</div><div><b>P · 星下点</b>卫星沿地心法向投到地表的位置。</div><div><b>B · 波位中心</b>波束指向的地表目标，可以偏离 P。</div><div><b>U · UE</b>实际链路的接收位置，可以偏离 B。</div></div><div class="nr-geo-foot" id="nrGeometryCaption"></div></section>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多星基础分析 | NTN LAB</title><meta name="description" content="多星建模的公共读图基础：地心 O、卫星 S、星下点 P、波位中心 B、UE 与方向余弦平面。"><link rel="stylesheet" href="vivo.css?v=20261106-planes"><link rel="stylesheet" href="lab-reader.css?v=20261106-planes"><link rel="stylesheet" href="foundation-analysis.css?v=20261107-analysis"><link rel="stylesheet" href="qc-elevation.css?v=20261107-foundation-move"></head><body class="ntn-reader" data-method="geometry-basics"><header class="nr-header"><a class="nr-brand" href="index.html"><span>◉</span> NTN LAB <small>公共基础</small></a><nav class="nr-companies"><a href="index.html">全部方法 ↗</a><a href="satellite-basics.html">卫星与 Walker 星座 ↗</a></nav></header><main class="wrap"><section class="nr-hero"><div><div class="nr-kicker">MULTI-SATELLITE FOUNDATIONS</div><h1>多星基础分析</h1><p>介绍卫星与地表对象、平面坐标、UE 链路角度，以及服务区域最低仰角的计算方法。</p></div><div class="nr-meta"><span>阅读顺序</span><b>公共基础 → 公司提案</b><span>位置 / 指向 / 链路</span></div></section><nav class="nr-foundation-link" aria-label="基础分析目录"><a href="#method-geometry">三维几何与坐标</a><a href="#ue-min-elevation">UE 仰角计算原理</a><a href="#qc-min-elevation">高通布局最低仰角示例</a></nav><section class="nr-geometry" id="method-geometry" aria-labelledby="nrGeometryTitle"><div class="nr-geo-head"><div><h2 id="nrGeometryTitle">卫星、地表与 UE 的三维几何</h2><p>公共读图示例 · 区分对象、方向与角度，再进入公司提案</p></div><div class="nr-geo-modes" role="group" aria-label="三维几何主题"><button data-lab-mode="position" aria-pressed="true">卫星与地表</button><button data-lab-mode="direction" aria-pressed="false">局部坐标与方向</button><button data-lab-mode="link" aria-pressed="false">UE 链路与角度</button></div></div><div class="nr-geo-body"><div class="nr-plot"><div class="nr-figure-tools"><div class="nr-view-modes" role="group" aria-label="几何视角"><button data-lab-view="local" aria-pressed="true">局部三维</button><button data-lab-view="global" aria-pressed="false">地球全景</button><button data-lab-view="section" aria-pressed="false">UE 剖面</button></div><span>拖动旋转 · 方向键旋转 · 双击复位</span></div><canvas id="nrGeometryCanvas" tabindex="0" role="img" aria-label="可旋转的三维几何：地心、星下点、卫星、地面波位与目标 UE"></canvas><div class="nr-legend"><span><i style="background:#286f92"></i>参考 / 服务卫星</span><span><i style="background:#bf5a46"></i>当前观察邻星</span><span><i style="background:#2c7b78"></i>地面波位 / 星下点</span><span><i style="background:#ad7b32"></i>UE</span></div></div><div class="nr-geo-reading"><div><div class="nr-kicker">HOW TO READ THE GEOMETRY</div><h3 id="nrGeometryHeading"></h3><p id="nrGeometryExplanation"></p></div><div class="nr-formula" id="nrGeometryFormula"></div><p class="nr-scene-readout" id="nrGeometryReadout" aria-live="polite"></p></div></div><div class="nr-object-key"><div><b>O · 地心</b>定义地心坐标与地球半径 Rₑ。</div><div><b>P · 星下点</b>卫星沿地心法向投到地表的位置。</div><div><b>B · 波位中心</b>波束指向的地表目标，可以偏离 P。</div><div><b>U · UE</b>实际链路的接收位置，可以偏离 B。</div></div><div class="nr-geo-foot" id="nrGeometryCaption"></div></section>
 <section class="source"><h2>建模平面与坐标定义</h2><p><b>UV 名称需连同定义一起看：</b>方向余弦 UV 表示发射方向；中兴 6870 附录的 U、V 表示归一化经纬位置。同名坐标的原点、物理含义与间距公式分别定义。</p><div class="table-scroll"><table><thead><tr><th>几何对象</th><th>位置与用途</th><th>如何判断</th></tr></thead><tbody><tr><td>方向余弦 UV</td><td>用卫星出发的单位射线在天线局部轴上的分量表示指向。</td><td>u、v 无量纲；它不是地面公里坐标。</td></tr><tr><td>6870 附录 U、V（归一化经纬坐标）</td><td>用 U=0.5+λ/360°、V=0.5−φ/180°记录地面位置，原文也称 UV。</td><td>零经纬点为 (0.5,0.5)。与表示卫星出发方向的方向余弦平面分开使用。</td></tr><tr><td>地表切平面</td><td>经过某个地面参考点 P₀，法向沿 OP₀，适合安排局部位移。</td><td>满足 (X−P₀)·n̂=0；坐标可用 km。</td></tr><tr><td>过地心的大圆平面</td><td>例如 O、A、B 三点所在平面，与球面相交成大圆。</td><td>经过 O；球面弧长为 Rₑ 倍地心角。</td></tr></tbody></table></div><p>同样垂直于星地径向的两个平面，也可能位于不同位置。vivo 的 ODE 平面经过地心，邻星构造用的切平面经过地表点 P₀；两者平行，但不是同一个平面。</p><p>图中蓝星与邻星仅用于读图，不代表任何公司的完整星座或资源配置。</p><div class="nr-foundation-link"><a href="vivo.html">进入 vivo：逐步区分这些平面 →</a><a href="index.html">返回全部公司方法 →</a></div></section>
 <section class="fa-section" id="ue-min-elevation" aria-labelledby="minElevationTitle">
 <span class="fa-label">UE ELEVATION / SPHERICAL GEOMETRY</span><h2 id="minElevationTitle">UE 仰角与服务区域最低仰角</h2>
@@ -15,15 +15,64 @@
 <div class="fa-formula">Lₘₐₓ = max<sub>U∈𝒜</sub> Rₑ·acos[(P·U)/Rₑ²]<br>εₘᵢₙ = atan2[(Rₑ+h)cos(Lₘₐₓ/Rₑ)−Rₑ, (Rₑ+h)sin(Lₘₐₓ/Rₑ)]</div>
 <p>多星场景先确定各 UE 的服务星 s(U)，再求 min<sub>U∈𝒜</sub> ε(U,s(U))。若采用最高仰角选星，则 ε<sub>serv</sub>(U)=max<sub>k∈候选服务星</sub> ε(U,Sₖ)；采用接收功率选星时，应使用最终选中的服务星重新计算。</p>
 <div class="fa-callout"><b>计算范围：</b>波位中心最小值、随机 UE 样本最小值、连续服务区域最小值分别计算。要评价区域边缘，应检查实际地面边界；六角逻辑区域映到球面后，边界形状取决于所用映射。预设的最低服务仰角是设计输入，布局生成后的实际最低仰角是几何计算结果。</div>
-<h3>4. 高通布局示例：约 28.33° 的来源</h3><p>沿用本页高通演示的具体实现：h=600 km，逻辑宽小区中心距 D=200 km，中心外 n=4 圈；将逻辑平面的径向距离映成球面弧长。最远小区中心距为 nD=800 km，但服务区域还包括外侧顶点。最远顶点可取 (x,y)=((n+½)D,D/(2√3))。</p>
-<div class="fa-formula">Lₘₐₓ = D√[(n+½)²+1/12] = 901.85 km<br>ψ = 8.1105°；εₘᵢₙ = 28.33°</div>
-<p>800 km 处的最远中心与 901.85 km 处的最远顶点对应不同仰角。这个 28.33° 结果由参考星自身的服务区域和高度决定；增加六颗邻星后，如果重新进行服务关联，应按新关联重算。<a href="qc-standalone.html#ue-min-elevation">高通完整逐图计算 ↗</a></p>
-<div class="fa-calc"><h3>仰角数值计算</h3><div class="fa-inputs"><label for="fa-height">卫星高度 h / km<input id="fa-height" type="number" min="1" max="40000" step="1" value="600"></label><label for="fa-arc">星下点至 UE 弧长 L / km<input id="fa-arc" type="number" min="0" max="20015" step="0.01" value="901.85"></label></div>
-<div class="fa-presets"><button type="button" data-fa-height="600" data-fa-arc="901.849950564579">600 km · 高通最远顶点</button><button type="button" data-fa-height="1200" data-fa-arc="901.849950564579">1200 km · 相同地表距离</button><button type="button" data-fa-height="600" data-fa-arc="0">600 km · 星下点</button></div>
-<div id="fa-error" role="alert"></div><div class="fa-result"><div><div class="fa-metrics" id="fa-metrics" aria-live="polite"></div><div class="fa-formula" id="fa-working"></div></div><svg id="fa-elevation-diagram" viewBox="0 0 420 280" role="img" aria-label="UE 当地水平与天顶坐标中的仰角、水平分量和竖直分量"></svg></div></div>
-<p class="fa-source">以上公式由球形地球几何推导；高通数值例采用当前网页明确给定的布局和映射参数。</p></section>
+<p class="fa-source">以上公式采用球形地球模型。下方以高通宽小区布局为例，将区域边界、地心角和本地仰角逐图连接。</p></section>
+<section class="elevation-lab" id="qc-min-elevation" aria-labelledby="elevationTitle">
+
+  <div class="elevation-heading">
+    <div><span class="eyebrow">布局示例 · 从服务区域边界计算仰角</span><h2 id="elevationTitle">服务区域最低仰角计算：高通七星布局示例</h2>
+    <p>从地面布局出发，依次找到最远 UE、映射到球面、分解本地视线。四幅图按计算顺序展开；每一步都列出本步图形、公式、代入值与输出。</p></div>
+    <a class="elevation-return" href="qc-standalone.html#subsatellite-points">回看七星几何 ↗</a>
+  </div>
+  <div class="elevation-scope"><strong>计算对象：UE → 其所属服务卫星。</strong><span>七颗星复制相同局部布局，球面旋转保持夹角，各星对应同一理论边界值。窄波束沿用 HPBW、k 定间隔的流程。</span></div>
+  <div class="elevation-controls" aria-label="最低仰角几何参数">
+    <label><span>卫星高度 h</span><select id="elevationHeight"><option value="600">600 km</option><option value="1200">1200 km</option></select></label>
+    <label><span>宽小区圈数 n</span><select id="elevationRings"><option value="1">1 圈 · 7 小区</option><option value="2">2 圈 · 19 小区</option><option value="3">3 圈 · 37 小区</option><option value="4" selected>4 圈 · 61 小区</option><option value="5">5 圈 · 91 小区</option><option value="6">6 圈 · 127 小区</option></select></label>
+    <label class="elevation-range"><span>相邻宽小区中心距 D</span><span><input id="elevationDistance" type="range" min="100" max="250" step="5" value="200"><output id="elevationDistanceValue" for="elevationDistance">200 km</output></span></label>
+    <div class="elevation-fixed"><span>球形地球半径 R</span><strong>6371 km</strong></div>
+    <button type="button" id="elevationReset">恢复 QC 基线</button>
+    <p>基线参数为 h=600 km、n=4、D=200 km，计算得到最低仰角约 28.33°。可调整参数观察变化；D 是宽小区中心距。</p>
+  </div>
+  <ol class="elevation-route" aria-label="四步计算路线">
+    <li><a href="#elevation-step-1"><b>01</b><span>地面展开图<small>最外圈小区中心</small></span></a></li>
+    <li><a href="#elevation-step-2"><b>02</b><span>单个六边形<small>最远顶点的偏移</small></span></a></li>
+    <li><a href="#elevation-step-3"><b>03</b><span>地心剖面<small>地表弧长与地心角</small></span></a></li>
+    <li><a href="#elevation-step-4"><b>04</b><span>UE 本地剖面<small>本地视线与仰角</small></span></a></li>
+  </ol>
+  <div class="elevation-steps">
+    <article class="elevation-step" id="elevation-step-1">
+      <div class="elevation-step-heading"><b>01</b><div><span>计算所在图形：地面展开的六角小区网格</span><h3>先找到最外侧的小区中心 C</h3></div></div>
+      <figure><svg id="elevationLayout" viewbox="0 0 540 360" role="img" aria-labelledby="elevationLayoutTitle"><title id="elevationLayoutTitle">宽小区展开网格、星下点和最外侧小区中心</title></svg><figcaption>网格中心 N 是本星星下点；金色小区中心 C 位于第 n 圈。红点是完整区域的最远顶点。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep1"></div>
+      <p class="elevation-handoff">输出给图②：最外侧小区中心 C，以及单个小区的尺寸 D。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-2">
+      <div class="elevation-step-heading"><b>02</b><div><span>计算所在图形：最外侧的一个正六边形</span><h3>把小区中心延伸到最远 UE 顶点 U</h3></div></div>
+      <figure><svg id="elevationVertex" viewbox="0 0 540 360" role="img" aria-labelledby="elevationVertexTitle"><title id="elevationVertexTitle">六边形顶点偏移、勾股三角形和最远UE距离</title></svg><figcaption>蓝色直角边表示顶点相对 C 的偏移；红色 NU 在展开图中的长度等于地面弧长 r。右上插图放大单个六边形。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep2"></div>
+      <p class="elevation-handoff">输出给图③：最远 UE 的地面弧长 r<sub>max</sub>。中心距离 nD 与完整区域边界距离分开计算。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-3">
+      <div class="elevation-step-heading"><b>03</b><div><span>计算所在图形：地心 O、星下点 N、UE U 的剖面</span><h3>用地面弧长求地心角 ψ</h3></div></div>
+      <figure><svg id="elevationSphere" viewbox="0 0 540 360" role="img" aria-labelledby="elevationSphereTitle"><title id="elevationSphereTitle">真实比例的地心剖面、地心角和球面UE坐标</title></svg><figcaption>本图按真实比例画半径、高度与角度；ψ 在地心 O 处量，黄色弧 N–U 对应图②的 r<sub>max</sub>。仰角在下一图的 UE 处量。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep3"></div>
+      <p class="elevation-handoff">输出给图④：ψ 及球面上的 UE 位置。剖面第一坐标轴 X 沿 O→N，第二坐标轴 Y 与其垂直。</p>
+    </article>
+    <article class="elevation-step" id="elevation-step-4">
+      <div class="elevation-step-heading"><b>04</b><div><span>计算所在图形：以 UE 为原点的本地直角三角形</span><h3>分解视线，计算最低服务仰角 ε</h3></div></div>
+      <figure><svg id="elevationLocal" viewbox="0 0 540 360" role="img" aria-labelledby="elevationLocalTitle"><title id="elevationLocalTitle">UE本地水平、天顶、卫星视线及仰角</title></svg><figcaption>将图③整体转到 UE 的本地坐标：水平轴沿切平面指向卫星，竖轴指向本地天顶。ε 是水平线与 UE→S 视线的夹角。</figcaption></figure>
+      <div class="elevation-calculation" id="elevationStep4"></div>
+      <p class="elevation-handoff">最终输出：既定宽小区区域的最低服务仰角。有限随机 UE 通常只逼近最远顶点对应的边界值。</p>
+    </article>
+  </div>
+  <div class="elevation-result" aria-live="polite" aria-atomic="true" id="elevationResult"></div>
+  <div class="elevation-verification">
+    <div><span class="eyebrow">对照校验 · 位置与几何口径</span><h3>完整边界、小区中心与平面近似的结果对比</h3><div class="qc-table-wrap"><table><thead><tr><th>计算口径</th><th>使用距离</th><th>仰角结果</th></tr></thead><tbody id="elevationComparison"></tbody></table></div><p>图②对应完整小区区域；图④采用球面上的 UE 本地水平面。窄波束的 HPBW、k、g 不参与这条几何计算链。</p></div>
+    <div class="elevation-neighbors"><span class="eyebrow">与七星干扰计算的接口</span><h3>服务仰角与邻星仰角分别统计</h3><p id="elevationNeighbor"></p><p>固定服务区域归属时，各星的局部几何相同。若 UE 改为跨星重新选择服务卫星，则按新的关联结果重算服务仰角。</p><a href="qc-standalone.html#layout-copy">查看局部布局如何复制到六邻星 ↗</a></div>
+  </div>
+  <p class="elevation-source">本例沿用高通网页演示的宽小区布局：中心加四圈共 61 个宽小区，逻辑平面的径向距离映为球面弧长。28.33° 是这组高度、布局与映射参数的计算结果；六邻星用于后续干扰评估。<a href="https://gssc.esa.int/navipedia/index.php/Transformations_between_ECEF_and_ENU_coordinates" target="_blank" rel="noopener">本地天顶与仰角定义 ↗</a></p>
+</section>
 </main>
 <script src="lab-methods.js?v=20261106-planes"></script><script>
 window.NTN_METHODS['geometry-basics']={direction:'单位波束轴从卫星指向地面波位 B。方向余弦 u、v 是该轴在卫星局部横向基上的分量；地表切平面则经过 P₀，两者的坐标含义不同。',sceneNote:'示例 h=600 km，目标波位与 UE 分别位于星下点以东 2°、2.5°。',steps:[]};
 window.NTNReadScene=()=>{const R=6371,h=600,g=a=>[R*Math.cos(a*Math.PI/180),R*Math.sin(a*Math.PI/180),0];return {R,h,sats:[{id:'S₀',pos:[R+h,0,0]},{id:'S₁',pos:g(9).map(x=>x*(R+h)/R)}],ref:[R+h,0,0],target:g(2),ue:g(2.5),points:[g(2)],note:'公共几何示例，与公司的波束布局和活动策略分开。'};};
-</script><script defer src="lab-reader.js?v=20261106-planes"></script><script defer src="foundation-elevation.js?v=20261107-analysis"></script></body></html>
+</script><script defer src="lab-reader.js?v=20261106-planes"></script><script defer src="qc-elevation-model.js?v=20261107-foundation-move"></script><script defer src="qc-elevation.js?v=20261107-foundation-move"></script></body></html>

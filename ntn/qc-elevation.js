@@ -2,7 +2,7 @@
   'use strict';
   const M = window.QCElevation;
   const $ = id => document.getElementById(id);
-  if (!M || !$('ue-min-elevation')) return;
+  if (!M || !$('elevationLayout')) return;
   const C = { mint: '#2c7b78', blue: '#2e80b8', gold: '#b8882e', red: '#b83b2e',
     text: '#406577', muted: '#55829a', line: '#54809c', fill: '#dfe4e6' };
   const f = (x, digits = 2) => x.toFixed(digits);
@@ -169,3 +169,4 @@
   });
   render();
 })();
+
