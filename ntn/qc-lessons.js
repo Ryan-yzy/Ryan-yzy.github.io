@@ -15,24 +15,14 @@ function geometryPage(S,m,c){
  key:'D 是生成逻辑网格的间距。映射到球面后，不能把所有相邻地面中心的测地距离都视为严格等于 D。',note:'本页采用球形地球 R = 6371 km。逻辑网格、地面三维坐标和 UV 方向余弦分别在不同步骤中建立。',caption:'逻辑展开图：点击宽小区可持续跟踪。球面模式下，链路计算使用映射后的三维地面位置。',formula:'Nwide = 1 + 3n(n+1) = 61；D = 200 km 为逻辑平面中心距',read:[['宽小区 / 星',61,'服务与撒点单元'],['逻辑网格间距','200 km','映射前的平面距离'],['地球半径','6371 km','本页球形地球']]},
  {title:'六颗邻星围绕参考星，先确定逻辑网格位置',head:'这一步只确定邻星中心的相对排布',
  body:`<p>${rule}在参考星外增加六颗邻星，中心位于六角网格距离 <strong>2n+1 = 9</strong> 的位置；星下点按实际地面距离偏移。</p><p>${impl}选取第一颗邻星轴坐标 <strong>(n+1,n) = (5,4)</strong>，再绕参考中心做五次 60° 旋转，得到六个中心。</p><p>轴坐标 (q,r) 是网格编号。它决定了逻辑位置，但还需要换算成公里，再映射到球面。<strong>完整换算例子集中在 1.3。</strong></p><table class="qc-compact-table"><caption>本页选定的六邻星中心</caption><thead><tr><th>星下点 / 卫星</th><th>(q,r)</th><th>d_hex</th></tr></thead><tbody>${p.sats.slice(1).map(s=>`<tr><td>P${s.id} / S${s.id}</td><td>(${s.q},${s.r})</td><td>${Q.hexDistance([s.q,s.r])}</td></tr>`).join('')}</tbody></table>`,
- key:'六角距离是无量纲的网格步数；它不能直接乘 D 当作两点间直线距离。',note:'(5,4) 及其旋转副本是本页采用的具体嵌入。此图为各星宽小区的逻辑平移展开，球面上的实际复制在 1.5 说明。',caption:'六邻星的逻辑排布图。这里的七星表示参考星加六颗邻星，未设置轨道面数。',formula:'d_hex = max(|q|, |r|, |q+r|)；邻星中心 d_hex = 2n+1 = 9',read:[['参考星',1,'中心区域'],['附加邻星',6,'六个对称位置'],['六角网格距离',9,'换算示例见 1.3']]},
+ key:'六角距离是无量纲的网格步数；它不能直接乘 D 当作两点间直线距离。',note:'(5,4) 及其旋转副本是本页采用的具体嵌入。实际三维位置的换算在 1.3 展开，各星局部布局按同一规则建立。',caption:'六邻星的逻辑排布图。这里的七星表示参考星加六颗邻星，未设置轨道面数。',formula:'d_hex = max(|q|, |r|, |q+r|)；邻星中心 d_hex = 2n+1 = 9',read:[['参考星',1,'中心区域'],['附加邻星',6,'六个对称位置'],['六角网格距离',9,'换算示例见 1.3']]},
  {title:`完整例子：从 (${p.sat.q},${p.sat.r}) 算到星下点 P${j} 与卫星 S${j}`,head:'把 1.2 的网格编号一直算到三维位置',
  body:`<p>${impl}本例把参考星下点放在赤道、零经度，<strong>P0 = (R,0,0)</strong>。局部东向沿全局 Y，北向沿全局 Z，便于逐项核对坐标；整套球面构造可整体旋转到其他参考位置。</p><p>先把 (${p.sat.q},${p.sat.r}) 换成局部平面位移 x、y，再计算长度 L 与方向 φ。${S.sphere?'球面模式把 L 作为大圆弧长，以 α = L/R 得到地心夹角。':'当前平面近似直接使用 (x,y) 位移，不将地面弯成球面。'}</p><p>最后分别得到<strong>地面点 P${j}</strong>与<strong>星上点 S${j}</strong>。下方五行计算会随邻星和地球模型同步更新。</p>`,
  key:'q、r 是网格编号；x、y 是局部平面公里数；g 是地面三维坐标；s 是卫星三维坐标。这四种量不要混用。',
  note:'φ 从局部东向 x 轴起算，逆时针朝北为正。三维坐标单位为 km。本例数值与球面映射公式属于本页明确采用的实现。',
  caption:`左：由网格坐标选中 P${j}；右：把偏移方向旋转到剖面内，展示 P0、P${j} 及其上方卫星。下方继续展开完整数值。`,
  formula:S.sphere?'(q,r) → (x,y) → (L,φ) → α=L/R → 地面 gⱼ → 卫星 sⱼ=(R+h)gⱼ/R':'(q,r) → (x,y) → 地面 gⱼ=(R,x,y) → 卫星 sⱼ=(R+h,x,y)',
- read:[['六角网格距离',Q.hexDistance([p.sat.q,p.sat.r]),'无量纲'],['偏移长度 L',f(p.plane,1)+' km',S.sphere?'作为球面弧长':'平面距离'],['地心 / 法线夹角',f(p.verticalAngle,2)+'°',S.sphere?'α = L/R':'平面模型为 0°']]},
- {title:'考虑曲率后，哪些距离和六边形性质还保留？',head:'中心距离保持，不代表所有距离都保持',
- body:`<p>从 P0 沿六个方位走相同弧长，可以构造六个对称的外围星下点。球面上仍可定义六边区域、保留六角编号和邻接关系。</p><p>但平面正六边形不能无变形地贴到球面。按本页映射，${S.sphere?`P0 到任一外围点仍为 <strong>${f(p.centerDistance,1)} km</strong>，相邻外围点却约为 <strong>${f(p.outerDistance,1)} km</strong>。`:'平面模型中的两类距离相等；切换球面后即可看到差别。'}</p><p>地面宽小区也会经历球面形变；到第二步还要再经历“从地面到卫星 UV”的方向映射。两次映射都不能一般保证欧式正六边形形状。</p>`,
- key:'不能同时保留所有平面距离、欧式正六边形形状和无缝铺砌。当前六角俯视图是逻辑展开，链路采用实际三维几何。',note:'整片网格共享边界一起映射，可保持拼接；各星分别旋转复制，则保持本地布局相同，却不保证不同星之间的边缘严丝合缝。复制规则见 1.5。',caption:`切换地球模型，比较 P0→P${j} 与 P${j}→P${next} 的距离。剖面中的当地竖直方向也随曲率改变。`,formula:'球面映射保留中心距离与初始方位；其他点间距离需由球面坐标重新计算',read:[[`P0 → P${j}`,f(p.centerDistance,1)+' km',S.sphere?'大圆弧长':'平面地面距离'],[`P${j} → P${next}`,f(p.outerDistance,1)+' km','相邻两个外围星下点'],['当地竖直夹角',f(p.verticalAngle,2)+'°',S.sphere?'两点径向夹角':'平面模型为 0°']]},
- {title:`把 S0 的整套宽小区模板，搬到邻星 S${j}`,head:'先复制编号与本地布局，再换算全球位置',
- body:`<p>${rule}每颗邻星在自己的<strong>局部坐标系（Local Coordinate System，LCS）</strong>中携带相同的小区与波束布局。</p><p>具体到所选宽小区：S0 的 <strong>C${c.id}</strong> 有一个中心和六个边界顶点；S${j} 也建立自己的 <strong>C${c.id}</strong>，保留同一编号和本地位置。</p><p>${S.sphere?`为把它放到 P${j} 附近，先求从 P0 径向转到 P${j} 径向的最小旋转 Rⱼ，再把参考模板的每个地面点都乘 Rⱼ；邻星的局部坐标轴也一起旋转。`:`平面近似下，把每个参考地面点加上邻星的平面位移，局部坐标轴保持平行。`}</p><p>因此左右两张<strong>各自本地的图</strong>相同，但地球共同坐标中的位置不同。下方表格直接比较同一中心与顶点的三维坐标。</p>`,
- key:'复制的是一套布局模板；每颗星有自己的小区实例。计算同一个 UE 的多星干扰时，UE 保持在共同地球坐标中，逐星计算其与发送束的几何关系。',
- note:'这里先讲宽小区与坐标系的复制。2.2 生成窄波束后，同一束保持相同局部 (u,v)，全球波束指向按同一个旋转变换。区域七星数不等于轨道面数。',
- caption:`两图分别使用 S0、S${j} 自己的本地展开坐标；都高亮 C${c.id} 及顶点 A。它们不是一张共同地球平面中的两个重合区域。`,
- formula:S.sphere?'地面点：gⱼ,c = Rⱼ g₀,c；坐标轴与方向向量也乘 Rⱼ；同一局部编号保持不变':'地面点：gⱼ,c = g₀,c + 位移；方向向量不加位移；各星局部坐标轴平行',
- read:[['参考 / 邻星','S0 / S'+j,'各有一套模板实例'],['相同宽小区','C'+c.id,'中心与六个顶点均复制'],['布局副本',7,'相同本地布局、不同全球位置']]}
+ read:[['六角网格距离',Q.hexDistance([p.sat.q,p.sat.r]),'无量纲'],['偏移长度 L',f(p.plane,1)+' km',S.sphere?'作为球面弧长':'平面距离'],['地心 / 法线夹角',f(p.verticalAngle,2)+'°',S.sphere?'α = L/R':'平面模型为 0°']]}
  ];return {...base,...pages[S.subs[0]]};
 }
 function beamPage(S,m,c){
@@ -62,15 +52,6 @@ function detail(S,m,c){
  <tr><th>⑤ 抬高到卫星</th><td>${S.sphere?'s=(R+h)g/R':'s=g+(h,0,0)'}，h=600 km</td><td>S${j}=${vec(p.sat.position)} km<br>${S.sphere?'‖s‖−R':'s_X−R'}=600 km</td></tr>
  </tbody></table></div><p class="qc-lesson-conclusion">${S.sphere?'球面下的“升高600 km”沿该星下点的径向进行，因此全局X、Y、Z分量都可能改变，并非只给某一坐标加600。':'平面近似使用共同法线，本例沿全局X方向升高600 km。'}其他邻星沿用同一计算流程。</p></section>`;
  }
- if(S.major===0&&sub===4){const d=copyData(m,c,S.neighbor),j=d.sat.id;
- return `<section class="qc-lesson-block"><span class="eyebrow">COPY ONE TEMPLATE · 每颗星有自己的实例</span><h3>用同一个 C${c.id}，把“复制”分成三个动作</h3><ol class="qc-lesson-sequence"><li><b>准备参考模板。</b>S0 保存61个宽小区的编号、中心、六个边界顶点；选中的是 C${c.id}。后续2.2还会补充窄束 (u,v) 与归属列表。</li><li><b>把模板放到邻星。</b>${S.sphere?`求从 P0 径向转向 P${j} 径向的最小旋转 R${j}，并把每个地面中心、顶点与局部轴都乘这个旋转。不是仅改变星下点、其余顶点仍留在原地。`:`将所有中心与顶点加上邻星的平面位移；坐标轴保持平行。`}</li><li><b>在共同地球坐标中使用。</b>S0/C${c.id} 与 S${j}/C${c.id} 的本地编号相同，全球位置不同；针对同一个目标UE，分别计算两颗星到它的链路。把同一过程应用于其余五颗邻星。</li></ol><div class="qc-table-wrap"><table class="qc-worked-table"><caption>同一模板实例：坐标由实际${S.sphere?'旋转':'平移'}计算</caption><thead><tr><th>对象</th><th>参考星 S0</th><th>邻星 S${j}</th></tr></thead><tbody>
- <tr><th>本地小区编号</th><td>C${c.id}，(q,r)=(${c.q},${c.r})</td><td>C${c.id}，(q,r)=(${c.q},${c.r})</td></tr>
- <tr><th>卫星位置 / km</th><td>${vec(d.reference.position)}</td><td>${vec(d.sat.position)}</td></tr>
- <tr><th>小区中心 / km</th><td>${vec(d.center0)}</td><td>${vec(d.centerJ)}</td></tr>
- <tr><th>边界顶点 A / km</th><td>${vec(d.vertex0)}</td><td>${vec(d.vertexJ)}</td></tr>
- <tr><th>第二步生成窄束后</th><td>本星局部 (u,v)</td><td>同一编号保持相同局部 (u,v)，全球方向随局部坐标轴改变</td></tr>
- </tbody></table></div><p class="qc-lesson-conclusion">左右本地图一样，不表示它们位于地球上的同一处；各自回到共同三维坐标后，位置已经不同。</p></section>`;
- }
  if(S.major===1&&sub===0){const st=projectionMetrics(c);
  return `<section class="qc-lesson-block"><span class="eyebrow">2.1 · 逐顶点映射</span><h3>C${c.id}：六个地面点如何变成六个 UV 点</h3><p>参考卫星位于 (R+h,0,0)。对每个顶点计算 d=(g−rₛ)/‖g−rₛ‖，在本页坐标下 u=d_Y、v=d_Z。地面列为地心三维坐标，单位km；UV列为无量纲方向余弦。</p><div class="qc-table-wrap"><table class="qc-worked-table"><thead><tr><th>顶点</th><th>地面 (X,Y,Z) / km</th><th>u</th><th>v</th></tr></thead><tbody>${c.vertices.map((g,i)=>`<tr><th>${'ABCDEF'[i]}</th><td>${vec(g)}</td><td>${f(c.polygon[i][0],5)}</td><td>${f(c.polygon[i][1],5)}</td></tr>`).join('')}</tbody></table></div><p>UV 最短边=${f(st.min,5)}，最长边=${f(st.max,5)}，比值=${f(st.ratio,3)}。${st.ratio>1.001?'边长已经不等，因此这个轮廓不是正六边形。':'当前中心对称配置的边长相等；这只是特例，切换“边缘中部”观察形变。'}</p><p class="qc-lesson-conclusion">本步只输出宽小区的 UV 轮廓与中心。窄波束网格、k、g、归属与数量统一放到2.2。</p></section>`;
  }
@@ -81,3 +62,4 @@ function detail(S,m,c){
 }
 const api={projectionMetrics,example,copyData,geometryPage,beamPage,detail};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.QCLessons=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
+

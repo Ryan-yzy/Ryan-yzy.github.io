@@ -14,7 +14,7 @@ function candidateLinks(){const u=pickedUE();if(!u)return [];const key=[cache.ue
 function totals(){const ls=candidateLinks(),same=ls.filter(l=>l.sat.id===scene().ref.id);return {ls,same,other:ls.filter(l=>l.sat.id!==scene().ref.id),stars:new Set(ls.map(l=>l.sat.id)).size};}
 function visibleAtUE(){const u=pickedUE();return u?C.classify(scene().all,u.position).filter(x=>x.visible):[];}
 function linkForUE(){const u=pickedUE();if(!u)return {distance:0,elevation:0,theta:0};const r=scene().ref,c=B.center(r,u.beam);return {...C.link(r,u.position),theta:C.offaxis(r,u.position,c)};}
-const main=[{name:'卫星几何的建立',en:'SATELLITE GEOMETRY',output:'输出：每颗卫星的位置 sₖ',subs:['轨道面、每轨星数与星座','由星座得到三维位置']},{name:'单星服务区域与波位布局',en:'BEAM COUNT & UV LAYOUT',output:'输出：波束中心 cₖ,ᵦ 与指向',subs:['先确定每星波束数','UV 平面的波束布局','从波束中心得到指向']},{name:'UE 撒点、干扰与统计',en:'UE SAMPLING & INTERFERENCE',output:'输出：每个 UE 的服务与干扰项',subs:['UE 怎么撒点','逐星逐束筛选同频链路','计算功率并累加干扰','从每个 UE 到 CDF']}];
+const main=[{name:'卫星几何的建立',en:'SATELLITE GEOMETRY',output:'输出：每颗卫星的位置 sₖ',subs:['轨道面、每轨星数与星座','由星座得到三维位置']},{name:'单星服务区域与波位布局',en:'BEAM COUNT & UV LAYOUT',output:'输出：波束中心 cₖ,ᵦ 与指向',subs:['覆盖尺度与整数束数','原文中心与演示网格','从波位中心计算波束轴']},{name:'UE 撒点、干扰与统计',en:'UE SAMPLING & INTERFERENCE',output:'输出：每个 UE 的服务与干扰项',subs:['UE 怎么撒点','逐星逐束筛选同频链路','计算功率并累加干扰','从每个 UE 到 CDF']}];
 const toggle=(action,value,text,on)=>`<button data-action="${action}" data-value="${value}" aria-pressed="${on}">${text}</button>`;
 function controls(){if(S.major===0)return toggle('orbit','one','只看一张轨道面',S.orbit==='one')+toggle('orbit','single','在同轨放满卫星',S.orbit==='single')+toggle('orbit','full','显示完整星座',S.orbit==='full')+(sub()===1?`<label>沿轨相位 <input id="phaseAngle" type="range" min="0" max="360" step="2" value="${S.phase}"><output id="phaseAngleOut">${S.phase}°</output></label>`:'');if(S.major===1){let out='';if(sub()===1)out=toggle('beamMode','grid','完整六角网格 · 教学展开',S.beamMode==='grid')+toggle('beamMode','table','原文 Table 11 · 37 点',S.beamMode==='table');if(sub()>0)out+=`<button data-action="beamPrev">← 上一束</button><button data-action="beamNext">下一束 →</button>`;return out||'<span class="eyebrow">切换右上角高度与 Set，观察每星束数如何变化。</span>';}
 if(sub()===0)return toggle('sampleGroup','one','只评估选中波束',S.sampleGroup==='one')+toggle('sampleGroup','nineteen','评估中心 19 束 · 教学子集',S.sampleGroup==='nineteen')+`<label>每束 UE <select id="sampleCount">${[1,3,10].map(n=>`<option ${n===S.count?'selected':''}>${n}</option>`).join('')}</select></label><button data-action="resample">重撒点 ↻</button>`;
@@ -34,8 +34,8 @@ if(S.major===0)return {
 if(S.major===1){
  const rings=Math.round((Math.sqrt(12*n-3)-3)/6),table=S.beamMode==='table'&&sub()>0;
  const content=[
- `<p>原文先用<strong>高度、最低服务仰角 30°和半功率波束宽度</strong>安排覆盖，再调整波束直径及等效口径，使参考星座和束数满足整数设计。</p><p>当前 S 波段 ${S.h} km、${S.set==='set1'?'Set-1':'Set-2'}：每星 <strong>${n} 束</strong>，直径参数 <strong>${p.diameter[S.set]} km</strong>。本图用中心加 ${rings} 圈表达这个数量。</p><p><strong>束数只回答“有多少束”</strong>。每束指向、地面中心和各星之间的覆盖重叠还需另行确定。</p>`,
- `<p>原文使用<strong>波束中心指向</strong>说明布局，并在附录把地面中心用经纬归一化 UV 表示。B0 的 (0.5, 0.5) 对应参考星下点。</p><p>Table 11 列出 <strong>B0–B36 共 37 点</strong>，作为 LEO1200 S 波段的起点；不能据此把每星总束数改成 37。</p><p>切换到“原文 Table 11”可查看实际列出的坐标；完整地面六角网格是本页补充。<a href="#beam-evidence">对照原文 Figures 2 / 3 ↓</a></p>`,
+ `<p>原文 §2 的设计链：<strong>最低服务仰角 30° + 高度 → 单星覆盖尺度 → 整数同轨星数与波束层数 → 修正 HPBW、直径和等效口径</strong>。Tables 3–6 给出选定设计的参数。</p><p>当前 S 波段 ${S.h} km、${S.set==='set1'?'Set-1':'Set-2'}：每星 <strong>${n} 束</strong>，直径参数 <strong>${p.diameter[S.set]} km</strong>。本图用中心加 ${rings} 圈表达这个数量。</p><p>中心外圈数为 n 时，N<sub>beam</sub>=1+3n(n+1)。当前 n=${rings}；下一步分别展示原文已列中心和完整演示网格。<a href="#beam-design">设计流程与坐标例子 ↑</a></p>`,
+ `<p>原文使用<strong>波束中心指向</strong>说明布局，并在附录把地面中心用经纬归一化 UV 表示。B0 的 (0.5, 0.5) 对应参考星下点。</p><p>Table 11 列出 <strong>B0–B36 共 37 点</strong>，作为 LEO1200 S 波段的起点；不能据此把每星总束数改成 37。</p><p><strong>完整演示网格：</strong>取 r=直径/2，轴坐标 (a,b) 满足 max(|a|,|b|,|a+b|)≤n；x=√3r(a+b/2)，y=3rb/2。再将局部距离作为弧长映到球面。<strong>原文中心：</strong>切换 Table 11 查看 B0–B36 的实际坐标。<a href="#beam-design">完整公式与 B1 例子 ↑</a></p>`,
  `<p><strong>波位 c 是地面的目标中心；波束轴 q 是卫星 s 指向 c 的单位向量。</strong>本图显示这条轴线与星下方向的夹角。</p><p>将一组布局应用到不同卫星时，还要定义局部坐标朝向和姿态。各星的波位可能重叠，不会自动拼成一张无重叠的全球网格。</p><p>随星移动足迹、持续指向固定地面波位，需要不同的时间更新规则；6870 没有完整规定这套动态规则。</p>`
  ];
  return {title:['先定波束数量与宽度，再安排中心','波位用 UV 记坐标，波束轴由三维几何得到','从卫星指向地面波位：位置与指向是两层设定'][sub()],
@@ -107,4 +107,5 @@ window.NTNReadScene=()=>{
  return {R:C.R,h:original?1200:S.h,orbitNormals:original?[]:[...new Set([ref,...near].map(s=>s.plane))].slice(0,3).map(p=>{const z=sc.all.filter(s=>s.plane===p);return [z[0].pos[1]*z[1].pos[2]-z[0].pos[2]*z[1].pos[1],z[0].pos[2]*z[1].pos[0]-z[0].pos[0]*z[1].pos[2],z[0].pos[0]*z[1].pos[1]-z[0].pos[1]*z[1].pos[0]];}),sats:[ref,...near].map(s=>({id:s.id,pos:s.pos})),ref:ref.pos,ue:S.major===2&&ue?ue.position:target,target,points:[],note:original?'Table 11 固定 LEO1200 参考例；当前显示已选波束中心，未把 37 点当作整星全部波束。':`完整参考星座 ${preset().planes*preset().perPlane} 星；三维读图仅显示参考星及最多六颗邻星，不是七星星座模型。${S.major===2&&ue?'当前 UE '+ue.id+' 与下方采样一致。':'当前目标为下方所选波位。'}`};
 };
 })();
+
 
