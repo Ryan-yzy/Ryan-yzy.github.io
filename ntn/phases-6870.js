@@ -14,12 +14,12 @@ function candidateLinks(){const u=pickedUE();if(!u)return [];const key=[cache.ue
 function totals(){const ls=candidateLinks(),same=ls.filter(l=>l.sat.id===scene().ref.id);return {ls,same,other:ls.filter(l=>l.sat.id!==scene().ref.id),stars:new Set(ls.map(l=>l.sat.id)).size};}
 function visibleAtUE(){const u=pickedUE();return u?C.classify(scene().all,u.position).filter(x=>x.visible):[];}
 function linkForUE(){const u=pickedUE();if(!u)return {distance:0,elevation:0,theta:0};const r=scene().ref,c=B.center(r,u.beam);return {...C.link(r,u.position),theta:C.offaxis(r,u.position,c)};}
-const main=[{name:'卫星几何的建立',en:'SATELLITE GEOMETRY',output:'输出：每颗卫星的位置 sₖ',subs:['轨道面、每轨星数与星座','由星座得到三维位置']},{name:'单星覆盖与波束设计',en:'COVERAGE → BEAM WIDTH → HEXAGONAL LAYOUT',output:'输出：覆盖尺度、束数与中心',subs:['覆盖范围与同轨星数','3 dB 宽度与整数束数','六角覆盖 → 中心 → 经纬坐标']},{name:'UE 撒点、干扰与统计',en:'UE SAMPLING & INTERFERENCE',output:'输出：每个 UE 的服务与干扰项',subs:['覆盖范围与统计区域','逐星逐束筛选同频链路','计算功率并累加干扰','从每个 UE 到 CDF']}];
+const main=[{name:'卫星几何的建立',en:'SATELLITE GEOMETRY',output:'输出：每颗卫星的位置 sₖ',subs:['轨道面、每轨星数与星座','由星座得到三维位置']},{name:'单星覆盖与波束设计',en:'COVERAGE → BEAM WIDTH → HEXAGONAL LAYOUT',output:'输出：覆盖尺度、束数与中心',subs:['覆盖范围与同轨星数','3 dB 宽度与整数束数','中心布置准则与坐标表示']},{name:'UE 撒点、干扰与统计',en:'UE SAMPLING & INTERFERENCE',output:'输出：每个 UE 的服务与干扰项',subs:['覆盖范围与统计区域','逐星逐束筛选同频链路','计算功率并累加干扰','从每个 UE 到 CDF']}];
 const toggle=(action,value,text,on)=>`<button data-action="${action}" data-value="${value}" aria-pressed="${on}">${text}</button>`;
 function controls(){if(S.major===0)return toggle('orbit','one','只看一张轨道面',S.orbit==='one')+toggle('orbit','single','在同轨放满卫星',S.orbit==='single')+toggle('orbit','full','显示完整星座',S.orbit==='full')+(sub()===1?`<label>沿轨相位 <input id="phaseAngle" type="range" min="0" max="360" step="2" value="${S.phase}"><output id="phaseAngleOut">${S.phase}°</output></label>`:'');if(S.major===1){
  if(sub()===0)return '<span class="eyebrow">最低服务仰角固定为原文示例 30°；切换高度比较覆盖尺度与同轨星数。</span>';
  if(sub()===1)return '<span class="eyebrow">切换高度与 Set，查看最终束数、直径和层数；3 dB 是宽度定义的门限。</span>';
- return '<div class="phase-coordinate-note"><b>本页 U、V：归一化经纬坐标（原文记作 UV）</b><span>记录地面位置；方向余弦 u、v 则记录卫星发射方向。</span></div><div class="phase-layout-stages" role="group" aria-label="2.3 图解步骤">'+['① 六角覆盖','② 波位中心','③ 归一化经纬坐标'].map((s,i)=>toggle('layoutStage',i,s,S.layoutStage===i)).join('')+'</div>'+(S.layoutStage===0?'<span class="phase-layout-hint">先看局部 7 束覆盖示意，再进入原文中心坐标。</span>':'<div class="phase-layout-selection">'+toggle('layoutBeam',0,'跟踪 B0',S.beam===0)+toggle('layoutBeam',1,'跟踪 B1',S.beam===1)+'<button data-action="beamPrev">← 上一中心</button><button data-action="beamNext">下一中心 →</button><span class="phase-layout-hint">原文 Table 11 · 固定 LEO1200 S 波段</span></div>');
+ return '<div class="phase-coordinate-note"><b>本页 U、V：归一化经纬坐标（原文记作 UV）</b><span>记录地面位置；方向余弦 u、v 则记录卫星发射方向。</span></div><div class="phase-layout-stages" role="group" aria-label="2.3 图解步骤">'+['① 中心布置准则','② 原文中心示例','③ 归一化经纬坐标'].map((s,i)=>toggle('layoutStage',i,s,S.layoutStage===i)).join('')+'</div>'+(S.layoutStage===0?'<span class="phase-layout-hint">先说明中心布置受到哪些约束，再查看 Table 11 的已列中心。</span>':'<div class="phase-layout-selection">'+toggle('layoutBeam',0,'跟踪 B0',S.beam===0)+toggle('layoutBeam',1,'跟踪 B1',S.beam===1)+'<button data-action="beamPrev">← 上一中心</button><button data-action="beamNext">下一中心 →</button><span class="phase-layout-hint">原文 Table 11 · 固定 LEO1200 S 波段</span></div>');
 }
 if(sub()===0)return toggle('sampleGroup','one','只评估选中波束',S.sampleGroup==='one')+toggle('sampleGroup','nineteen','评估中心 19 束 · 教学子集',S.sampleGroup==='nineteen')+`<label>每束 UE <select id="sampleCount">${[1,3,10].map(n=>`<option ${n===S.count?'selected':''}>${n}</option>`).join('')}</select></label><button data-action="resample">重撒点 ↻</button>`;
 return toggle('scope','same','只保留同星干扰',S.scope==='same')+toggle('scope','multi','加入其他可见星',S.scope==='multi')+toggle('reuse',1,'同频全开 · 基础示例',S.reuse===1)+toggle('reuse',3,'三频复用 · 教学映射',S.reuse===3);}
@@ -78,17 +78,17 @@ function originalCenters(){
 function layoutReading(){
  const points=originalCenters(),b=points[Math.min(S.beam,points.length-1)],s=S.layoutStage;
  const html=[
- '<p><strong>先看覆盖。</strong>一条波束在地面形成一片覆盖，多条波束按近似蜂窝结构排列。左图用中心一束加周围六束，说明“六角布局”的含义。</p><p>彩色圆线表示 3 dB 轮廓的局部示意，青色虚线六边形表示覆盖规划近似。真实足迹可以相互重叠，外围还会拉伸。</p><p>这一图只解释排布概念；原文 Figure 2 给出实际足迹示例。下一小步从覆盖轮廓中只保留每束的目标中心。</p>',
- `<p><strong>再看中心。</strong>把每束覆盖轮廓暂时拿掉，只保留其地面目标中心 B。波位中心就是卫星希望这条波束对准的位置。</p><p>本图显示原文 Table 11 列出的 <strong>37 个中心</strong>，当前高亮 <strong>${b.label}</strong>：经度 <strong>${num(b.lon,5)}°</strong>、纬度 <strong>${num(b.lat,5)}°</strong>。</p><p>B0 位于星下点，其余中心偏离星下点。这里先确定“哪个点、在地球哪里”，下一小步再用 U、V 记录同一个点。</p>`,
+ '<p><strong>6870 的中心布置准则是覆盖设计约束。</strong>2.1 给出整星覆盖尺度，2.2 给出单束宽度与整数层数；这些参数共同约束中心的位置和数量。</p><ol class="phase-sequence"><li>本例中心波束 B0 对准参考星下点。</li><li>其余波束以近似六角蜂窝方式组织覆盖。</li><li>实际 3 dB 足迹保留适当重叠，边缘投影可拉伸。</li></ol><p><strong>原文没有写出全部中心的唯一逐点生成算法。</strong>Table 11 提供部分坐标起点；经纬 U、V 只负责记录这些位置。</p>',
+ `<p><strong>本图直接读取原文 Table 11 的中心坐标。</strong>已列 B0–B36 共 <strong>37 个中心</strong>，当前高亮 <strong>${b.label}</strong>：经度 <strong>${num(b.lon,5)}°</strong>、纬度 <strong>${num(b.lat,5)}°</strong>。</p><p>这些点是原文给出的示例结果。由 U、V 恢复地面位置，再从卫星指向它，得到波束轴；这个坐标转换不会补出原文未给出的完整排束算法。</p><p>本例 B0 与星下点重合。这里先观察示例中心的位置，再到下一小步解释其归一化经纬记录。</p>`,
  `<p><strong>最后换一种坐标记录同一位置。</strong>左图继续高亮 ${b.label}，右图高亮它的归一化经纬记录；编号和对应的地面位置保持一致。</p><p>6870 附录把经度、纬度归一化：<strong>U=0.5+经度/360°，V=0.5−纬度/180°</strong>。本例参考星下点 B0 的经纬度为 (0°,0°)，代入后 U=V=0.5；0.5 是坐标平移，与 3 dB 无关。</p><p>当前 ${b.label} 对应 <strong>U=${num(b.u,6)}、V=${num(b.v,6)}</strong>。向东经度增大，U 增大；向北纬度增大，V 减小，本图 V 轴向下。</p>`
  ];
- return {title:['六角覆盖：一束居中，六束相邻','波位中心：从覆盖轮廓中取出目标点','归一化经纬坐标：记录同一地面中心'][s],heading:['① 多束怎样组织覆盖','② 一个点对应一个波位中心','③ U、V 记录地面位置'][s],source:s===0?'原文 Figures 1–2 · 覆盖概念示意':'原文 Figure 3 / Appendix / Table 11',html:html[s],
- key:['“六角”说明覆盖的组织与近似分区；3 dB 足迹轮廓可以重叠。','点的位置与轮廓形状分别看；原文 37 个已列中心是坐标示例。','这一步是坐标表示转换，不会把已知中心重新排布。'][s],
- note:s===0?'局部 7 束概念图不按真实地表尺寸绘制，也不表示整星只有 7 束。':s===1?'图为地面点的 Y/Z 投影，仅显示中心，不把点阵当作实际 3 dB 轮廓。':'本页 U、V 记录地面经纬位置；方向余弦 u、v 记录卫星发射方向。下方直接并列两种定义。',
- caption:['圆线：3 dB 轮廓示意；点：波位中心；虚线六边形：覆盖规划近似。箭头指向下一小步要保留的中心点。','原文 Table 11 的 37 个已列中心。点击任意点，或用“跟踪 B0 / B1”切换；下一小步继续跟踪相同编号。','左：地面中心 Y/Z 投影；右：同一批中心的归一化经纬坐标（原文 U、V）。两图各自缩放，金色点的编号一一对应。'][s],
- formula:s===0?'覆盖轮廓 → 取中心 B → 用经纬度定位 → 用 U、V 记录':s===1?`${b.label}：经度 λ=${num(b.lon,5)}°；纬度 φ=${num(b.lat,5)}°`:`${b.label}：U=0.5+(${num(b.lon,5)})/360=${num(b.u,6)}；V=0.5−(${num(b.lat,5)})/180=${num(b.v,6)}`,
- read:s===0?[['本图示意',7,'中心 1 束 + 周围 6 束'],['圆线所示','3 dB 轮廓','局部覆盖示意'],['下一步保留','中心点 B','再说明其坐标']]:s===1?[['已列中心',37,'原文 Table 11'],['所选中心',b.label,'点选可切换'],['对应高度','1200 km','原文固定示例']]:[['同一中心',b.label,'左右编号一致'],['U',num(b.u,6),'经度的归一化记录'],['V',num(b.v,6),'纬度的归一化记录']],
- handoff:s===0?'进入“② 波位中心”，观察去掉轮廓后每个点表示什么。':s===1?'进入“③ 归一化经纬坐标”，同一个高亮点会保留，并逐项代入 U、V 公式。':'原文通过中心坐标表示布局；后续由卫星指向这些中心形成波束，再选择 UE 统计区域与活动干扰集合。'};
+ return {title:['波位中心的布置准则：覆盖尺度、束宽与六角组织','原文中心示例：直接读取 Table 11 的已列坐标','归一化经纬坐标：记录同一地面中心'][s],heading:['① 设计约束与逐点算法分开看','② 坐标表给出的是示例结果','③ U、V 记录地面位置'][s],source:s===0?'原文 §2 / §3 Beam layout · Figures 1–2':'原文 Figure 3 / Appendix / Table 11',html:html[s],
+ key:['原文明确覆盖与近似六角布局原则；全部中心的唯一生成算法没有写全。','Table 11 是 LEO1200 S 波段坐标起点，37 个已列点不等于整星总束数。','这一步是坐标表示转换，不会把已知中心重新排布。'][s],
+ note:s===0?'局部 7 束图只说明六角邻接与轮廓重叠；外围“邻束”标签不与 Table 11 编号逐一标定。':s===1?'图为地面点的 Y/Z 投影，仅显示中心，不把点阵当作实际 3 dB 轮廓。':'本页 U、V 记录地面经纬位置；方向余弦 u、v 记录卫星发射方向。下方直接并列两种定义。',
+ caption:['圆线：3 dB 轮廓示意；点：波位中心；虚线六边形：覆盖规划近似。此图表达布局准则，不生成整星坐标。','原文 Table 11 的 37 个已列中心。点击任意点，或用“跟踪 B0 / B1”切换；下一小步继续跟踪相同编号。','左：地面中心 Y/Z 投影；右：同一批中心的归一化经纬坐标（原文 U、V）。两图各自缩放，金色点的编号一一对应。'][s],
+ formula:s===0?'覆盖尺度 + HPBW + 整数层数 → 约束中心布置；Table 11 提供部分坐标起点':s===1?`${b.label}：经度 λ=${num(b.lon,5)}°；纬度 φ=${num(b.lat,5)}°`:`${b.label}：U=0.5+(${num(b.lon,5)})/360=${num(b.u,6)}；V=0.5−(${num(b.lat,5)})/180=${num(b.v,6)}`,
+ read:s===0?[['整体设计目标','覆盖需求','来自 2.1 的整星尺度'],['布局组织','近似六角','实际足迹适当重叠'],['坐标起点','Table 11','原文已列 37 个中心']]:s===1?[['已列中心',37,'原文 Table 11'],['所选中心',b.label,'点选可切换'],['对应高度','1200 km','原文固定示例']]:[['同一中心',b.label,'左右编号一致'],['U',num(b.u,6),'经度的归一化记录'],['V',num(b.v,6),'纬度的归一化记录']],
+ handoff:s===0?'进入“② 原文中心示例”，查看原文实际列出的中心，而不把示意图当作唯一生成算法。':s===1?'进入“③ 归一化经纬坐标”，同一个高亮点会保留，并逐项代入 U、V 公式。':'原文通过中心坐标表示布局；后续由卫星指向这些中心形成波束，再选择 UE 统计区域与活动干扰集合。'};
 }
 function layoutDetails(){
  const base=$('phase-beam-detail-2-'+S.layoutStage).innerHTML;
@@ -117,10 +117,10 @@ function panelBoxes(){if(W<560)return [{x:12,y:22,w:W-24,h:H*.43},{x:12,y:H*.51,
 function layoutCoverage(){
  const small=W<560,b=small?{x:18,y:20,w:W-36,h:H*.59}:{x:26,y:25,w:W*.55,h:H-65},r=Math.min(b.w/5.2,(b.h-60)/5.5),cx=b.x+b.w/2,cy=b.y+b.h*.52;
  const pts=[[cx,cy],...Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;return [cx+Math.sqrt(3)*r*Math.cos(a),cy+Math.sqrt(3)*r*Math.sin(a)];})];
- text('局部 7 束覆盖 · 概念示意',cx,b.y+12,colors.white,12,'center');
+ text('中心布置准则 · 局部六角邻接示意',cx,b.y+12,colors.white,12,'center');
  for(let i=0;i<pts.length;i++){ctx.beginPath();ctx.arc(pts[i][0],pts[i][1],r,0,Math.PI*2);ctx.fillStyle=(i===0?'#ad7b32':'#286f92')+'0a';ctx.fill();ctx.strokeStyle=i===0?colors.gold:'#6a98ac';ctx.lineWidth=i===0?2:1;ctx.stroke();}
  const hex=Array.from({length:7},(_,i)=>{const a=(30+i*60)*C.D;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];});path(hex,colors.mint,1.6,[5,4],'#2c7b780a');
- pts.forEach((p,i)=>{dot(p,i===0?4:3,i===0?colors.gold:colors.blue);label(i===0?'B₀':'B'+i,p[0]+7,p[1]-8,i===0?colors.gold:colors.blue,10);});
+ pts.forEach((p,i)=>{dot(p,i===0?4:3,i===0?colors.gold:colors.blue);label(i===0?'B₀':'邻束'+i,p[0]+7,p[1]-8,i===0?colors.gold:colors.blue,10);});
  const x=small?W*.5:W*.77,y=small?H*.68:H*.27;
  text('从一片覆盖，到一个中心',x,y,colors.white,small?12:14,'center');
  const q=[x,y+(small?52:80)];ctx.beginPath();ctx.arc(q[0],q[1],small?28:43,0,Math.PI*2);ctx.strokeStyle=colors.gold;ctx.lineWidth=1.8;ctx.stroke();dot(q,4,colors.gold);label('B₀',q[0]+8,q[1]-8,colors.gold,11);text('圆线：覆盖轮廓',x,q[1]+(small?48:68),colors.muted,11,'center');text('金色点：波位中心',x,q[1]+(small?69:92),colors.gold,11,'center');
