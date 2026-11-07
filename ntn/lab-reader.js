@@ -95,6 +95,7 @@ function drawSection(){
  let theta=Math.atan2(-tz,tx),radius=small?32:46;ctx.beginPath();ctx.arc(x0,y0,radius,Math.min(0,theta),Math.max(0,theta));ctx.strokeStyle=C.gold;ctx.lineWidth=1.5;ctx.stroke();txt(`ε=${fmt(s.elevation)}°`,x0+6,y0-radius-13,C.gold,11);tag(`d=${fmt(s.slant)} km`,[(a[0]+b[0])/2,(a[1]+b[1])/2],C.blue,9,2);txt('当地水平面',x0+(small?42:138),y0+20,C.green,10,'right');txt('UE 局部剖面 · 独立缩放',x0,28,C.muted,10,'center');
 }
 function syncIO(){
+ if(document.getElementById('mf-config'))return;
  let n=0;const key=root.dataset.method;
  if(key==='zte-6870')n=+document.querySelector('#majorSteps .active')?.dataset.value||0;
  else if(key==='qualcomm')n=+document.querySelector('#qcMajor .active')?.dataset.value||0;
@@ -117,4 +118,5 @@ const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersect
 new ResizeObserver(fit).observe(canvas);fit();
 function frame(t){if(visible&&(dirty||t-last>700)){scene=sceneData();if(scene){updateReading();drawGeometry();dirty=false;}last=t;}requestAnimationFrame(frame);}syncIO();requestAnimationFrame(frame);
 })();
+
 
