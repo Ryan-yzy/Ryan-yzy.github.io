@@ -126,6 +126,7 @@ include:
   - _pages
   - files
 exclude:
+  - ntn # Temporary NTN Lab closure; remove this entry to publish the lab again.
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .agents
