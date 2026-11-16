@@ -21,6 +21,7 @@ redirect_from:
       <div class="home-hero__actions" aria-label="Homepage quick links">
         <a class="btn home-btn home-btn--primary" href="{{ '/publications/' | relative_url }}">View Publications</a>
         <a class="btn home-btn home-btn--secondary" href="{{ '/life-notes/' | relative_url }}">Life &amp; Notes</a>
+        <a class="btn home-btn home-btn--secondary" href="{{ '/3gpp-schedule/' | relative_url }}">3GPP 会议日程 · 北京时间</a>
       </div>
     </div>
     <figure class="home-hero__media">
