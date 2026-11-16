@@ -19,3 +19,10 @@ RAN2 周四增加的 Breakout 3 单独保留。RAN4 的 BR1、BR2 使用稳定�
 支持 Markdown、UTF-8 CSV 和 iCalendar ICS。关注存在当前浏览器的本地存储中，四个工作组独立存储、汇总导出；全部文件均按完整北京时间日期输出，跨午夜的场次只导出一次。ICS 使用每个工作组独立的稳定事件 UID 和 UTC 时刻，提醒由导入它的日历应用设置。
 
 导出函数位于 `3gpp-schedule/export-core.js`，导出对话框位于 `export-ui.js`。Markdown 与 CSV 可用于个人参会笔记或表格处理；ICS 用于手动导入支持该格式的日历应用。所有页面和导出文件都保留原始日程来源。
+
+
+## Personal exports
+
+Default export is a real `.xlsx` workbook written in-browser with the pinned, self-hosted ExcelJS 4.4.0 bundle (MIT license in `3gpp-schedule/vendor`). It contains a chronological, filterable agenda with Beijing wall-clock dates, full end dates, editable notes, and a separate instructions/source sheet. ExcelJS loads only on the first XLSX download.
+
+`export-calendar.js` draws date/time PNG calendars in the browser, with separate lanes for overlapping sessions and explicit continuation on both sides of midnight. Dense/multi-day selections paginate and download as one ZIP of PNGs. MD, CSV and ICS exports remain available. Favorites are local to the browser and can be combined across RAN1–RAN4. The shared page and hub templates include the visible three-step guide.
